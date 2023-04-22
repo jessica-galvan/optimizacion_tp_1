@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour, IUpdate
 
         //si al idle le paso este input "playerEnums.Running" va a "move"
         idle.AddTransition(PlayerEnums.Running, move);
+
         //si al idle le paso este input "playerEnums.Idle" va a "idle"
         move.AddTransition(PlayerEnums.Idle, idle);
 

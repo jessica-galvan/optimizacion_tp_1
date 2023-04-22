@@ -8,12 +8,6 @@ public class PlayerStateBase<T> : State<T>
     //privada para los que no.
     protected PlayerModel model;
     protected FSM<T> fsm;
-    T _inputIdle;
-
-    //public PlayerStateMove(T inputIdle)
-    //{
-    //    _inputIdle = inputIdle;
-    //}
 
     public void InitializeState(PlayerModel playerModel, FSM<T> playerFSM)
     {

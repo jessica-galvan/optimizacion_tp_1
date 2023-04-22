@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerStateMove<T> : PlayerStateBase<T>
 {
     T inputIdle;
+    T inputShooting;
 
     public PlayerStateMove(T myInputRunning)
     {

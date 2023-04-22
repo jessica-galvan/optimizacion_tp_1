@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerStateIdle<T> : PlayerStateBase<T>
 {
     T inputRunning;
+    T inputShooting;
 
     public PlayerStateIdle(T myInputRunning)
     {

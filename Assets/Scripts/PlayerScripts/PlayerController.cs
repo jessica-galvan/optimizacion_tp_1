@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IUpdate
 {
     PlayerModel model;
     FSM<PlayerEnums> fsm;
@@ -46,8 +46,18 @@ public class PlayerController : MonoBehaviour
         InitializeFSM();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
+    {
+        GameManager.instance.updateManager.AddToGameplayUpdate(this);
+    }
+
+    private void OnDestroy()
+    {
+        if(GameManager.HasInstance)
+            GameManager.instance.updateManager.RemoveToGameplayUpdate(this);
+    }
+
+    public void DoUpdate()
     {
         fsm.OnUpdate();
     }

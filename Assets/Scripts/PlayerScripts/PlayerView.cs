@@ -7,22 +7,20 @@ public class PlayerView : MonoBehaviour
     private Rigidbody rb;
     public Animator animator;
 
+    private bool hasAnimator;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        hasAnimator = animator != null;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
+    //TODO cambiar a que sean eventos que escucha del PlayerModel o PlayerController en vez de correr un update
     void Update()
     {
         var velocity = rb.velocity.magnitude;
-        if (animator != null)
+
+        if (hasAnimator)
             animator.SetFloat("Vel", velocity);
     }
 }

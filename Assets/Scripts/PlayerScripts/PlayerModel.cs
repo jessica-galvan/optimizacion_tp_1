@@ -10,7 +10,7 @@ public class PlayerModel : MonoBehaviour
 
     [Header("Shooting")]
     public Transform firepoint;
-    public BulletData bulletData;
+
 
     [SerializeField] private GameObject model;
     private Rigidbody rb;
@@ -43,7 +43,7 @@ public class PlayerModel : MonoBehaviour
     public void Shoot()
     {
         var bullet = GameManager.Instance.poolManager.GetBullet();
-        bullet.SetTarget(firepoint, transform.forward,bulletData);
+        bullet.SetTarget(firepoint, transform.forward);
     }
 }
 

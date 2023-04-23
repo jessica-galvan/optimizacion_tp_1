@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class BulletController : MonoBehaviour, IUpdate
 {
-    [SerializeField] private float speed;
+    public BulletData bulletData;
+
     private Rigidbody body;
     private bool moving;
 
@@ -18,30 +20,36 @@ public class BulletController : MonoBehaviour, IUpdate
     public void DoUpdate()
     {
         if (!moving) return;
-        body.velocity = transform.forward * speed;
+        body.velocity = transform.forward * bulletData.speed;
 
         //TODO ADD TIMER FOR LIFESPAWN????
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!MiscUtils.IsInLayerMask(other.gameObject.layer, bulletData.targets)) return;
+
         moving = false;
 
         GameManager.Instance.updateManager.RemoveToGameplayUpdate(this);
 
+        //TODO: destroy target && particle system explosion
+
+        ReturnToPool();
+    }
+
+    private void ReturnToPool()
+    {
         //TODO: instead of destroy, we re addit to the pool or something
         Destroy(gameObject);
     }
 
-    public void SetTarget(Transform startingPosition, Vector3 direction, BulletData bulletData)
+    public void SetTarget(Transform startingPosition, Vector3 direction)
     {
         transform.position = startingPosition.position;
         transform.forward = direction;
-        speed = bulletData.speed;
         moving = true;
 
         GameManager.Instance.updateManager.AddToGameplayUpdate(this);
-        //set direction and rotation
-        //set speed and layer so that it doesn't hurt the current target? 
     }
 }

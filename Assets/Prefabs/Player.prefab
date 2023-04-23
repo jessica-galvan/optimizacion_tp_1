@@ -439,12 +439,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21217286dfb5ad84a8e73d017ec25c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  model: {fileID: 6743621627000239838}
   rotationSpeed: 10
   speed: 5
   firepoint: {fileID: 6779076586505234161}
   maxBullets: 6
-  rechargeTime: 1
-  model: {fileID: 6743621627000239838}
+  rechargeTimeInSeconds: 1
 --- !u!114 &6743621627000239833
 MonoBehaviour:
   m_ObjectHideFlags: 0

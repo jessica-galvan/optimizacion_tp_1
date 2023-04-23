@@ -13,7 +13,7 @@ public class PlayerModel : MonoBehaviour
     [Header("Shooting")]
     public Transform firepoint;
     public int maxBullets = 6;
-    public float rechargeTime;
+    public float rechargeTimeInSeconds = 1f;
 
     private Rigidbody rb;
     private int currentBullets;
@@ -60,7 +60,7 @@ public class PlayerModel : MonoBehaviour
         if (currentBullets == maxBullets) return;
 
         currentRechargeTime += Time.deltaTime;
-        if (currentRechargeTime > rechargeTime)
+        if (currentRechargeTime > rechargeTimeInSeconds)
         {
             currentBullets++;
             currentRechargeTime = 0f;

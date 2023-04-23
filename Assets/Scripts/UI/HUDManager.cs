@@ -4,17 +4,22 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HUDManager : MonoBehaviour, IUpdate
 {
     [Header("Pause")]
-    public GameObject pause;
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private Button resumeButton;
+    [SerializeField] private Button restartButton;
+    [SerializeField] private Button menuButton;
+    [SerializeField] private Button quitButton;
 
     [Header("HUD")]
     public GameObject hud;
     public TMP_Text timer;
     public GameObject bulletUI;
-    
 
     private PlayerModel player;
     private List<GameObject> bulletsUI = new List<GameObject>();
@@ -34,7 +39,12 @@ public class HUDManager : MonoBehaviour, IUpdate
         GameManager.Instance.updateManager.AddToUIUpdate(this);
         player = GameManager.Instance.Player;
 
-        //pauseMenu.SetActive(false);
+        //Pause
+        pauseMenu.SetActive(false);
+        resumeButton?.onClick.AddListener(OnClickResumeHandler);
+        restartButton?.onClick.AddListener(OnClickRestartHandler);
+        menuButton?.onClick.AddListener(OnClickMenuHandler);
+        quitButton?.onClick.AddListener(OnClickQuitHandler);
 
         //HUD
         hud.SetActive(true);
@@ -57,9 +67,10 @@ public class HUDManager : MonoBehaviour, IUpdate
     private void OnPause(bool isPause)
     {
         hud.SetActive(!isPause);
-        //pauseMenu.SetActive(isPause);
+        pauseMenu.SetActive(isPause);
     }
 
+    #region HUD
     private void UpdateBullets(int bulletQuantity)
     {
         bool bulletVisilble = true;
@@ -80,7 +91,31 @@ public class HUDManager : MonoBehaviour, IUpdate
         TimeSpan time = TimeSpan.FromSeconds(timeInSeconds);
         timer.text = time.ToString("mm':'ss");
     }
+    #endregion
 
+    #region PauseMenu
+    private void OnClickResumeHandler()
+    {
+        GameManager.Instance.SetPause(false);
+    }
+
+    private void OnClickRestartHandler()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    private void OnClickMenuHandler()
+    {
+        //SceneManager.LoadScene(GameManager.Instance.MenuScene);
+    }
+
+    private void OnClickQuitHandler()
+    {
+        print("Quit Game");
+        Application.Quit();
+    }
+
+    #endregion
     private void OnDestroy()
     {
         GameManager.Instance.OnPause -= OnPause;

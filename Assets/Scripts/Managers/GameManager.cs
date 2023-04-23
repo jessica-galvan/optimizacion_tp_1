@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour, IUpdate
     private void Start()
     {
         updateManager.AddToGameplayUpdate(this);
+        inputManager.OnPause += TogglePause;
     }
 
     public void DoUpdate()
@@ -66,8 +67,14 @@ public class GameManager : MonoBehaviour, IUpdate
         OnPause.Invoke(_pause);
     }
 
+    private void TogglePause()
+    {
+        SetPause(!_pause);
+    }
+
     public void OnDestroy()
     {
+        inputManager.OnPause -= TogglePause;
         updateManager.RemoveToGameplayUpdate(this);
     }
 }

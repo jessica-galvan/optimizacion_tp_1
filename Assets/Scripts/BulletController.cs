@@ -9,29 +9,35 @@ public class BulletController : MonoBehaviour, IUpdate
 
     private Rigidbody body;
     private bool moving;
+    private float currentLife;
 
     public void Initialize()
     {
-        moving = false;
         body = GetComponent<Rigidbody>();
+        moving = false;
         //here we shoild instantiate them, hide their visuals and move them to a unseen place. 
     }
 
     public void DoUpdate()
     {
+        if (GameManager.Instance.Pause) return;
         if (!moving) return;
+
         body.velocity = transform.forward * bulletData.speed;
 
-        //TODO ADD TIMER FOR LIFESPAWN????
+        if (bulletData.hasLifeTimer)
+        {
+            currentLife += Time.deltaTime;
+            if (currentLife > bulletData.lifeTime)
+            {
+                ReturnToPool();
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (!MiscUtils.IsInLayerMask(other.gameObject.layer, bulletData.targets)) return;
-
-        moving = false;
-
-        GameManager.Instance.updateManager.RemoveToGameplayUpdate(this);
 
         //TODO: destroy target && particle system explosion
 
@@ -40,14 +46,17 @@ public class BulletController : MonoBehaviour, IUpdate
 
     private void ReturnToPool()
     {
-        //TODO: instead of destroy, we re addit to the pool or something
+        moving = false;
+        GameManager.Instance.updateManager.RemoveToGameplayUpdate(this);
         Destroy(gameObject);
+        //TODO: instead of destroy, we re addit to the pool or something
     }
 
     public void SetTarget(Transform startingPosition, Vector3 direction)
     {
         transform.position = startingPosition.position;
         transform.forward = direction;
+        currentLife = 0f;
         moving = true;
 
         GameManager.Instance.updateManager.AddToGameplayUpdate(this);

@@ -5,12 +5,11 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour, IUpdate
 {
-
     #region KeyCodes
+    public KeyCode attack = KeyCode.Space;
+    public KeyCode pause = KeyCode.Escape;
     private const string HORIZONTAL_AXIS = "Horizontal";
     private const string VERTICAL_AXIS = "Vertical";
-    private KeyCode attack = KeyCode.Space;
-    private KeyCode pause = KeyCode.Escape;
     #endregion
 
     #region Events
@@ -19,9 +18,7 @@ public class InputManager : MonoBehaviour, IUpdate
     public Action<Vector3> OnMove;
     #endregion
 
-    #region PROPERTIES
     public bool IsMoving { get; private set; }
-    #endregion
 
     #region Unity
     private void Awake()

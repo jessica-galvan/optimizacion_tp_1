@@ -27,7 +27,7 @@ public class UpdateManager : MonoBehaviour
 
         //UI debe correr a 30fps
         var currentTimeFrame = Time.frameCount % 2;//UI que es la mitad de frames de Gameplay, los cuales seteamos en el Awake, entonces dividimos el frame count por 2
-        if (currentTimeFrame == 2) //y hacemos que cada dos frames updatee UI, quedando asi 30
+        if (currentTimeFrame == 1) //y hacemos que cada dos frames updatee UI, quedando asi 30
         {
             for (int i = ui.Count - 1; i >= 0; i--)
             {

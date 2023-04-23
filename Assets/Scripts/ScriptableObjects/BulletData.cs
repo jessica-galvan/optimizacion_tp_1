@@ -7,4 +7,7 @@ public class BulletData : ScriptableObject
 {
     public LayerMask targets;
     public float speed;
+    public bool hasLifeTimer = true;
+    public float lifeTime = 5f;
+
 }

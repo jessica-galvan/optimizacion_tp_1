@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerView : MonoBehaviour
 {
-    private Rigidbody rb;
     public Animator animator;
 
+    private Rigidbody rb;
     private bool hasAnimator;
 
     private void Awake()
@@ -21,7 +21,12 @@ public class PlayerView : MonoBehaviour
         var velocity = rb.velocity.magnitude;
 
         if (hasAnimator)
-            animator.SetFloat("Vel", velocity);
+            Movement(velocity);
+    }
+
+    public void Movement(float velocity)
+    {
+        animator.SetFloat("Vel", velocity);
     }
 }
 

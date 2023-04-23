@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class PlayerModel : MonoBehaviour
 {
+    [SerializeField] private GameObject model;
+
     [Header("Movement")]
     public float rotationSpeed;
     public float speed;
 
     [Header("Shooting")]
     public Transform firepoint;
+    public int maxBullets = 6;
+    public float rechargeTime;
 
-
-    [SerializeField] private GameObject model;
     private Rigidbody rb;
+    private int currentBullets;
+    private float currentRechargeTime = 0f;
 
     public Vector3 GetForward => transform.forward;
     public float GetSpeed => rb.velocity.magnitude;
+    public int CurrentBullets => currentBullets;
 
     private void Awake()
     {
@@ -24,6 +29,7 @@ public class PlayerModel : MonoBehaviour
 
         //jess: usualmente diria de lo que es referencia a otra cosa se hace en el start y no el awake PERO el game manager esta puesto en el script execution order para que corrar primero y el UI va a buscar esta referencia en el Start
         GameManager.Instance.SetPlayer(this);
+        currentBullets = maxBullets;
     }
 
     public void Move(Vector3 direction) //el modelo solo recibe la dirección
@@ -42,8 +48,23 @@ public class PlayerModel : MonoBehaviour
 
     public void Shoot()
     {
+        if (currentBullets == 0) return; //TODO: add negative sound and feedback
+
         var bullet = GameManager.Instance.poolManager.GetBullet();
         bullet.SetTarget(firepoint, transform.forward);
+        currentBullets -= 1;
+    }
+
+    public void UpdateBulletCounter()
+    {
+        if (currentBullets == maxBullets) return;
+
+        currentRechargeTime += Time.deltaTime;
+        if (currentRechargeTime > rechargeTime)
+        {
+            currentBullets++;
+            currentRechargeTime = 0f;
+        }
     }
 }
 

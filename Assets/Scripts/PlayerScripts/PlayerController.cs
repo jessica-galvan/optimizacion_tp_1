@@ -7,6 +7,17 @@ public class PlayerController : MonoBehaviour, IUpdate
     FSM<PlayerEnums> fsm;
     List<PlayerStateBase<PlayerEnums>> states;
 
+    private void Awake()
+    {
+        model = GetComponent<PlayerModel>();
+    }
+
+    private void Start()
+    {
+        InitializeFSM();
+        GameManager.Instance.updateManager.AddToGameplayUpdate(this);
+    }
+
     public void InitializeFSM()
     {
         //el player state base se crea para no tener que hacer siempre
@@ -41,25 +52,17 @@ public class PlayerController : MonoBehaviour, IUpdate
         fsm.SetInit(idle);
     }
 
-    private void Awake()
+    public void DoUpdate()
     {
-        model = GetComponent<PlayerModel>();
-    }
+        if (GameManager.Instance.Pause) return;
 
-    private void Start()
-    {
-        InitializeFSM();
-        GameManager.Instance.updateManager.AddToGameplayUpdate(this);
+        fsm.OnUpdate();
+        model.UpdateBulletCounter();
     }
 
     private void OnDestroy()
     {
-        if(GameManager.HasInstance)
+        if (GameManager.HasInstance)
             GameManager.Instance.updateManager.RemoveToGameplayUpdate(this);
-    }
-
-    public void DoUpdate()
-    {
-        fsm.OnUpdate();
     }
 }

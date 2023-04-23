@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class PlayerModel : MonoBehaviour
 {
+    [Header("Movement")]
     public float rotationSpeed;
     public float speed;
+
+    [Header("Shooting")]
+    public Transform firepoint;
+    public BulletData bulletData;
 
     [SerializeField] private GameObject model;
     private Rigidbody rb;
@@ -18,7 +23,7 @@ public class PlayerModel : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         //jess: usualmente diria de lo que es referencia a otra cosa se hace en el start y no el awake PERO el game manager esta puesto en el script execution order para que corrar primero y el UI va a buscar esta referencia en el Start
-        GameManager.instance.SetPlayer(this);
+        GameManager.Instance.SetPlayer(this);
     }
 
     public void Move(Vector3 direction) //el modelo solo recibe la dirección
@@ -33,6 +38,12 @@ public class PlayerModel : MonoBehaviour
         if (dir == Vector3.zero) return;
         dir.y = 0; //Sacar una vez que utilizemos Y
         model.transform.forward = Vector3.RotateTowards(model.transform.forward, dir, Time.deltaTime * rotationSpeed, 0f);
+    }
+
+    public void Shoot()
+    {
+        var bullet = GameManager.Instance.poolManager.GetBullet();
+        bullet.SetTarget(firepoint, transform.forward,bulletData);
     }
 }
 

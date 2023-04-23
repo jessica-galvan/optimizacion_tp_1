@@ -2,29 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletController : MonoBehaviour
+public class BulletController : MonoBehaviour, IUpdate
 {
-    private Rigidbody body;
     [SerializeField] private float speed;
+    private Rigidbody body;
+    private bool moving;
 
-    private void Awake()
+    public void Initialize()
     {
+        moving = false;
         body = GetComponent<Rigidbody>();
+        //here we shoild instantiate them, hide their visuals and move them to a unseen place. 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DoUpdate()
     {
+        if (!moving) return;
         body.velocity = transform.forward * speed;
+
+        //TODO ADD TIMER FOR LIFESPAWN????
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        OnCollision();
+        moving = false;
+
+        GameManager.Instance.updateManager.RemoveToGameplayUpdate(this);
+
+        //TODO: instead of destroy, we re addit to the pool or something
+        Destroy(gameObject);
     }
 
-    private void OnCollision()
+    public void SetTarget(Transform startingPosition, Vector3 direction, BulletData bulletData)
     {
-        Destroy(gameObject);
+        transform.position = startingPosition.position;
+        transform.forward = direction;
+        speed = bulletData.speed;
+        moving = true;
+
+        GameManager.Instance.updateManager.AddToGameplayUpdate(this);
+        //set direction and rotation
+        //set speed and layer so that it doesn't hurt the current target? 
     }
 }

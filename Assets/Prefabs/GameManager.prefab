@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5709111051154180434}
   - component: {fileID: 5709111051154180429}
   - component: {fileID: 1960593472493000738}
+  - component: {fileID: 290631580200928871}
+  - component: {fileID: 1992715083342744448}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -45,7 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f96843e4f4a474a91e832ba7c0dade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateManager: {fileID: 1960593472493000738}
+  inputManager: {fileID: 0}
+  updateManager: {fileID: 0}
+  poolManager: {fileID: 0}
 --- !u!114 &1960593472493000738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,3 +63,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetFPS: 60
+--- !u!114 &290631580200928871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5709111051154180428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c891af549d0a744ab19197505e26c9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1992715083342744448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5709111051154180428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c550db17f9a1ffd46923682c78dd7484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 2594636070713520772, guid: bb646d726e80bdd4a8b4823341cfabe8, type: 3}

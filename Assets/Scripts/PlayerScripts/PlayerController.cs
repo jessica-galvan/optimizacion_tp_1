@@ -16,8 +16,8 @@ public class PlayerController : MonoBehaviour, IUpdate
         fsm = new FSM<PlayerEnums>();
         states = new List<PlayerStateBase<PlayerEnums>>();
 
-        var idle = new PlayerStateIdle<PlayerEnums>(PlayerEnums.Running);
-        var move = new PlayerStateMove<PlayerEnums>(PlayerEnums.Idle);
+        var idle = new PlayerStateIdle<PlayerEnums>(PlayerEnums.Running, model);
+        var move = new PlayerStateMove<PlayerEnums>(PlayerEnums.Idle, model);
 
         //al no tener que llamar a la misma función siempre
         //metemos todos los estados en una lista
@@ -44,18 +44,18 @@ public class PlayerController : MonoBehaviour, IUpdate
     private void Awake()
     {
         model = GetComponent<PlayerModel>();
-        InitializeFSM();
     }
 
     private void Start()
     {
-        GameManager.instance.updateManager.AddToGameplayUpdate(this);
+        InitializeFSM();
+        GameManager.Instance.updateManager.AddToGameplayUpdate(this);
     }
 
     private void OnDestroy()
     {
         if(GameManager.HasInstance)
-            GameManager.instance.updateManager.RemoveToGameplayUpdate(this);
+            GameManager.Instance.updateManager.RemoveToGameplayUpdate(this);
     }
 
     public void DoUpdate()

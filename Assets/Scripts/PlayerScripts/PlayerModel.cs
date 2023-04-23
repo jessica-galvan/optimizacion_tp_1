@@ -50,7 +50,7 @@ public class PlayerModel : MonoBehaviour
     {
         if (currentBullets == 0) return; //TODO: add negative sound and feedback
 
-        var bullet = GameManager.Instance.poolManager.GetBullet();
+        var bullet = GameManager.Instance.poolManager.GetBullet(isPlayer: true);
         bullet.SetTarget(firepoint, transform.forward);
         currentBullets -= 1;
     }

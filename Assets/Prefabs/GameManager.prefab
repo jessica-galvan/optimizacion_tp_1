@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 1960593472493000738}
   - component: {fileID: 290631580200928871}
   - component: {fileID: 1992715083342744448}
+  - component: {fileID: 255894625488052452}
+  - component: {fileID: 5068481308584032476}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -62,7 +64,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3456b897650843b41a0cb73a9a61682f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetFPS: 60
+  uiCustomUpdate: {fileID: 255894625488052452}
+  gameplayCustomUpdate: {fileID: 5068481308584032476}
 --- !u!114 &290631580200928871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,3 +94,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBulletPrefab: {fileID: 2594636070713520772, guid: bb646d726e80bdd4a8b4823341cfabe8, type: 3}
   enemyBulletPrefab: {fileID: 5501257274029310509, guid: 4a4bfa0ff4ef256489586aff009b8baf, type: 3}
+--- !u!114 &255894625488052452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5709111051154180428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62e0bd4d50499014f86e4f0e01eed3db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetFrameRate: 60
+--- !u!114 &5068481308584032476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5709111051154180428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62e0bd4d50499014f86e4f0e01eed3db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetFrameRate: 30

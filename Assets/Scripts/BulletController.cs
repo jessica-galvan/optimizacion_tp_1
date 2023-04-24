@@ -47,7 +47,7 @@ public class BulletController : MonoBehaviour, IUpdate
     private void ReturnToPool()
     {
         moving = false;
-        GameManager.Instance.updateManager.RemoveToGameplayUpdate(this);
+        GameManager.Instance.updateManager.gameplayCustomUpdate.Remove(this);
         Destroy(gameObject);
         //TODO: instead of destroy, we re addit to the pool or something
     }
@@ -59,6 +59,6 @@ public class BulletController : MonoBehaviour, IUpdate
         currentLife = 0f;
         moving = true;
 
-        GameManager.Instance.updateManager.AddToGameplayUpdate(this);
+        GameManager.Instance.updateManager.gameplayCustomUpdate.Add(this);
     }
 }

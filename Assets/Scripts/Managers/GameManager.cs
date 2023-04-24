@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour, IUpdate
 
     private void Start()
     {
-        updateManager.AddToGameplayUpdate(this);
+        GameManager.Instance.updateManager.gameplayCustomUpdate.Add(this);
         inputManager.OnPause += TogglePause;
     }
 
@@ -75,6 +75,6 @@ public class GameManager : MonoBehaviour, IUpdate
     public void OnDestroy()
     {
         inputManager.OnPause -= TogglePause;
-        updateManager.RemoveToGameplayUpdate(this);
+        GameManager.Instance.updateManager.gameplayCustomUpdate.Remove(this);
     }
 }

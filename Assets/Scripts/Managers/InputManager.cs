@@ -23,7 +23,7 @@ public class InputManager : MonoBehaviour, IUpdate
     #region Unity
     private void Awake()
     {
-        GameManager.Instance.updateManager.AddToGameplayUpdate(this);
+        GameManager.Instance.updateManager.gameplayCustomUpdate.Add(this);
     }
 
     public void DoUpdate()

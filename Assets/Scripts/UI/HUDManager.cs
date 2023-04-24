@@ -36,7 +36,7 @@ public class HUDManager : MonoBehaviour, IUpdate
 
     private void Initialize()
     {
-        GameManager.Instance.updateManager.AddToUIUpdate(this);
+        GameManager.Instance.updateManager.uiCustomUpdate.Add(this);
         player = GameManager.Instance.Player;
 
         //Pause
@@ -59,7 +59,6 @@ public class HUDManager : MonoBehaviour, IUpdate
 
     public void DoUpdate()
     {
-        print("ui update");
         UpdateBullets(player.CurrentBullets); //could be an event
         UpdateTimer(GameManager.Instance.CurrentTime);
     }
@@ -119,6 +118,6 @@ public class HUDManager : MonoBehaviour, IUpdate
     private void OnDestroy()
     {
         GameManager.Instance.OnPause -= OnPause;
-        GameManager.Instance.updateManager.RemoveToUIUpdate(this);
+        GameManager.Instance.updateManager.uiCustomUpdate.Remove(this);
     }
 }

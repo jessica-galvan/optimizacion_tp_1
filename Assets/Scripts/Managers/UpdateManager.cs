@@ -37,6 +37,7 @@ public class UpdateManager : MonoBehaviour
 
     void Update()
     {
+        fixCustomUpdater.UpdateList();
         gameplayCustomUpdate.UpdateList();
         uiCustomUpdate.UpdateList();
     }

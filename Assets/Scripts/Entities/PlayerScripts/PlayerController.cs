@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour, IUpdate
     private void Start()
     {
         InitializeFSM();
-        GameManager.Instance.updateManager.gameplayCustomUpdate.Add(this);
+        GameManager.Instance.updateManager.fixCustomUpdater.Add(this);
     }
 
     public void InitializeFSM()
@@ -63,6 +63,6 @@ public class PlayerController : MonoBehaviour, IUpdate
     private void OnDestroy()
     {
         if (GameManager.HasInstance)
-            GameManager.Instance.updateManager.gameplayCustomUpdate.Remove(this);
+            GameManager.Instance.updateManager.fixCustomUpdater.Remove(this);
     }
 }

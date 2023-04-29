@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour, IUpdate
         Player = Instantiate(prefabReferences.playerPrefab, levelGrid.playerSpawnPoint.spawnPoint.position, levelGrid.playerSpawnPoint.transform.rotation).model;
         levelGrid.playerSpawnPoint.SetOccupiedStatus(true, Player);
         updateManager.Initialize();
-        updateManager.gameplayCustomUpdate.Add(this);
+        updateManager.fixCustomUpdater.Add(this);
     }
 
 
@@ -91,6 +91,6 @@ public class GameManager : MonoBehaviour, IUpdate
     public void OnDestroy()
     {
         inputManager.OnPause -= TogglePause;
-        GameManager.Instance.updateManager.gameplayCustomUpdate.Remove(this);
+        GameManager.Instance.updateManager.fixCustomUpdater.Remove(this);
     }
 }

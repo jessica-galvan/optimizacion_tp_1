@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.mati36.contextclickselect": {
+      "version": "file:com.mati36.contextclickselect",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "com.unity.collab-proxy": {
       "version": "2.0.0",
       "depth": 0,

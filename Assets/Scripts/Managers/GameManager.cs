@@ -43,19 +43,20 @@ public class GameManager : MonoBehaviour, IUpdate
         _instance = this;
 
         poolManager = Instantiate(prefabReferences.poolManagerPrefab);
-        updateManager = GetComponent<UpdateManager>();
+        updateManager = Instantiate(prefabReferences.updateManager);
         inputManager = GetComponent<InputManager>();
 
         levelGrid.ReGenerateMatrix();
 
         Player = Instantiate(prefabReferences.playerPrefab, levelGrid.playerSpawnPoint.spawnPoint.position, levelGrid.playerSpawnPoint.transform.rotation).model;
         levelGrid.playerSpawnPoint.SetOccupiedStatus(true, Player);
+        updateManager.Initialize();
+        updateManager.gameplayCustomUpdate.Add(this);
     }
 
 
     private void Start()
     {
-        GameManager.Instance.updateManager.gameplayCustomUpdate.Add(this);
         inputManager.OnPause += TogglePause;
 
         //TODO enemy manager

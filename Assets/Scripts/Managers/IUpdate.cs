@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface IUpdate 
 {
+    public GameObject gameObject { get; }
     void DoUpdate();
 }

@@ -10,6 +10,7 @@ public class PrefabsReferences : ScriptableObject
 
     [Header("Managers")]
     public PoolManager poolManagerPrefab;
+    public UpdateManager updateManager;
 
     [Header("Entities")]
     public PlayerController playerPrefab;

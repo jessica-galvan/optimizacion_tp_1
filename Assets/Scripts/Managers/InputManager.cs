@@ -44,7 +44,7 @@ public class InputManager : MonoBehaviour, IUpdate
     #endregion
 
     #region Private
-    private void CheckMovement() //Moverlo para controllar en idle (chequeo si no me muevo) y en move (si me muevo) del player. 
+    private void CheckMovement()
     {
         float horizontal = Input.GetAxisRaw(HORIZONTAL_AXIS);
         float vertical = Input.GetAxisRaw(VERTICAL_AXIS);

@@ -5,17 +5,33 @@ using UnityEngine;
 
 public class UpdateManager : MonoBehaviour
 {
-    public CustomUpdate uiCustomUpdate;
-    public CustomUpdate gameplayCustomUpdate;
+    [ReadOnly] public CustomUpdate fixCustomUpdater;
+    [ReadOnly] public CustomUpdate gameplayCustomUpdate;
+    public int targetFrameRateGameplay = 60;
 
-    void Awake()
+    [ReadOnly] public CustomUpdate uiCustomUpdate;
+    public int targetFrameRateUI = 30;
+
+    public bool setApplicationTargetFramte = false;
+    public int maxTargetFrame = 75;
+
+    public void Initialize()
     {
-        gameplayCustomUpdate.Initialize();
-        uiCustomUpdate.Initialize();
+        fixCustomUpdater = gameObject.AddComponent<CustomUpdate>();
+        fixCustomUpdater.Initialize(targetFrameRateGameplay, "Managers");
 
-        //idea original deprecada: seteamos que el framerate del juego sea al target, en este caso 60ps
-        //QualitySettings.vSyncCount = 0;
-        //Application.targetFrameRate = 60;
+        gameplayCustomUpdate = gameObject.AddComponent<CustomUpdate>();
+        gameplayCustomUpdate.Initialize(targetFrameRateGameplay, "Gameplay");
+
+        uiCustomUpdate = gameObject.AddComponent<CustomUpdate>();
+        uiCustomUpdate.Initialize(targetFrameRateUI, "UI");
+
+
+        if (setApplicationTargetFramte)
+        {
+            QualitySettings.vSyncCount = 0;
+            Application.targetFrameRate = maxTargetFrame;
+        }
     }
 
 
@@ -23,18 +39,5 @@ public class UpdateManager : MonoBehaviour
     {
         gameplayCustomUpdate.UpdateList();
         uiCustomUpdate.UpdateList();
-
-        //Jess: idea original deprecada. Hice dos customUpdates y adentro chequeo si puede updatear cada uno. Pero mantengo el UpdateManager porque quiero controlar en que orden updatean los managers, primero gameplay y luego ui. 
-        //Podria hacer que sortee por targetFrameRate para que siempre updatee primero el que mas frames tiene... pero ya es too much
-        
-        ////Gameplay Updatea todos los frames, el framerate esta en 60
-        //gameplayCustomUpdate.UpdateList();
-
-        ////UI debe correr a 30fps
-        //var currentTimeFrame = Time.frameCount % 2;//UI que es la mitad de frames de Gameplay, los cuales seteamos en el Awake, entonces dividimos el frame count por 2
-        //if (currentTimeFrame == 1) //y hacemos que cada dos frames updatee UI, quedando asi 30
-        //{
-        //    uiCustomUpdate.UpdateList();
-        //}
     }
 }

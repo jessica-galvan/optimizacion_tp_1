@@ -7,6 +7,7 @@ public class GridCell : MonoBehaviour
     public enum Type
     {
         Empty,
+        BorderWall,
         UnbreakableWall,
         DestroyableWall,
         PlayerSpawnPoint,
@@ -28,10 +29,13 @@ public class GridCell : MonoBehaviour
     {
         switch (cellType)
         {
+            case Type.BorderWall:
+                break;
             case Type.UnbreakableWall:
                 break;
             case Type.DestroyableWall:
                 break;
+            case Type.Empty:
             case Type.PlayerSpawnPoint:
             case Type.EnemySpawnPoint:
                 break;

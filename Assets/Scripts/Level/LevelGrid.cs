@@ -41,10 +41,10 @@ public class LevelGrid : MonoBehaviour
             return;
         }
 
-        //now let's make a grid
-        for (int y = 0; y < gridSize.y; y++)
+        //now let's make a grid. We add an extra grid because we need a unbreakable wall
+        for (int y = 0; y <= gridSize.y; y++)
         {
-            for (int x = 0; x < gridSize.x; x++)
+            for (int x = 0; x <= gridSize.x; x++)
             {
                 //create a new GridCell for each space;
                 GridCell gridCell = PrefabUtility.InstantiatePrefab(prefabsReferences.gridCellPrefab) as GridCell;
@@ -52,6 +52,13 @@ public class LevelGrid : MonoBehaviour
                 gridCell.transform.SetParent(transform);
                 gridCell.SetPosition(x, y);
                 gridCell.gameObject.name = $"Grid({x},{y})";
+
+                if(x == 0 || y == 0 || x == gridSize.x || y == gridSize.y)
+                {
+                    gridCell.gameObject.name += $"_{GridCell.Type.BorderWall}";
+                    gridCell.cellType = GridCell.Type.BorderWall;
+                    gridCell.SetVisuals();
+                }
 
                 gridList.Add(gridCell);
             }

@@ -24,7 +24,6 @@ public class LevelGridEditor : Editor
         serializedObject.Update();
         LevelGrid levelGrid = (LevelGrid)target;
 
-
         EditorGUI.BeginChangeCheck();
         if (GUILayout.Button("Create New Grid"))
         {

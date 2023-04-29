@@ -17,9 +17,14 @@ public class HUDManager : MonoBehaviour, IUpdate
     [SerializeField] private Button quitButton;
 
     [Header("HUD")]
-    public GameObject hud;
-    public TMP_Text timer;
-    public GameObject bulletUI;
+    [SerializeField] private GameObject hud;
+    [SerializeField] private TMP_Text timer;
+    [SerializeField] private GameObject bulletUI;
+
+    [Header("WinPopup")]
+    [SerializeField] private string mainMenuScene = "Menu";
+    [SerializeField] private GameObject popupWin;
+    [SerializeField] private Button popupMenuButton;
 
     private PlayerModel player;
     private List<GameObject> bulletsUI = new List<GameObject>();
@@ -41,10 +46,11 @@ public class HUDManager : MonoBehaviour, IUpdate
 
         //Pause
         pauseMenu.SetActive(false);
-        resumeButton?.onClick.AddListener(OnClickResumeHandler);
-        restartButton?.onClick.AddListener(OnClickRestartHandler);
-        menuButton?.onClick.AddListener(OnClickMenuHandler);
-        quitButton?.onClick.AddListener(OnClickQuitHandler);
+        resumeButton.onClick.AddListener(OnClickResumeHandler);
+        restartButton.onClick.AddListener(OnClickRestartHandler);
+        menuButton.onClick.AddListener(OnClickMenuHandler);
+        quitButton.onClick.AddListener(OnClickQuitHandler);
+        popupMenuButton.onClick.AddListener(OnClickMenuHandler);
 
         //HUD
         hud.SetActive(true);
@@ -55,6 +61,10 @@ public class HUDManager : MonoBehaviour, IUpdate
             var bulletAux = Instantiate(bulletUI, bulletUI.transform.parent);
             bulletsUI.Add(bulletAux);
         }
+
+        //POP
+        GameManager.Instance.OnWin += OnWin;
+        SetWinPopUpActive(false);
     }
 
     public void DoUpdate()
@@ -105,7 +115,7 @@ public class HUDManager : MonoBehaviour, IUpdate
 
     private void OnClickMenuHandler()
     {
-        //SceneManager.LoadScene(GameManager.Instance.MenuScene);
+        SceneManager.LoadScene(mainMenuScene);
     }
 
     private void OnClickQuitHandler()
@@ -115,9 +125,30 @@ public class HUDManager : MonoBehaviour, IUpdate
     }
 
     #endregion
+
+    public void OnWin()
+    {
+        SetWinPopUpActive(true);
+    }
+
+    public void SetWinPopUpActive(bool value)
+    {
+        popupWin.SetActive(value);
+    }
+
     private void OnDestroy()
     {
-        GameManager.Instance.OnPause -= OnPause;
-        GameManager.Instance.updateManager.uiCustomUpdate.Remove(this);
+        resumeButton.onClick.RemoveAllListeners();
+        restartButton.onClick.RemoveAllListeners();
+        menuButton.onClick.RemoveAllListeners();
+        quitButton.onClick.RemoveAllListeners();
+        popupMenuButton.onClick.RemoveAllListeners();
+
+        if (GameManager.HasInstance)
+        {
+            GameManager.Instance.OnPause -= OnPause;
+            GameManager.Instance.OnWin -= OnWin;
+            GameManager.Instance.updateManager.uiCustomUpdate.Remove(this);
+        }
     }
 }

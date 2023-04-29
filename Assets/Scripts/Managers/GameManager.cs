@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour, IUpdate
 
     //Events
     public Action<bool> OnPause;
+    public Action OnWin;
 
     private void Awake()
     {

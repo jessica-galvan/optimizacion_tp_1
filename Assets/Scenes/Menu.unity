@@ -814,14 +814,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60bc94dc979aaa64cb9070643bfbc2fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelScene: TestScene
+  levelScene: Level
   menu: {fileID: 724276863}
   credits: {fileID: 1636172755}
   splashArt: {fileID: 1912837877}
   splashArtTime: 2
   skipKey: 282
   skipText: {fileID: 1644972820}
-  skipTextAnimationTime: 2
+  skipTextAnimationTime: 5
   playButton: {fileID: 94525957}
   creditsButton: {fileID: 1370045290}
   quitButton: {fileID: 1796205276}

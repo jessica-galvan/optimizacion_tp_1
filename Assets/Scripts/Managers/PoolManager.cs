@@ -3,32 +3,54 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-//TODO implement a pool manager for bullets AND enemies.
 public class PoolManager : MonoBehaviour
 {
-    public Vector3 hidingSpot;
-    public BulletController playerBulletPrefab;
-    public BulletController enemyBulletPrefab;
-    private Transform bulletContainer;
+    public Pool playerBulletPool;
+    public Pool enemyBulletPool;
+    public Pool enemyPool;
 
-    private void Awake()
+    private void Start()
     {
-        GameObject obj = new GameObject();
-        obj.name = "BulletPool";
-        bulletContainer = obj.transform;
+        playerBulletPool.Initialize();
+        //enemyBulletPool.Initialize();
+        //enemyPool.Initialize();
     }
 
-    public BulletController GetBullet(bool isPlayer = false)
+    public BulletController GetBullet(BulletType bulletType)
     {
-        //technically here it should get and exhisting bullet from the pool.. but. well. it's not done yet
-        var auxPrefab = isPlayer ?  playerBulletPrefab : enemyBulletPrefab;
-        BulletController bullet = Instantiate(auxPrefab, bulletContainer);
-        bullet.Initialize(hidingSpot);
-        return bullet;
+        IPoolable bullet = null;
+
+        switch (bulletType)
+        { 
+            case BulletType.Player:
+                bullet = playerBulletPool.Spawn();
+                break;
+            case BulletType.Enemy:
+                bullet = enemyBulletPool.Spawn();
+                break;
+        }
+
+        return (BulletController)bullet;
+    }
+
+    public void ReturnBullet(BulletController bullet)
+    {
+        IPoolable poolable = (IPoolable)bullet;
+        switch (bullet.bulletData.type)
+        {
+            case BulletType.Player:
+                playerBulletPool.BackToPool(poolable);
+                break;
+            case BulletType.Enemy:
+                enemyBulletPool.BackToPool(poolable);
+                break;
+        }
     }
 
     //public EnemyController GetEnemy()
     //{
-
+    //return (EnemyController)enemyPool.Spawn();
     //}
+
+
 }

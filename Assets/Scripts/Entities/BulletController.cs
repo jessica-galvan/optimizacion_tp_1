@@ -9,7 +9,7 @@ public enum BulletType
     Enemy
 }
 
-public class BulletController : MonoBehaviour, IUpdate
+public class BulletController : MonoBehaviour, IUpdate, IPoolable
 {
     public BulletData bulletData;
 
@@ -22,9 +22,9 @@ public class BulletController : MonoBehaviour, IUpdate
     {
         //here we instantiate them, hide their visuals and move them to a unseen place. 
         body = GetComponent<Rigidbody>();
-        isActive = false;
         this.hidePoint = hidePoint;
         transform.position = hidePoint;
+        SetVisibility(false);
     }
 
     public void DoUpdate()
@@ -39,7 +39,7 @@ public class BulletController : MonoBehaviour, IUpdate
             currentLife += Time.deltaTime;
             if (currentLife > bulletData.lifeTime)
             {
-                ReturnToPool();
+                Die();
             }
         }
     }
@@ -55,27 +55,37 @@ public class BulletController : MonoBehaviour, IUpdate
             entity.Die();
         }
 
-        //TODO:particle system explosion
-
-        ReturnToPool();
+        print($"{other.gameObject.name} triggered the bullet");
+        Die();
     }
 
-    private void ReturnToPool()
+    private void Die()
     {
-        isActive = false;
+        print("Bullet die");
+        //TODO:particle system explosion
+        GameManager.Instance.poolManager.ReturnBullet(this);
+    }
+
+    public void ReturnToPool()
+    {
+        SetVisibility(false);
         GameManager.Instance.updateManager.gameplayCustomUpdate.Remove(this);
         transform.position = hidePoint;
-        //Destroy(gameObject);
-        //TODO: instead of destroy, we re addit to the pool or something
     }
 
     public void SetTarget(Transform startingPosition, Vector3 direction)
     {
+        print("bullet shooted");
         transform.position = startingPosition.position;
         transform.forward = direction;
         currentLife = 0f;
-        isActive = true;
-
+        SetVisibility(true);
         GameManager.Instance.updateManager.gameplayCustomUpdate.Add(this);
+    }
+
+    private void SetVisibility(bool value)
+    {
+        isActive = value;
+        gameObject.SetActive(value);
     }
 }

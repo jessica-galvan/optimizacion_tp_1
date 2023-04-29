@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: PrefabReferences
   m_EditorClassIdentifier: 
   gridCellPrefab: {fileID: 3579807247983609763, guid: 1e80da196690554439a8d1f4844f1526, type: 3}
+  poolManagerPrefab: {fileID: 6916943052650267342, guid: 5f296145cd29c154c9b702eb66557aed, type: 3}
   playerPrefab: {fileID: 6743621627000239835, guid: feecf8a579dfd1d4bbfa5380429d31d2, type: 3}
+  playerBulletPrefab: {fileID: 2594636070713520772, guid: bb646d726e80bdd4a8b4823341cfabe8, type: 3}
+  enemyBulletPrefab: {fileID: 5501257274029310509, guid: 4a4bfa0ff4ef256489586aff009b8baf, type: 3}

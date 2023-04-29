@@ -35,7 +35,7 @@ public class EntityModel : MonoBehaviour, IDamagable
     public virtual void Shoot()
     {
         //TODO: add negative sound and feedback
-        var bullet = GameManager.Instance.poolManager.GetBullet(isPlayer: true);
+        var bullet = GameManager.Instance.poolManager.GetBullet(BulletType.Player);
         bullet.SetTarget(firepoint, transform.forward);
     }
 

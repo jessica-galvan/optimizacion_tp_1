@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour, IUpdate
     public PrefabsReferences prefabReferences;
     public LevelGrid levelGrid;
     public float spawningOffset = 1;
+    public Transform hidePoolPoint;
 
     [Header("Managers")]
     [ReadOnly] public InputManager inputManager;
@@ -41,29 +42,23 @@ public class GameManager : MonoBehaviour, IUpdate
 
         _instance = this;
 
-        poolManager = GetComponent<PoolManager>();
+        poolManager = Instantiate(prefabReferences.poolManagerPrefab);
         updateManager = GetComponent<UpdateManager>();
         inputManager = GetComponent<InputManager>();
+
         levelGrid.ReGenerateMatrix();
 
-        
         Player = Instantiate(prefabReferences.playerPrefab, levelGrid.playerSpawnPoint.spawnPoint.position, levelGrid.playerSpawnPoint.transform.rotation).model;
+        levelGrid.playerSpawnPoint.SetOccupiedStatus(true, Player);
     }
 
-    private Vector3 SpawnPoint()
-    {
-        var spawnPoint = levelGrid.playerSpawnPoint.GetPosition();
-        print(levelGrid.playerSpawnPoint.gameObject.name);
-        return new Vector3(spawnPoint.x, spawningOffset, spawnPoint.y);
-    }
 
     private void Start()
     {
         GameManager.Instance.updateManager.gameplayCustomUpdate.Add(this);
         inputManager.OnPause += TogglePause;
 
-        //TODO instantiate / move player to spawn point
-        //start enemy manager
+        //TODO enemy manager
     }
 
     public void DoUpdate()

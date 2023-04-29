@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3056734035913699621}
   - component: {fileID: 2887060991631545356}
   - component: {fileID: 329539012181391890}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wheel 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 6743621625785249547}
   - component: {fileID: 6743621625785249544}
   - component: {fileID: 6743621625785249545}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 6743621625879672081}
   - component: {fileID: 6743621625879672086}
   - component: {fileID: 6743621625879672087}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 6743621627000239835}
   - component: {fileID: 6743621627000239832}
   - component: {fileID: 6743621627000239833}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 5898294291047396366}
   - component: {fileID: 8632903391322344253}
   - component: {fileID: 3661285103726237044}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -567,7 +567,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6779076586505234161}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BulletData", menuName = "TP/BulletData", order = 4)]
 public class BulletData : ScriptableObject
 {
+    public BulletType type;
     public LayerMask targets;
     public float speed;
     public bool hasLifeTimer = true;

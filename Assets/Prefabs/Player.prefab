@@ -326,7 +326,7 @@ Transform:
   m_GameObject: {fileID: 6743621627000239838}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.37546057, y: 2.9, z: -0.82539463}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6743621625879672091}
@@ -427,6 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3028b49fae2e9744094b59e7e413f8c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  model: {fileID: 0}
 --- !u!114 &6743621627000239832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,9 +441,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 6743621627000239838}
+  firepoint: {fileID: 6779076586505234161}
+  bulletType: 0
   rotationSpeed: 10
   speed: 5
-  firepoint: {fileID: 6779076586505234161}
   maxBullets: 6
   rechargeTimeInSeconds: 1
 --- !u!114 &6743621627000239833

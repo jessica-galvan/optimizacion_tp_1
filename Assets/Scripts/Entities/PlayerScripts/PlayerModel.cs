@@ -15,10 +15,10 @@ public class PlayerModel : EntityModel
 
     protected override void Awake()
     {
+        GameManager.Instance.SetPlayer(this);
         base.Awake();
 
         //jess: usualmente diria de lo que es referencia a otra cosa se hace en el start y no el awake PERO el game manager esta puesto en el script execution order para que corrar primero y el UI va a buscar esta referencia en el Start
-        GameManager.Instance.SetPlayer(this);
         currentBullets = maxBullets;
     }
 

@@ -49,6 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f96843e4f4a474a91e832ba7c0dade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabReferences: {fileID: 11400000, guid: 5e37a64cae4cb624c9c811b755174692, type: 2}
+  levelGrid: {fileID: 0}
   inputManager: {fileID: 0}
   updateManager: {fileID: 0}
   poolManager: {fileID: 0}
@@ -92,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c550db17f9a1ffd46923682c78dd7484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hidingSpot: {x: 0, y: 0, z: 0}
   playerBulletPrefab: {fileID: 2594636070713520772, guid: bb646d726e80bdd4a8b4823341cfabe8, type: 3}
   enemyBulletPrefab: {fileID: 5501257274029310509, guid: 4a4bfa0ff4ef256489586aff009b8baf, type: 3}
 --- !u!114 &255894625488052452

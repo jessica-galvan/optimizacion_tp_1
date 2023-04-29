@@ -42,6 +42,9 @@ public class LevelGridEditor : Editor
         }
 
         EditorGUILayout.PropertyField(prefabReferences);
+        GUI.enabled = false;
+        EditorGUILayout.PropertyField(gameGrid);
+        GUI.enabled = true;
 
         if (EditorGUI.EndChangeCheck())
         {
@@ -52,7 +55,7 @@ public class LevelGridEditor : Editor
         //DrawDefaultInspector();
         DrawPropertiesExcluding(serializedObject, nameof(LevelGrid.prefabsReferences), nameof(LevelGrid.gridList), nameof(LevelGrid.playerSpawnPoint), nameof(LevelGrid.enemySpawnPoints));
         GUI.enabled = false;
-        EditorGUILayout.PropertyField(gameGrid);
+        //EditorGUILayout.PropertyField(gameGrid);
         EditorGUILayout.PropertyField(playerSpawnPoint);
         EditorGUILayout.PropertyField(enemySpawnPoints);
         GUI.enabled = true;

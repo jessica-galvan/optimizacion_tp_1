@@ -22,7 +22,7 @@ public class LevelGrid : MonoBehaviour
 
     public void ReGenerateMatrix()
     {
-        levelGrid = new GridCell[gridSize.y, gridSize.x];
+        levelGrid = new GridCell[gridSize.x, gridSize.y];
         for (int i = 0; i < gridList.Count; i++)
         {
             levelGrid[gridList[i].X, gridList[i].Y] = gridList[i];

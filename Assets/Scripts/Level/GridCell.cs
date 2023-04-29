@@ -15,6 +15,7 @@ public class GridCell : MonoBehaviour
     }
 
     [Header("Settings")]
+    public Transform spawnPoint;
     public Type cellType;
 
     private int posX;

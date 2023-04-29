@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IUpdate
 {
-    PlayerModel model;
+    public PlayerModel model;
     FSM<PlayerEnums> fsm;
     List<PlayerStateBase<PlayerEnums>> states;
 

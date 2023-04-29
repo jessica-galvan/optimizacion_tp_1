@@ -6,6 +6,7 @@ public class GridCell : MonoBehaviour
 {
     public enum Type
     {
+        Empty,
         UnbreakableWall,
         DestroyableWall,
         PlayerSpawnPoint,
@@ -17,6 +18,9 @@ public class GridCell : MonoBehaviour
 
     private int posX;
     private int posY;
+
+    public int X => posX;
+    public int Y => posY;
 
     public bool IsOcupied { get; private set; }
 

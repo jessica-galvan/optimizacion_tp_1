@@ -17,6 +17,7 @@ public class EntityModel : MonoBehaviour, IDamagable
     protected LevelGrid levelGrid;
     protected GridCell currentCell;
     protected GridCell targetCell;
+    protected Vector3 currentDirection;
 
     public Vector3 GetForward => transform.forward;
     public float GetSpeed => rb.velocity.magnitude;
@@ -49,8 +50,10 @@ public class EntityModel : MonoBehaviour, IDamagable
     public void LookDirection(Vector3 dir)
     {
         if (dir == Vector3.zero) return;
+        if (dir == currentDirection) return;
+
         dir.y = 0; //Sacar una vez que utilizemos Y
-        model.transform.forward = Vector3.RotateTowards(model.transform.forward, dir, Time.deltaTime * rotationSpeed, 0f);
+        model.transform.forward = dir;
     }
 
     public bool GetNextCell(Vector3 direction)

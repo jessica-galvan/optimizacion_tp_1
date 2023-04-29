@@ -18,6 +18,8 @@ public class InputManager : MonoBehaviour, IUpdate
     public Action<Vector3> OnMove;
     #endregion
 
+    private bool previousMovingState = false;
+
     public bool IsMoving { get; private set; }
 
     #region Unity
@@ -46,18 +48,37 @@ public class InputManager : MonoBehaviour, IUpdate
     {
         float horizontal = Input.GetAxisRaw(HORIZONTAL_AXIS);
         float vertical = Input.GetAxisRaw(VERTICAL_AXIS);
-        IsMoving = (vertical != 0 || horizontal != 0) ? true : false;
-        OnMove?.Invoke(new Vector3(horizontal, 0, vertical));
+
+        bool verticalMovement = vertical != 0;
+        bool horizontalMovement = horizontal != 0;
+
+        IsMoving = horizontalMovement != verticalMovement;
+
+        if(previousMovingState != IsMoving)
+        {
+            previousMovingState = IsMoving;
+
+            if(!IsMoving)
+                OnMove?.Invoke(new Vector3(0, 0, 0));
+        }
+
+        if(IsMoving)
+            OnMove?.Invoke(new Vector3(horizontal, 0, vertical));
     }
+
     private void CheckAttack()
     {
         if (Input.GetKeyDown(attack))
+        {
             OnAttack?.Invoke();
+        }
     }
     private void CheckPause()
     {
         if (Input.GetKeyDown(pause))
+        {
             OnPause?.Invoke();
+        }
     }
     #endregion
 }

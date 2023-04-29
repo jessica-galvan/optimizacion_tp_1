@@ -23,7 +23,7 @@ public class PlayerModel : EntityModel
     }
 
     public override void Shoot()
-    {
+      {
         if (currentBullets == 0) return;
         base.Shoot();
         currentBullets -= 1;

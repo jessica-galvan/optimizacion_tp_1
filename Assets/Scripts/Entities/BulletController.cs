@@ -53,9 +53,8 @@ public class BulletController : MonoBehaviour, IUpdate, IPoolable
         if(entity != null)
         {
             entity.Die();
-        }
+        } 
 
-        print($"{other.gameObject.name} triggered the bullet");
         Die();
     }
 
@@ -75,7 +74,6 @@ public class BulletController : MonoBehaviour, IUpdate, IPoolable
 
     public void SetTarget(Transform startingPosition, Vector3 direction)
     {
-        print("bullet shooted");
         transform.position = startingPosition.position;
         transform.forward = direction;
         currentLife = 0f;

@@ -6,6 +6,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour, IUpdate
 {
+    [Header("References")]
+    public PrefabsReferences prefabReferences;
+    public LevelGrid levelGrid;
+
     [Header("Managers")]
     [ReadOnly] public InputManager inputManager;
     [ReadOnly] public UpdateManager updateManager;
@@ -45,6 +49,10 @@ public class GameManager : MonoBehaviour, IUpdate
     {
         GameManager.Instance.updateManager.gameplayCustomUpdate.Add(this);
         inputManager.OnPause += TogglePause;
+
+        levelGrid.ReGenerateMatrix();
+        //TODO instantiate / move player to spawn point
+        //start enemy manager
     }
 
     public void DoUpdate()

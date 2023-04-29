@@ -3,25 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
+public enum BulletType
+{
+    Player, 
+    Enemy
+}
+
 public class BulletController : MonoBehaviour, IUpdate
 {
     public BulletData bulletData;
 
     private Rigidbody body;
-    private bool moving;
     private float currentLife;
+    private bool isActive;
+    private Vector3 hidePoint;
 
-    public void Initialize()
+    public void Initialize(Vector3 hidePoint)
     {
+        //here we instantiate them, hide their visuals and move them to a unseen place. 
         body = GetComponent<Rigidbody>();
-        moving = false;
-        //here we shoild instantiate them, hide their visuals and move them to a unseen place. 
+        isActive = false;
+        this.hidePoint = hidePoint;
+        transform.position = hidePoint;
     }
 
     public void DoUpdate()
     {
         if (GameManager.Instance.Pause) return;
-        if (!moving) return;
+        if (!isActive) return;
 
         body.velocity = transform.forward * bulletData.speed;
 
@@ -37,18 +46,26 @@ public class BulletController : MonoBehaviour, IUpdate
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!MiscUtils.IsInLayerMask(other.gameObject.layer, bulletData.targets)) return;
+        //if (!MiscUtils.IsInLayerMask(other.gameObject.layer, bulletData.targets)) return;
+        if (!isActive) return;
 
-        //TODO: destroy target && particle system explosion
+        var entity = other.gameObject.GetComponent<IDamagable>();
+        if(entity != null)
+        {
+            entity.Die();
+        }
+
+        //TODO:particle system explosion
 
         ReturnToPool();
     }
 
     private void ReturnToPool()
     {
-        moving = false;
+        isActive = false;
         GameManager.Instance.updateManager.gameplayCustomUpdate.Remove(this);
-        Destroy(gameObject);
+        transform.position = hidePoint;
+        //Destroy(gameObject);
         //TODO: instead of destroy, we re addit to the pool or something
     }
 
@@ -57,7 +74,7 @@ public class BulletController : MonoBehaviour, IUpdate
         transform.position = startingPosition.position;
         transform.forward = direction;
         currentLife = 0f;
-        moving = true;
+        isActive = true;
 
         GameManager.Instance.updateManager.gameplayCustomUpdate.Add(this);
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class LevelGrid : MonoBehaviour
@@ -19,12 +20,7 @@ public class LevelGrid : MonoBehaviour
     public GridCell playerSpawnPoint;
     public List<GridCell> enemySpawnPoints = new List<GridCell>();
 
-    public void Awake()
-    {
-        ReGenerateMatrix();
-    }
-
-    private void ReGenerateMatrix()
+    public void ReGenerateMatrix()
     {
         levelGrid = new GridCell[gridSize.y, gridSize.x];
         for (int i = 0; i < gridList.Count; i++)
@@ -141,5 +137,12 @@ public class LevelGrid : MonoBehaviour
         float y = gridPos.y * gridSpaceSize;
 
         return new Vector3(x, 0, y);
+    }
+
+    public GridCell GetNextCell(GridCell currentCell, Vector2 direction)
+    {
+        int xPos = direction.x != 0 ? (int)Mathf.Clamp(currentCell.X + direction.x, 0, gridSize.x) : currentCell.X;
+        int yPos = direction.x != 0 ? (int)Mathf.Clamp(currentCell.Y + direction.y, 0, gridSize.y) : currentCell.Y;
+        return levelGrid[xPos, yPos];
     }
 }

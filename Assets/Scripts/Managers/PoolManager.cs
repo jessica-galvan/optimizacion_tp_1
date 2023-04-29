@@ -6,6 +6,7 @@ using UnityEngine;
 //TODO implement a pool manager for bullets AND enemies.
 public class PoolManager : MonoBehaviour
 {
+    public Vector3 hidingSpot;
     public BulletController playerBulletPrefab;
     public BulletController enemyBulletPrefab;
     private Transform bulletContainer;
@@ -22,7 +23,12 @@ public class PoolManager : MonoBehaviour
         //technically here it should get and exhisting bullet from the pool.. but. well. it's not done yet
         var auxPrefab = isPlayer ?  playerBulletPrefab : enemyBulletPrefab;
         BulletController bullet = Instantiate(auxPrefab, bulletContainer);
-        bullet.Initialize();
+        bullet.Initialize(hidingSpot);
         return bullet;
     }
+
+    //public EnemyController GetEnemy()
+    //{
+
+    //}
 }

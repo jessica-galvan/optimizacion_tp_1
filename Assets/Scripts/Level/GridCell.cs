@@ -23,21 +23,27 @@ public class GridCell : MonoBehaviour
     public int X => posX;
     public int Y => posY;
 
+    public EntityModel Entity { get; private set; }
     public bool IsOcupied { get; private set; }
 
     public void SetVisuals()
     {
+        //TODO: change visuals of the cell depending on what type it is
         switch (cellType)
         {
             case Type.BorderWall:
+                IsOcupied = true;
                 break;
             case Type.UnbreakableWall:
+                IsOcupied = true;
                 break;
             case Type.DestroyableWall:
+                IsOcupied = true;
                 break;
             case Type.Empty:
             case Type.PlayerSpawnPoint:
             case Type.EnemySpawnPoint:
+                IsOcupied = false;
                 break;
         }
     }
@@ -53,8 +59,12 @@ public class GridCell : MonoBehaviour
         return new Vector2Int(posX, posY);
     }
 
-    public void SetOccupiedStatus(bool newStatus)
+    public void SetOccupiedStatus(bool newStatus, EntityModel entity = null)
     {
         IsOcupied = newStatus;
+        if(entity != null && Entity == entity)
+        {
+            Entity = null;
+        }
     }
 }

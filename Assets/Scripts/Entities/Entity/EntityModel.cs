@@ -11,7 +11,6 @@ public class EntityModel : MonoBehaviour, IDamagable
     public BulletType bulletType;
 
     [Header("Movement")]
-    public float rotationSpeed;
     public float speed;
 
     protected Rigidbody rb;
@@ -20,8 +19,6 @@ public class EntityModel : MonoBehaviour, IDamagable
     protected GridCell targetCell;
     protected Vector3 currentDirection;
 
-    public Vector3 GetForward => transform.forward;
-    public float GetSpeed => rb.velocity.magnitude;
     public Rigidbody RB => rb;
 
     public Action OnSpawned = delegate { };
@@ -73,19 +70,9 @@ public class EntityModel : MonoBehaviour, IDamagable
 
     public bool GetNextCell(Vector3 direction)
     {
-
         targetCell = levelGrid.GetNextCell(currentCell, direction);
 
-        bool answer = false;
-
-        if(currentCell != targetCell)
-        {
-            answer = ValidateCell(targetCell);
-        }
-        else
-        {
-            answer = false;
-        }
+        bool answer = currentCell != targetCell ? ValidateCell(targetCell) : false;
 
         return answer;
     }
@@ -122,9 +109,7 @@ public class EntityModel : MonoBehaviour, IDamagable
 
     public virtual void TakeDamage()
     {
-        //TODO add effects
-        //TODO in case of enemy, move back to enemy pool
+        //TODO do visual feedback!
         OnDie.Invoke();
-        gameObject.SetActive(false);
     }
 }

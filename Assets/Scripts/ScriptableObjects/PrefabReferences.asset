@@ -16,5 +16,6 @@ MonoBehaviour:
   poolManagerPrefab: {fileID: 6916943052650267342, guid: 5f296145cd29c154c9b702eb66557aed, type: 3}
   updateManager: {fileID: 3280868413472695390, guid: 2b99d1fbd36d4214ba807f3cb24fd6a1, type: 3}
   playerPrefab: {fileID: 6743621627000239835, guid: feecf8a579dfd1d4bbfa5380429d31d2, type: 3}
+  enemyPrefab: {fileID: 8644007861208784497, guid: 7a71b689c892d2e42a9075f7834dd68a, type: 3}
   playerBulletPrefab: {fileID: 2594636070713520772, guid: bb646d726e80bdd4a8b4823341cfabe8, type: 3}
   enemyBulletPrefab: {fileID: 5501257274029310509, guid: 4a4bfa0ff4ef256489586aff009b8baf, type: 3}

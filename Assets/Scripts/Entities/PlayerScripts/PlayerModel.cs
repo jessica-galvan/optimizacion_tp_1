@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerModel : EntityModel
 {
+    public Vector3 spawnLookDirection = new Vector3(0, 0, 1);
     [Header("Shooting")]
     public int maxBullets = 6;
     public float rechargeTimeInSeconds = 1f;
@@ -27,6 +28,7 @@ public class PlayerModel : EntityModel
     {
         base.Spawn(spawn);
         Alive = true;
+        LookDirection(spawnLookDirection);
     }
 
     public override void Shoot()
@@ -67,7 +69,7 @@ public class PlayerModel : EntityModel
     {
         Alive = false;
         base.TakeDamage();
-        //TODO in case of player respawn
+        gameObject.SetActive(false);
     }
 }
 

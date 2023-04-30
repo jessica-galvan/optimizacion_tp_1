@@ -14,7 +14,7 @@ public class PrefabsReferences : ScriptableObject
 
     [Header("Entities")]
     public PlayerController playerPrefab;
-    //public EnemyController enemyPrefab;
+    public EnemyController enemyPrefab;
 
     [Header("Bullets")]
     public BulletController playerBulletPrefab;

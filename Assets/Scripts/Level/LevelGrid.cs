@@ -19,6 +19,7 @@ public class LevelGrid : MonoBehaviour
 
     [Header("Level Spawn Points")]
     public List<GridCell> gridList;
+    public List<Vector2Int> gridPos = new List<Vector2Int>();
     public GridCell playerSpawnPoint;
     public List<GridCell> enemySpawnPoints = new List<GridCell>();
 
@@ -54,6 +55,7 @@ public class LevelGrid : MonoBehaviour
                 }
 
                 gridList.Add(gridCell);
+                gridPos.Add(new Vector2Int(x, y));
             }
         }
     }
@@ -85,7 +87,10 @@ public class LevelGrid : MonoBehaviour
         //now we run all the matrix to get the new spawning points
         for (int i = 0; i < gridList.Count; i++)
         {
-            CalculateGridPos(i, maxX, maxY);
+            Vector2Int pos = CalculateGridPos(i, maxX, maxY);
+
+            gridList[i].SetPosition(pos.x, pos.y);
+            gridPos.Add(pos);
             SetData(gridList[i]);
         }
 
@@ -108,20 +113,20 @@ public class LevelGrid : MonoBehaviour
         levelGrid = new GridCell[maxX, maxY];
         for (int i = 0; i < gridList.Count; i++)
         {
-            CalculateGridPos(i, maxX, maxY);
+            var pos = gridPos[i];
+            bool occupied = gridList[i].cellType != GridCell.Type.Empty && gridList[i].cellType != GridCell.Type.EnemySpawnPoint; //player spot is set later to be occupied anyway
+            gridList[i].SetOccupiedStatus(occupied);
+            gridList[i].SetPosition(pos.x, pos.y);
+            levelGrid[pos.x, pos.y] = gridList[i];
         }
     }
 
-    public void CalculateGridPos(int currentCell, int maxX, int maxY)
+    public Vector2Int CalculateGridPos(int currentCell, int maxX, int maxY)
     {
         int auxY = currentCell / maxY;
         int ypos = Mathf.FloorToInt(auxY);
         int xpos = Mathf.Abs(currentCell - (ypos * gridSize.y) - ypos);
-
-        gridList[currentCell].SetPosition(xpos, ypos);
-        bool occupied = gridList[currentCell].cellType != GridCell.Type.Empty && gridList[currentCell].cellType != GridCell.Type.EnemySpawnPoint; //player spot is set later to be occupied anyway
-        gridList[currentCell].SetOccupiedStatus(occupied);
-        levelGrid[xpos, ypos] = gridList[currentCell];
+        return new Vector2Int(xpos, ypos);
     }
 
     private void SetData(GridCell currentGrid)

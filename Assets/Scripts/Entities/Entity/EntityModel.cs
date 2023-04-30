@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Unity.VisualScripting;
 
 public class EntityModel : MonoBehaviour, IDamagable
 {
@@ -17,7 +18,7 @@ public class EntityModel : MonoBehaviour, IDamagable
     protected LevelGrid levelGrid;
     protected GridCell currentCell;
     protected GridCell targetCell;
-    protected Vector3 currentDirection;
+    [ReadOnly][SerializeField] protected Vector3 currentDirection;
 
     public Rigidbody RB => rb;
 
@@ -31,7 +32,6 @@ public class EntityModel : MonoBehaviour, IDamagable
 
     public virtual void Spawn(GridCell spawnPoint)
     {
-        //TODO set visuals to off but still be there?
         currentCell = spawnPoint;
         transform.position = currentCell.spawnPoint.position;
         currentCell.SetOccupiedStatus(true, this);
@@ -41,7 +41,7 @@ public class EntityModel : MonoBehaviour, IDamagable
 
     public virtual void Shoot()
     {
-        //TODO: add negative sound and feedback
+        //TODO: add sound and feedback
         var bullet = GameManager.Instance.poolManager.GetBullet(BulletType.Player);
         bullet.SetTarget(firepoint, transform.forward);
     }
@@ -63,7 +63,6 @@ public class EntityModel : MonoBehaviour, IDamagable
     {
         if (dir == Vector3.zero) return;
         if (dir == currentDirection) return;
-
         dir.y = 0; //Sacar una vez que utilizemos Y
         model.transform.forward = dir;
     }
@@ -72,12 +71,24 @@ public class EntityModel : MonoBehaviour, IDamagable
     {
         targetCell = levelGrid.GetNextCell(currentCell, direction);
 
-        bool answer = currentCell != targetCell ? ValidateCell(targetCell) : false;
+        bool isValid = currentCell != targetCell ? ValidCell(targetCell) : false;
 
-        return answer;
+        return isValid;
     }
 
-    public virtual bool ValidateCell(GridCell targetCell)
+    public void CheckWhereWeAre() //call only while in moving;
+    {
+        if( targetCell != null)
+        {
+            var distance = Vector3.SqrMagnitude(targetCell.spawnPoint.position - transform.position);
+            if(distance <= levelGrid.cellCenterDistance)
+            {
+                UpdateCurrentCellStatus(targetCell);
+            }
+        }
+    }
+
+    public virtual bool ValidCell(GridCell targetCell)
     {
         bool answer = false;
         if (currentCell != targetCell)
@@ -109,7 +120,8 @@ public class EntityModel : MonoBehaviour, IDamagable
 
     public virtual void TakeDamage()
     {
-        //TODO do visual feedback!
+        //TODO set visuals to off but still be there?
+        //TODO do death feedback!
         OnDie.Invoke();
     }
 }

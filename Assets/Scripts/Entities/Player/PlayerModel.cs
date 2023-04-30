@@ -14,6 +14,7 @@ public class PlayerModel : EntityModel
     private float currentRechargeTime = 0f;
 
     public int CurrentBullets => currentBullets;
+    public GridCell CurrentCell => currentCell;
     public bool Alive { get; private set; }
 
     public override void Initialize()
@@ -38,7 +39,7 @@ public class PlayerModel : EntityModel
         //currentBullets -= 1;
     }
 
-    public override bool ValidateCell(GridCell targetCell)
+    public override bool ValidCell(GridCell targetCell)
     {
         bool answer = true;
 

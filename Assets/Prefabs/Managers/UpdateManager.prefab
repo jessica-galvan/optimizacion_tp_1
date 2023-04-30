@@ -49,5 +49,5 @@ MonoBehaviour:
   targetFrameRateGameplay: 60
   uiCustomUpdate: {fileID: 0}
   targetFrameRateUI: 30
-  setApplicationTargetFramte: 1
+  setApplicationTargetFramte: 0
   maxTargetFrame: 75

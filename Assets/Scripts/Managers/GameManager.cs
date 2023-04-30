@@ -8,6 +8,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour, IUpdate
 {
     [Header("References")]
+    public GlobalConfig globalConfig;
     public PrefabsReferences prefabReferences;
     public LevelGrid levelGrid;
     public Transform hidePoolPoint;
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour, IUpdate
     [ReadOnly] public InputManager inputManager;
     [ReadOnly] public UpdateManager updateManager;
     [ReadOnly] public PoolManager poolManager;
+    [ReadOnly] public EnemyManager enemyManager;
 
     private static GameManager _instance;
     private int playerDeadCount = 0;

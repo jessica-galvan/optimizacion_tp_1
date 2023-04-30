@@ -12,8 +12,8 @@ public class PoolManager : MonoBehaviour
     private void Start()
     {
         playerBulletPool.Initialize();
-        //enemyBulletPool.Initialize();
-        //enemyPool.Initialize();
+        enemyBulletPool.Initialize();
+        enemyPool.Initialize();
     }
 
     public BulletController GetBullet(BulletType bulletType)
@@ -47,10 +47,15 @@ public class PoolManager : MonoBehaviour
         }
     }
 
-    //public EnemyController GetEnemy()
-    //{
-    //return (EnemyController)enemyPool.Spawn();
-    //}
+    public EnemyController GetEnemy()
+    {
+        return (EnemyController)enemyPool.Spawn();
+    }
+
+    public void ReturnEnemy(EnemyController enemy)
+    {
+        enemyBulletPool.BackToPool(enemy);
+    }
 
 
 }

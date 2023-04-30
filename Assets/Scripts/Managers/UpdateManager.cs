@@ -17,6 +17,11 @@ public class UpdateManager : MonoBehaviour
 
     public void Initialize()
     {
+        //there are two gaemplayList because the second one can constantly change as the bullets and enemies come and go.
+        //Meanwhile the fixed one does not change from start to finish and has the main things: 
+        //GameManager, InputManager, EnemyManger, PlayerController,
+        //concidentally, those are the ones we want to check before the other ones
+
         fixCustomUpdater = gameObject.AddComponent<CustomUpdate>();
         fixCustomUpdater.Initialize(targetFrameRateGameplay, "Managers");
 

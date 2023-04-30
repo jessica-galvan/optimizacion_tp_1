@@ -6026,6 +6026,7 @@ MonoBehaviour:
   prefabsReferences: {fileID: 11400000, guid: 5e37a64cae4cb624c9c811b755174692, type: 2}
   gridSize: {x: 12, y: 12}
   gridSpaceSize: 2
+  cellCenterDistance: 1.5
   gridList:
   - {fileID: 837533102}
   - {fileID: 1044063376}
@@ -14127,7 +14128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -14179,7 +14180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7106362700612770811, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
@@ -14212,6 +14213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2677b80950f63c4bbb2a67f0650c8a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalKilled: 0
+  currentEnemyQuantitySpawned: 0
 --- !u!4 &2026571681
 Transform:
   m_ObjectHideFlags: 0

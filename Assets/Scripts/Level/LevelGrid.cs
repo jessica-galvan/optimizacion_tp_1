@@ -18,6 +18,7 @@ public class LevelGrid : MonoBehaviour
     private GridCell[,] levelGrid;
 
     [Header("Level Spawn Points")]
+    public float cellCenterDistance = 1.5f;
     public List<GridCell> gridList;
     public List<Vector2Int> gridPos = new List<Vector2Int>();
     public GridCell playerSpawnPoint;
@@ -78,12 +79,14 @@ public class LevelGrid : MonoBehaviour
             DestroyImmediate(gridList[i].gameObject);
         }
         gridList.Clear();
+        gridPos.Clear();
     }
 
     public void SaveAndValidateSetUp()
     {
         //first let's clear the original info as the set up might have changed
         ClearGrid();
+        gridPos.Clear();
 
         var maxX = gridSize.x + 1;
         var maxY = gridSize.y + 1;

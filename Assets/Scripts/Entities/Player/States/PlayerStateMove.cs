@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerStateIdle<T> : PlayerStateBase<T>
+public class PlayerStateMove<T> : PlayerStateBase<T>
 {
-    private T inputRunning;
-    private PlayerModel playerModel;
+    private T inputIdle;
     private InputManager inputManager;
 
-    public PlayerStateIdle(T myInputRunning, PlayerModel model)
+    public PlayerStateMove(T myInputRunning)
     {
-        inputRunning = myInputRunning;
-        playerModel = model;
+        inputIdle = myInputRunning;
         inputManager = GameManager.Instance.inputManager;
     }
 
@@ -27,19 +25,26 @@ public class PlayerStateIdle<T> : PlayerStateBase<T>
     public override void Execute()
     {
         base.Execute();
-
         inputManager.PlayerUpdate();
     }
 
     private void OnMove(Vector3 movement)
     {
-        if(movement != Vector3.zero)
-            fsm.Transition(inputRunning);
+        if (movement == Vector3.zero)
+        {
+            fsm.Transition(inputIdle);
+            return;
+        }
+
+        Vector3 direction = new Vector3(movement.x, 0, movement.z).normalized;
+        model.Move(direction);
+        model.LookDirection(direction);
+        model.CheckWhereWeAre();
     }
 
     private void OnShoot()
     {
-        playerModel.Shoot();
+        model.Shoot();
     }
 
     public override void Sleep()
@@ -47,5 +52,6 @@ public class PlayerStateIdle<T> : PlayerStateBase<T>
         base.Sleep();
         inputManager.OnAttack -= OnShoot;
         inputManager.OnMove -= OnMove;
+        model.Move(Vector3.zero);
     }
 }

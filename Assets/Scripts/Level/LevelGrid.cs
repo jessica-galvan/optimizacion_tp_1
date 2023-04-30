@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -23,12 +24,7 @@ public class LevelGrid : MonoBehaviour
 
     public void ReGenerateMatrix()
     {
-        levelGrid = new GridCell[gridSize.x, gridSize.y];
-        for (int i = 0; i < gridList.Count; i++)
-        {
-            levelGrid[gridList[i].X, gridList[i].Y] = gridList[i];
-        }
-
+        ResetPosInfo();
         HideSpawnPoints();
     }
 
@@ -50,11 +46,9 @@ public class LevelGrid : MonoBehaviour
                 gridCell.transform.SetPositionAndRotation(new Vector3(x * gridSpaceSize, 0, y * gridSpaceSize), Quaternion.identity);
                 gridCell.transform.SetParent(transform);
                 gridCell.SetPosition(x, y);
-                gridCell.gameObject.name = $"Grid({x},{y})";
 
                 if(x == 0 || y == 0 || x == gridSize.x || y == gridSize.y)
                 {
-                    gridCell.gameObject.name += $"_{GridCell.Type.BorderWall}";
                     gridCell.cellType = GridCell.Type.BorderWall;
                     gridCell.SetVisuals();
                 }
@@ -85,9 +79,13 @@ public class LevelGrid : MonoBehaviour
         //first let's clear the original info as the set up might have changed
         ClearGrid();
 
+        var maxX = gridSize.x + 1;
+        var maxY = gridSize.y + 1;
+
         //now we run all the matrix to get the new spawning points
         for (int i = 0; i < gridList.Count; i++)
         {
+            CalculateGridPos(i, maxX, maxY);
             SetData(gridList[i]);
         }
 
@@ -101,6 +99,29 @@ public class LevelGrid : MonoBehaviour
         {
             Debug.LogError("There is no enemy spawning point in this level");
         }
+    }
+
+    public void ResetPosInfo()
+    {
+        var maxX = gridSize.x + 1;
+        var maxY = gridSize.y + 1;
+        levelGrid = new GridCell[maxX, maxY];
+        for (int i = 0; i < gridList.Count; i++)
+        {
+            CalculateGridPos(i, maxX, maxY);
+        }
+    }
+
+    public void CalculateGridPos(int currentCell, int maxX, int maxY)
+    {
+        int auxY = currentCell / maxY;
+        int ypos = Mathf.FloorToInt(auxY);
+        int xpos = Mathf.Abs(currentCell - (ypos * gridSize.y) - ypos);
+
+        gridList[currentCell].SetPosition(xpos, ypos);
+        bool occupied = gridList[currentCell].cellType != GridCell.Type.Empty && gridList[currentCell].cellType != GridCell.Type.EnemySpawnPoint; //player spot is set later to be occupied anyway
+        gridList[currentCell].SetOccupiedStatus(occupied);
+        levelGrid[xpos, ypos] = gridList[currentCell];
     }
 
     private void SetData(GridCell currentGrid)
@@ -141,10 +162,10 @@ public class LevelGrid : MonoBehaviour
         return new Vector3(x, 0, y);
     }
 
-    public GridCell GetNextCell(GridCell currentCell, Vector2 direction)
+    public GridCell GetNextCell(GridCell currentCell, Vector3 direction)
     {
         int xPos = direction.x != 0 ? (int)Mathf.Clamp(currentCell.X + direction.x, 0, gridSize.x) : currentCell.X;
-        int yPos = direction.x != 0 ? (int)Mathf.Clamp(currentCell.Y + direction.y, 0, gridSize.y) : currentCell.Y;
+        int yPos = direction.z != 0 ? (int)Mathf.Clamp(currentCell.Y + direction.z, 0, gridSize.y) : currentCell.Y;
         return levelGrid[xPos, yPos];
     }
 

@@ -26,15 +26,29 @@ public class PlayerModel : EntityModel
     public override void Spawn(GridCell spawn)
     {
         base.Spawn(spawn);
-
         Alive = true;
     }
 
     public override void Shoot()
-      {
+    { 
         //if (currentBullets == 0) return;
         base.Shoot();
         //currentBullets -= 1;
+    }
+
+    public override bool ValidateCell(GridCell targetCell)
+    {
+        bool answer = true;
+
+        if (currentCell != targetCell)
+        {
+            if (targetCell.IsOcupied && targetCell.Entity != null)
+            {
+                answer = false;
+            }
+        }
+
+        return answer;
     }
 
     public void UpdateBulletCounter()

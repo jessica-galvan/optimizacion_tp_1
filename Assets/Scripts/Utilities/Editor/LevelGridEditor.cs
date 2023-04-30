@@ -35,6 +35,11 @@ public class LevelGridEditor : Editor
             levelGrid.SaveAndValidateSetUp();
         }
 
+        //if (GUILayout.Button("Reset Pos Info"))
+        //{
+        //    levelGrid.ResetPosInfo();
+        //}
+
         if (GUILayout.Button("Clear"))
         {
             levelGrid.ClearSettings();

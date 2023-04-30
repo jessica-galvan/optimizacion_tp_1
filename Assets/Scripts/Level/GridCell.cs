@@ -26,10 +26,11 @@ public class GridCell : MonoBehaviour
     [Header("Settings")]
     public Transform spawnPoint;
     public Type cellType;
-    [SerializeField] [ReadOnly] private bool ocupied = false;
 
-    private int posX;
-    private int posY;
+    [Header("Info")]
+    [SerializeField] [ReadOnly] private bool ocupied = false;
+    [SerializeField][ReadOnly] private int posX;
+    [SerializeField][ReadOnly] private int posY;
 
     public int X => posX;
     public int Y => posY;
@@ -44,12 +45,14 @@ public class GridCell : MonoBehaviour
         unbreakableWall.SetActive(false);
         ShowSpawnCell(false);
         SetOccupiedStatus(false);
+        string extraName = string.Empty;
 
         switch (cellType)
         {
             case Type.BorderWall:
                 borderWall.SetActive(true);
                 SetOccupiedStatus(true);
+                extraName = $"_{cellType}";
                 break;
             case Type.UnbreakableWall:
                 unbreakableWall.SetActive(true);
@@ -62,15 +65,18 @@ public class GridCell : MonoBehaviour
             case Type.PlayerSpawnPoint:
                 spawnVisual.color = playerSpawn;
                 ShowSpawnCell(true);
+                extraName = $"_{cellType}";
                 break;
             case Type.EnemySpawnPoint:
                 spawnVisual.color = Color.red;
                 ShowSpawnCell(true);
+                extraName = $"_{cellType}";
                 break;
             case Type.Empty:
                 break;
         }
 
+        gameObject.name = $"Grid({X},{Y}){extraName}";
     }
 
     public void ShowSpawnCell(bool value)

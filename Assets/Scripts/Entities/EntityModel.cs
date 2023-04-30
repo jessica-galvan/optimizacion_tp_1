@@ -35,8 +35,9 @@ public class EntityModel : MonoBehaviour, IDamagable
     public virtual void Spawn(GridCell spawnPoint)
     {
         //TODO set visuals to off but still be there?
-        transform.position = spawnPoint.spawnPoint.position;
-        spawnPoint.SetOccupiedStatus(true, this);
+        currentCell = spawnPoint;
+        transform.position = currentCell.spawnPoint.position;
+        currentCell.SetOccupiedStatus(true, this);
         gameObject.SetActive(true);
         OnSpawned.Invoke();
     }
@@ -48,11 +49,17 @@ public class EntityModel : MonoBehaviour, IDamagable
         bullet.SetTarget(firepoint, transform.forward);
     }
 
-    public void Move(Vector3 direction) //el modelo solo recibe la dirección
+    public void Move(Vector3 direction)
     {
-        Vector3 directionSpeed = direction * speed;
-        directionSpeed.y = rb.velocity.y;
-        rb.velocity = direction * speed;
+        if (direction == Vector3.zero) return;
+
+        if (GetNextCell(direction))
+        {
+            Vector3 directionSpeed = targetCell.spawnPoint.position * speed;
+            directionSpeed.y = rb.velocity.y;
+            directionSpeed.z = transform.position.z;
+            rb.velocity = direction * speed;
+        }
     }
 
     public void LookDirection(Vector3 dir)
@@ -66,8 +73,8 @@ public class EntityModel : MonoBehaviour, IDamagable
 
     public bool GetNextCell(Vector3 direction)
     {
-        direction = Vector3.Normalize(direction);
-        var targetCell = levelGrid.GetNextCell(currentCell, direction);
+
+        targetCell = levelGrid.GetNextCell(currentCell, direction);
 
         bool answer = false;
 

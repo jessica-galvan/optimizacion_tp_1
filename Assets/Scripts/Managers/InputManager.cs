@@ -19,23 +19,26 @@ public class InputManager : MonoBehaviour, IUpdate
     #endregion
 
     private bool previousMovingState = false;
+    private GameManager gameManager;
 
     public bool IsMoving { get; private set; }
 
     #region Unity
     private void Awake()
     {
-        GameManager.Instance.updateManager.fixCustomUpdater.Add(this);
+        gameManager = GameManager.Instance;
+        gameManager.updateManager.fixCustomUpdater.Add(this);
     }
 
     public void DoUpdate()
     {
-        CheckPause();
+        if(!gameManager.Won)
+            CheckPause();
     }
 
     public void PlayerUpdate()
     {
-        if (!GameManager.Instance.Pause)
+        if (!gameManager.Pause && gameManager.Player.Alive)
         {
             CheckAttack();
             CheckMovement();

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EntityModel : MonoBehaviour, IDamagable
 {
@@ -22,16 +23,23 @@ public class EntityModel : MonoBehaviour, IDamagable
     public Vector3 GetForward => transform.forward;
     public float GetSpeed => rb.velocity.magnitude;
 
-    protected virtual void Awake()
+    public Action OnSpawned = delegate { };
+    public Action OnDie = delegate { };
+
+    public virtual void Initialize()
     {
         rb = GetComponent<Rigidbody>();
-    }
-
-    protected virtual void Start()
-    {
         levelGrid = GameManager.Instance.levelGrid;
     }
 
+    public virtual void Spawn(GridCell spawnPoint)
+    {
+        //TODO set visuals to off but still be there?
+        transform.position = spawnPoint.spawnPoint.position;
+        spawnPoint.SetOccupiedStatus(true, this);
+        gameObject.SetActive(true);
+        OnSpawned.Invoke();
+    }
 
     public virtual void Shoot()
     {

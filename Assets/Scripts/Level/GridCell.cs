@@ -19,6 +19,10 @@ public class GridCell : MonoBehaviour
     public GameObject unbreakableWall;
     public GameObject borderWall;
 
+    public SpriteRenderer spawnVisual;
+    public Color playerSpawn = Color.green;
+    public Color enemySpawn = Color.red;
+
     [Header("Settings")]
     public Transform spawnPoint;
     public Type cellType;
@@ -34,7 +38,11 @@ public class GridCell : MonoBehaviour
 
     public void SetVisuals()
     {
-        //TODO: change visuals of the cell depending on what type it is
+        breakableWall.SetActive(false);
+        borderWall.SetActive(false);
+        unbreakableWall.SetActive(false);
+        ShowSpawnCell(false);
+
         switch (cellType)
         {
             case Type.BorderWall:
@@ -50,14 +58,25 @@ public class GridCell : MonoBehaviour
                 IsOcupied = true;
                 break;
             case Type.Empty:
+                IsOcupied = false;
+                break;
             case Type.PlayerSpawnPoint:
+                spawnVisual.color = playerSpawn;
+                ShowSpawnCell(true);
+                IsOcupied = false;
+                break;
             case Type.EnemySpawnPoint:
-                breakableWall.SetActive(false);
-                borderWall.SetActive(false);
-                unbreakableWall.SetActive(false);
+                spawnVisual.color = Color.red;
+                ShowSpawnCell(true);
                 IsOcupied = false;
                 break;
         }
+
+    }
+
+    public void ShowSpawnCell(bool value)
+    {
+        spawnVisual.enabled = value;
     }
 
     public void SetPosition(int x, int y)

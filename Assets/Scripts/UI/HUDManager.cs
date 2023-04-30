@@ -20,19 +20,16 @@ public class HUDManager : MonoBehaviour, IUpdate
     [SerializeField] private GameObject hud;
     [SerializeField] private TMP_Text timer;
     [SerializeField] private GameObject bulletUI;
+    [SerializeField] private TMP_Text enemyCount;
+    [SerializeField] private TMP_Text deadCount;
 
     [Header("WinPopup")]
     [SerializeField] private string mainMenuScene = "Menu";
     [SerializeField] private GameObject popupWin;
     [SerializeField] private Button popupMenuButton;
 
-    private PlayerModel player;
+    private GameManager gameManager;
     private List<GameObject> bulletsUI = new List<GameObject>();
-
-    private void Awake()
-    {
-        GameManager.Instance.OnPause += OnPause;
-    }
 
     private void Start()
     {
@@ -41,8 +38,10 @@ public class HUDManager : MonoBehaviour, IUpdate
 
     private void Initialize()
     {
-        GameManager.Instance.updateManager.uiCustomUpdate.Add(this);
-        player = GameManager.Instance.Player;
+        gameManager = GameManager.Instance;
+        gameManager.OnPause += OnPause;
+        gameManager.OnPlayerDie += OnPlayerDead;
+        gameManager.updateManager.uiCustomUpdate.Add(this);
 
         //Pause
         pauseMenu.SetActive(false);
@@ -54,23 +53,26 @@ public class HUDManager : MonoBehaviour, IUpdate
 
         //HUD
         hud.SetActive(true);
-        bulletsUI.Add(bulletUI);
-        int maxNeedBullets = player.maxBullets - 1;
-        for (int i = 0; i < maxNeedBullets; i++)
-        {
-            var bulletAux = Instantiate(bulletUI, bulletUI.transform.parent);
-            bulletsUI.Add(bulletAux);
-        }
+
+
+
+        //bulletsUI.Add(bulletUI);
+        //int maxNeedBullets = player.maxBullets - 1;
+        //for (int i = 0; i < maxNeedBullets; i++)
+        //{
+        //    var bulletAux = Instantiate(bulletUI, bulletUI.transform.parent);
+        //    bulletsUI.Add(bulletAux);
+        //}
 
         //POP
-        GameManager.Instance.OnWin += OnWin;
+        gameManager.OnWin += OnWin;
         SetWinPopUpActive(false);
     }
 
     public void DoUpdate()
     {
-        UpdateBullets(player.CurrentBullets); //could be an event
-        UpdateTimer(GameManager.Instance.CurrentTime);
+        //UpdateBullets(player.CurrentBullets); //could be an event
+        UpdateTimer(gameManager.CurrentTime);
     }
 
     private void OnPause(bool isPause)
@@ -105,7 +107,7 @@ public class HUDManager : MonoBehaviour, IUpdate
     #region PauseMenu
     private void OnClickResumeHandler()
     {
-        GameManager.Instance.SetPause(false);
+        gameManager.SetPause(false);
     }
 
     private void OnClickRestartHandler()
@@ -136,6 +138,11 @@ public class HUDManager : MonoBehaviour, IUpdate
         popupWin.SetActive(value);
     }
 
+    public void OnPlayerDead()
+    {
+        deadCount.text = gameManager.PlayerDeadCounter.ToString();
+    }
+
     private void OnDestroy()
     {
         resumeButton.onClick.RemoveAllListeners();
@@ -146,9 +153,10 @@ public class HUDManager : MonoBehaviour, IUpdate
 
         if (GameManager.HasInstance)
         {
-            GameManager.Instance.OnPause -= OnPause;
-            GameManager.Instance.OnWin -= OnWin;
-            GameManager.Instance.updateManager.uiCustomUpdate.Remove(this);
+            gameManager.OnPause -= OnPause;
+            gameManager.OnPlayerDie -= OnPlayerDead;
+            gameManager.OnWin -= OnWin;
+            gameManager.updateManager.uiCustomUpdate.Remove(this);
         }
     }
 }

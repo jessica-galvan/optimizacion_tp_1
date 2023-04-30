@@ -7,9 +7,10 @@ public class PlayerController : MonoBehaviour, IUpdate
     FSM<PlayerEnums> fsm;
     List<PlayerStateBase<PlayerEnums>> states;
 
-    private void Awake()
+    public void Initialize()
     {
         model = GetComponent<PlayerModel>();
+        model.Initialize();
     }
 
     private void Start()

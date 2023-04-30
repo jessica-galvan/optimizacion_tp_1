@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,14 +13,21 @@ public class PlayerModel : EntityModel
     private float currentRechargeTime = 0f;
 
     public int CurrentBullets => currentBullets;
+    public bool Alive { get; private set; }
 
-    protected override void Awake()
+    public override void Initialize()
     {
-        GameManager.Instance.SetPlayer(this);
-        base.Awake();
+        base.Initialize();
 
         //jess: usualmente diria de lo que es referencia a otra cosa se hace en el start y no el awake PERO el game manager esta puesto en el script execution order para que corrar primero y el UI va a buscar esta referencia en el Start
         currentBullets = maxBullets;
+    }
+
+    public override void Spawn(GridCell spawn)
+    {
+        base.Spawn(spawn);
+
+        Alive = true;
     }
 
     public override void Shoot()
@@ -43,8 +51,8 @@ public class PlayerModel : EntityModel
 
     public override void Die()
     {
+        Alive = false;
         base.Die();
-        //TODO in case of player respawn. Die counter?
     }
 }
 

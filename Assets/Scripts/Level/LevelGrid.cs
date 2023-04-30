@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class LevelGrid : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class LevelGrid : MonoBehaviour
         {
             levelGrid[gridList[i].X, gridList[i].Y] = gridList[i];
         }
+
+        HideSpawnPoints();
     }
 
     public void CreateGrid()
@@ -144,5 +147,15 @@ public class LevelGrid : MonoBehaviour
         int xPos = direction.x != 0 ? (int)Mathf.Clamp(currentCell.X + direction.x, 0, gridSize.x) : currentCell.X;
         int yPos = direction.x != 0 ? (int)Mathf.Clamp(currentCell.Y + direction.y, 0, gridSize.y) : currentCell.Y;
         return levelGrid[xPos, yPos];
+    }
+
+    public void HideSpawnPoints()
+    {
+        for (int i = 0; i < enemySpawnPoints.Count; i++)
+        {
+            enemySpawnPoints[i].ShowSpawnCell(false);
+        }
+
+        playerSpawnPoint.ShowSpawnCell(false);
     }
 }

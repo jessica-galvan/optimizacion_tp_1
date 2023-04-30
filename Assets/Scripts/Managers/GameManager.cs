@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour, IUpdate
@@ -11,14 +12,19 @@ public class GameManager : MonoBehaviour, IUpdate
     public LevelGrid levelGrid;
     public Transform hidePoolPoint;
 
+    [Header("Player Dead Config")]
+    public float waitTimeToRespawn = 2f;
+
     [Header("Managers")]
     [ReadOnly] public InputManager inputManager;
     [ReadOnly] public UpdateManager updateManager;
     [ReadOnly] public PoolManager poolManager;
 
     private static GameManager _instance;
+    private int playerDeadCount = 0;
     private bool _pause = false;
     private float _currentTime;
+    private bool won = false;
 
     //Properties
     public static GameManager Instance => _instance;
@@ -26,8 +32,11 @@ public class GameManager : MonoBehaviour, IUpdate
     public PlayerModel Player { get; private set; }
     public bool Pause => _pause;
     public float CurrentTime => _currentTime;
+    public int PlayerDeadCounter => playerDeadCount;
+    public bool Won => won;
 
     //Events
+    public Action OnPlayerDie;
     public Action<bool> OnPause;
     public Action OnWin;
 
@@ -42,22 +51,26 @@ public class GameManager : MonoBehaviour, IUpdate
         _instance = this;
 
         levelGrid.ReGenerateMatrix();
-
+        
         poolManager = Instantiate(prefabReferences.poolManagerPrefab);
         updateManager = Instantiate(prefabReferences.updateManager);
+
         inputManager = GetComponent<InputManager>();
+        inputManager.OnPause += TogglePause;
 
         updateManager.Initialize();
         updateManager.fixCustomUpdater.Add(this);
 
-        Player = Instantiate(prefabReferences.playerPrefab, levelGrid.playerSpawnPoint.spawnPoint.position, levelGrid.playerSpawnPoint.transform.rotation).model;
-        levelGrid.playerSpawnPoint.SetOccupiedStatus(true, Player);
+        var playerController = Instantiate(prefabReferences.playerPrefab, levelGrid.playerSpawnPoint.spawnPoint.position, levelGrid.playerSpawnPoint.transform.rotation);
+        playerController.Initialize();
+        Player = playerController.model;
+        Player.Spawn(levelGrid.playerSpawnPoint);
+        Player.OnDie += OnPlayerHasDie;
     }
 
 
     private void Start()
     {
-        inputManager.OnPause += TogglePause;
 
         //TODO enemy manager
     }
@@ -67,6 +80,24 @@ public class GameManager : MonoBehaviour, IUpdate
         if (!Pause)
         {
             _currentTime += Time.deltaTime;
+        }
+    }
+
+    private void TestingCheats()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            WinGame();
+        }
+
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            Player.Die();
+        }
+
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+
         }
     }
 
@@ -85,12 +116,43 @@ public class GameManager : MonoBehaviour, IUpdate
 
     private void TogglePause()
     {
+        if (Won) return;
         SetPause(!_pause);
+    }
+
+    public void WinGame()
+    {
+        won = true;
+        _pause = true;
+
+        OnWin.Invoke();
+    }
+
+    public void OnPlayerHasDie()
+    {
+        playerDeadCount++;
+        OnPlayerDie.Invoke();
+
+        StartCoroutine(PlayerRespawn());
+    }
+
+    private IEnumerator PlayerRespawn()
+    {
+        float t = 0f;
+
+        while (t < 1f)
+        {
+            if (!Pause)
+                t += Time.deltaTime / waitTimeToRespawn;
+            yield return null;
+        }
+
+        Player.Spawn(levelGrid.playerSpawnPoint);
     }
 
     public void OnDestroy()
     {
         inputManager.OnPause -= TogglePause;
-        GameManager.Instance.updateManager.fixCustomUpdater.Remove(this);
+        updateManager.fixCustomUpdater.Remove(this);
     }
 }

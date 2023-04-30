@@ -52,7 +52,7 @@ public class BulletController : MonoBehaviour, IUpdate, IPoolable
         var entity = other.gameObject.GetComponent<IDamagable>();
         if(entity != null)
         {
-            entity.Die();
+            entity.TakeDamage();
         } 
 
         Die();

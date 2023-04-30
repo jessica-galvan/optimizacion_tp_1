@@ -32,9 +32,9 @@ public class PlayerModel : EntityModel
 
     public override void Shoot()
       {
-        if (currentBullets == 0) return;
+        //if (currentBullets == 0) return;
         base.Shoot();
-        currentBullets -= 1;
+        //currentBullets -= 1;
     }
 
     public void UpdateBulletCounter()
@@ -49,10 +49,10 @@ public class PlayerModel : EntityModel
         }
     }
 
-    public override void Die()
+    public override void TakeDamage()
     {
         Alive = false;
-        base.Die();
+        base.TakeDamage();
     }
 }
 

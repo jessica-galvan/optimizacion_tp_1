@@ -113,7 +113,7 @@ public class EntityModel : MonoBehaviour, IDamagable
         currentCell.SetOccupiedStatus(true, this);
     }
 
-    public virtual void Die()
+    public virtual void TakeDamage()
     {
         //TODO add effects
         //TODO in case of player respawn

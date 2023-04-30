@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour, IUpdate
 
         if (Input.GetKeyDown(KeyCode.F2))
         {
-            Player.Die();
+            Player.TakeDamage();
         }
 
         if (Input.GetKeyDown(KeyCode.F3))

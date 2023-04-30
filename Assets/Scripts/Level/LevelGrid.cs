@@ -75,9 +75,8 @@ public class LevelGrid : MonoBehaviour
         ClearGrid();
         for (int i = gridList.Count - 1; i >= 0; i--)
         {
-            DestroyImmediate(gridList[i]); //TODO find why it's not really working?
+            DestroyImmediate(gridList[i].gameObject);
         }
-        Debug.Log("Clearing might not destroy the items currently, if that's the case, select all grid cells and erase them by hand");
         gridList.Clear();
     }
 

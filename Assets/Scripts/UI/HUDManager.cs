@@ -54,8 +54,6 @@ public class HUDManager : MonoBehaviour, IUpdate
         //HUD
         hud.SetActive(true);
 
-
-
         //bulletsUI.Add(bulletUI);
         //int maxNeedBullets = player.maxBullets - 1;
         //for (int i = 0; i < maxNeedBullets; i++)

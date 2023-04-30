@@ -18,7 +18,7 @@ public class PlayerModel : EntityModel
     public override void Initialize()
     {
         base.Initialize();
-
+        rb = gameObject.GetComponentInParent<Rigidbody>();
         //jess: usualmente diria de lo que es referencia a otra cosa se hace en el start y no el awake PERO el game manager esta puesto en el script execution order para que corrar primero y el UI va a buscar esta referencia en el Start
         currentBullets = maxBullets;
     }
@@ -67,6 +67,7 @@ public class PlayerModel : EntityModel
     {
         Alive = false;
         base.TakeDamage();
+        //TODO in case of player respawn
     }
 }
 

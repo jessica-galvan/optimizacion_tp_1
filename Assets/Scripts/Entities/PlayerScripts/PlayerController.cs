@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour, IUpdate
 
     public void Initialize()
     {
-        model = GetComponent<PlayerModel>();
+        model = GetComponentInChildren<PlayerModel>();
         model.Initialize();
     }
 

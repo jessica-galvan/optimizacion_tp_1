@@ -80,7 +80,9 @@ public class GameManager : MonoBehaviour, IUpdate
         if (!Pause)
         {
             _currentTime += Time.deltaTime;
+            TestingCheats();
         }
+
     }
 
     private void TestingCheats()

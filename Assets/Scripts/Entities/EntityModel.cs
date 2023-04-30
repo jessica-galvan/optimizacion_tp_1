@@ -22,13 +22,13 @@ public class EntityModel : MonoBehaviour, IDamagable
 
     public Vector3 GetForward => transform.forward;
     public float GetSpeed => rb.velocity.magnitude;
+    public Rigidbody RB => rb;
 
     public Action OnSpawned = delegate { };
     public Action OnDie = delegate { };
 
     public virtual void Initialize()
     {
-        rb = GetComponent<Rigidbody>();
         levelGrid = GameManager.Instance.levelGrid;
     }
 
@@ -123,7 +123,8 @@ public class EntityModel : MonoBehaviour, IDamagable
     public virtual void TakeDamage()
     {
         //TODO add effects
-        //TODO in case of player respawn
         //TODO in case of enemy, move back to enemy pool
+        OnDie.Invoke();
+        gameObject.SetActive(false);
     }
 }

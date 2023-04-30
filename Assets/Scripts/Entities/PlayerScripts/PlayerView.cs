@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class PlayerView : MonoBehaviour
 {
+    public PlayerModel model;
     public Animator animator;
 
     private Rigidbody rb;
     private bool hasAnimator;
 
-    private void Awake()
+    private void Start()
     {
-        rb = GetComponent<Rigidbody>();
         hasAnimator = animator != null;
     }
 
     //TODO cambiar a que sean eventos que escucha del PlayerModel o PlayerController en vez de correr un update
     void Update()
     {
-        var velocity = rb.velocity.magnitude;
+        var velocity = model.RB.velocity.magnitude;
 
         if (hasAnimator)
             Movement(velocity);

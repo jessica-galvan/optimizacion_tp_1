@@ -1741,6 +1741,8 @@ MonoBehaviour:
   hud: {fileID: 7632379520185297967}
   timer: {fileID: 7632379519501652153}
   bulletUI: {fileID: 7632379520790268402}
+  enemyCount: {fileID: 3383965439289609294}
+  deadCount: {fileID: 9019412967189838179}
   mainMenuScene: Menu
   popupWin: {fileID: 2274272928854631216}
   popupMenuButton: {fileID: 3551076113518620828}

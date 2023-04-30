@@ -27,6 +27,10 @@ public class LevelGrid : MonoBehaviour
     {
         ResetPosInfo();
         HideSpawnPoints();
+
+        //HEAP OPTIMIZATION: now that we finish reconstructing the dictionary, we can clear both lists to liberate some memory
+        gridList.Clear();
+        gridPos.Clear();
     }
 
     public void CreateGrid()
@@ -88,7 +92,6 @@ public class LevelGrid : MonoBehaviour
         for (int i = 0; i < gridList.Count; i++)
         {
             Vector2Int pos = CalculateGridPos(i, maxX, maxY);
-
             gridList[i].SetPosition(pos.x, pos.y);
             gridPos.Add(pos);
             SetData(gridList[i]);

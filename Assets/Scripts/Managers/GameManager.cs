@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour, IUpdate
     [Header("References")]
     public PrefabsReferences prefabReferences;
     public LevelGrid levelGrid;
-    public float spawningOffset = 1;
     public Transform hidePoolPoint;
 
     [Header("Managers")]
@@ -42,16 +41,17 @@ public class GameManager : MonoBehaviour, IUpdate
 
         _instance = this;
 
+        levelGrid.ReGenerateMatrix();
+
         poolManager = Instantiate(prefabReferences.poolManagerPrefab);
         updateManager = Instantiate(prefabReferences.updateManager);
         inputManager = GetComponent<InputManager>();
 
-        levelGrid.ReGenerateMatrix();
+        updateManager.Initialize();
+        updateManager.fixCustomUpdater.Add(this);
 
         Player = Instantiate(prefabReferences.playerPrefab, levelGrid.playerSpawnPoint.spawnPoint.position, levelGrid.playerSpawnPoint.transform.rotation).model;
         levelGrid.playerSpawnPoint.SetOccupiedStatus(true, Player);
-        updateManager.Initialize();
-        updateManager.fixCustomUpdater.Add(this);
     }
 
 

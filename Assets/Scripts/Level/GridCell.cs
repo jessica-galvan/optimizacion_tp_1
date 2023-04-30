@@ -14,6 +14,11 @@ public class GridCell : MonoBehaviour
         EnemySpawnPoint
     }
 
+    [Header("References")]
+    public GameObject breakableWall;
+    public GameObject unbreakableWall;
+    public GameObject borderWall;
+
     [Header("Settings")]
     public Transform spawnPoint;
     public Type cellType;
@@ -34,16 +39,22 @@ public class GridCell : MonoBehaviour
         {
             case Type.BorderWall:
                 IsOcupied = true;
+                borderWall.SetActive(true);
                 break;
             case Type.UnbreakableWall:
+                unbreakableWall.SetActive(true);
                 IsOcupied = true;
                 break;
             case Type.DestroyableWall:
+                breakableWall.SetActive(true);
                 IsOcupied = true;
                 break;
             case Type.Empty:
             case Type.PlayerSpawnPoint:
             case Type.EnemySpawnPoint:
+                breakableWall.SetActive(false);
+                borderWall.SetActive(false);
+                unbreakableWall.SetActive(false);
                 IsOcupied = false;
                 break;
         }

@@ -34,7 +34,6 @@ public class UpdateManager : MonoBehaviour
         }
     }
 
-
     void Update()
     {
         fixCustomUpdater.UpdateList();

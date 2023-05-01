@@ -1977,8 +1977,9 @@ MonoBehaviour:
   hud: {fileID: 7632379520185297967}
   timer: {fileID: 7632379519501652153}
   bulletUI: {fileID: 7632379520790268402}
-  enemyCount: {fileID: 3383965439289609294}
-  deadCount: {fileID: 9019412967189838179}
+  txtEnemyCount: {fileID: 3383965439289609294}
+  deadCounter: {fileID: 7837308899701416336}
+  txtDeadCount: {fileID: 9019412967189838179}
   exitPopup: {fileID: 8863288773750193137}
   exitPopupButton: {fileID: 2569763706572206313}
   cancelExitPopupButton: {fileID: 4784160741712378978}

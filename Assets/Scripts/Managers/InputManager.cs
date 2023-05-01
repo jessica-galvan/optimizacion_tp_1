@@ -22,7 +22,7 @@ public class InputManager : MonoBehaviour, IUpdate
 
     public bool IsMoving { get; private set; }
 
-    private void Awake()
+    public void Initialize()
     {
         gameManager = GameManager.Instance;
         gameManager.updateManager.fixCustomUpdater.Add(this);

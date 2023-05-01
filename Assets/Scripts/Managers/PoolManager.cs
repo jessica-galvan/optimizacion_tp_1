@@ -9,7 +9,7 @@ public class PoolManager : MonoBehaviour
     public Pool enemyBulletPool;
     public Pool enemyPool;
 
-    private void Start()
+    public void Initialize()
     {
         playerBulletPool.Initialize();
         enemyBulletPool.Initialize();

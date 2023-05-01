@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f57dd531d4ecf84897b69eee36a6843, type: 3}
   m_Name: GlobalConfig
   m_EditorClassIdentifier: 
+  playerWaitTimeRespawn: 2
+  gameplayFPSTarget: 60
+  uiFPSTarget: 60
+  activeMaxAppTarget: 1
+  maxFPSTarget: 75
   totalEnemiesLevel: 100
   maxEnemiesInLevelAtAllTimes: 4
   spawningTime: 10

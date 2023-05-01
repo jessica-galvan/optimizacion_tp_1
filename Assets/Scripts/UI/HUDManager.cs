@@ -24,15 +24,16 @@ public class HUDManager : MonoBehaviour, IUpdate
     [SerializeField] private GameObject hud;
     [SerializeField] private TMP_Text timer;
     [SerializeField] private GameObject bulletUI;
-    [SerializeField] private TMP_Text enemyCount;
-    [SerializeField] private TMP_Text deadCount;
+    [SerializeField] private TMP_Text txtEnemyCount;
+    [SerializeField] private GameObject deadCounter;
+    [SerializeField] private TMP_Text txtDeadCount;
 
-    [Header("ExitPopup")]
+    [Header("Prompt Popup")]
     [SerializeField] private GameObject exitPopup;
     [SerializeField] private MenuButton exitPopupButton;
     [SerializeField] private MenuButton cancelExitPopupButton;
 
-    [Header("WinPopup")]
+    [Header("Win Popup")]
     [SerializeField] private GameObject popupWin;
     [SerializeField] private MenuButton popupConfirmWinButton;
 
@@ -40,6 +41,7 @@ public class HUDManager : MonoBehaviour, IUpdate
     private MenuButton selectedButton;
     private Action confirmAction = delegate { };
     private bool promptPopupActive;
+    private bool deadCountActive = false;
 
     private List<GameObject> bulletsUI = new List<GameObject>();
 
@@ -70,6 +72,7 @@ public class HUDManager : MonoBehaviour, IUpdate
 
         //HUD
         hud.SetActive(true);
+        deadCounter.SetActive(false);
 
         //POP
         gameManager.OnWin += OnWin;
@@ -212,7 +215,13 @@ public class HUDManager : MonoBehaviour, IUpdate
 
     private void OnPlayerDead()
     {
-        deadCount.text = gameManager.PlayerDeadCounter.ToString();
+        txtDeadCount.text = gameManager.PlayerDeadCounter.ToString();
+
+        if (!deadCountActive)
+        {
+            deadCountActive = true;
+            deadCounter.SetActive(true);
+        }
     }
 
     private void OnDestroy()

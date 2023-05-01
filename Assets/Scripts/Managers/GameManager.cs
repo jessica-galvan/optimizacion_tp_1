@@ -49,16 +49,18 @@ public class GameManager : MonoBehaviour, IUpdate
 
         instance = this;
 
-        levelGrid.ReGenerateMatrix();
-        
-        poolManager = Instantiate(prefabReferences.poolManagerPrefab);
+        levelGrid.Initialize();
+
         updateManager = Instantiate(prefabReferences.updateManager);
-
-        inputManager = GetComponent<InputManager>();
-        inputManager.OnPause += TogglePause;
-
         updateManager.Initialize();
         updateManager.fixCustomUpdater.Add(this);
+
+        inputManager = GetComponent<InputManager>();
+        inputManager.Initialize();
+        inputManager.OnPause += TogglePause;
+
+        poolManager = Instantiate(prefabReferences.poolManagerPrefab);
+        poolManager.Initialize();
 
         var playerController = Instantiate(prefabReferences.playerPrefab, levelGrid.playerSpawnPoint.spawnPoint.position, levelGrid.playerSpawnPoint.transform.rotation);
         playerController.Initialize();
@@ -70,11 +72,10 @@ public class GameManager : MonoBehaviour, IUpdate
 
     public void DoUpdate()
     {
-        if (!Pause)
-        {
-            currentTime += Time.deltaTime;
-            TestingCheats();
-        }
+        if (Pause) return;
+
+        currentTime += Time.deltaTime;
+        TestingCheats();
     }
 
     private void TestingCheats()
@@ -122,10 +123,16 @@ public class GameManager : MonoBehaviour, IUpdate
         playerDeadCount++;
         OnPlayerDie.Invoke();
 
-        StartCoroutine(PlayerRespawn());
+        StartCoroutine(PausableTimerCoroutine(globalConfig.playerWaitTimeRespawn, () => Player.Spawn(levelGrid.playerSpawnPoint)));
     }
 
-    private IEnumerator PlayerRespawn()
+    public void OnDestroy()
+    {
+        inputManager.OnPause -= TogglePause;
+        updateManager.fixCustomUpdater.Remove(this);
+    }
+
+    public IEnumerator PausableTimerCoroutine(float timeDuration, Action OnEndAction)
     {
         float t = 0f;
 
@@ -133,17 +140,11 @@ public class GameManager : MonoBehaviour, IUpdate
         {
             if (!Pause)
             {
-                t += Time.deltaTime / globalConfig.playerWaitTimeRespawn;
+                t += Time.deltaTime / timeDuration;
             }
             yield return null;
         }
 
-        Player.Spawn(levelGrid.playerSpawnPoint);
-    }
-
-    public void OnDestroy()
-    {
-        inputManager.OnPause -= TogglePause;
-        updateManager.fixCustomUpdater.Remove(this);
+        OnEndAction();
     }
 }

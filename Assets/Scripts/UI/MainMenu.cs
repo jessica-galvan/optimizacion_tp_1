@@ -39,10 +39,12 @@ public class MainMenu : MonoBehaviour
         goBackButton.button.onClick.AddListener(OnClickGoBackHandler);
 
         skipText.text = $"{skipKey} to skip";
+    }
 
-        StartCoroutine(SkipButtonAnimation(skipTextAnimationTime));
-
+    private void Start()
+    {
         currentSelectedButton = playButton;
+        StartCoroutine(SkipButtonAnimation(skipTextAnimationTime));
         GoBack();
     }
 

@@ -17,6 +17,7 @@ public class PlayerStateIdle<T> : PlayerStateBase<T>
     public override void Awake()
     {
         base.Awake();
+        model.Idle();
 
         inputManager.OnAttack += OnShoot;
         inputManager.OnMove += OnMove;
@@ -31,8 +32,7 @@ public class PlayerStateIdle<T> : PlayerStateBase<T>
 
     private void OnMove(Vector3 movement)
     {
-        if(movement != Vector3.zero)
-            fsm.Transition(inputRunning);
+        fsm.Transition(inputRunning);
     }
 
     private void OnShoot()

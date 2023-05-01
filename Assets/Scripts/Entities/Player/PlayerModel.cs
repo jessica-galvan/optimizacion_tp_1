@@ -13,6 +13,7 @@ public class PlayerModel : EntityModel
     private int currentBullets;
     private float currentRechargeTime = 0f;
 
+    public float Velocity => rb.velocity.z;
     public int CurrentBullets => currentBullets;
     public GridCell CurrentCell => currentCell;
     public bool Alive { get; private set; }
@@ -20,7 +21,6 @@ public class PlayerModel : EntityModel
     public override void Initialize()
     {
         base.Initialize();
-        rb = gameObject.GetComponentInParent<Rigidbody>();
         //jess: usualmente diria de lo que es referencia a otra cosa se hace en el start y no el awake PERO el game manager esta puesto en el script execution order para que corrar primero y el UI va a buscar esta referencia en el Start
         currentBullets = maxBullets;
     }
@@ -52,6 +52,18 @@ public class PlayerModel : EntityModel
         }
 
         return answer;
+    }
+
+    public void CheckWhereWeAre() //call only while in moving;
+    {
+        if (targetCell != null)
+        {
+            var distance = Vector3.SqrMagnitude(targetCell.spawnPoint.position - transform.position);
+            if (distance <= gameManager.levelGrid.cellCenterDistance)
+            {
+                UpdateCurrentCellStatus(targetCell);
+            }
+        }
     }
 
     public void UpdateBulletCounter()

@@ -16,6 +16,7 @@ public class InputManager : MonoBehaviour, IUpdate
     public Action OnPause;
     public Action OnAttack;
     public Action<Vector3> OnMove;
+    public Action OnIdle;
     #endregion
 
     private bool previousMovingState = false;
@@ -62,7 +63,7 @@ public class InputManager : MonoBehaviour, IUpdate
             previousMovingState = IsMoving;
 
             if(!IsMoving)
-                OnMove?.Invoke(new Vector3(0, 0, 0));
+                OnIdle?.Invoke();
         }
 
         if(IsMoving)

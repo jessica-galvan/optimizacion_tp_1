@@ -56,6 +56,4 @@ public class PoolManager : MonoBehaviour
     {
         enemyBulletPool.BackToPool(enemy);
     }
-
-
 }

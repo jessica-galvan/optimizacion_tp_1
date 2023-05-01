@@ -15,7 +15,7 @@ public class EntityModel : MonoBehaviour, IDamagable
     public float speed;
 
     protected Rigidbody rb;
-    protected LevelGrid levelGrid;
+    protected GameManager gameManager;
     protected GridCell currentCell;
     protected GridCell targetCell;
     [ReadOnly][SerializeField] protected Vector3 currentDirection;
@@ -27,7 +27,8 @@ public class EntityModel : MonoBehaviour, IDamagable
 
     public virtual void Initialize()
     {
-        levelGrid = GameManager.Instance.levelGrid;
+        gameManager = GameManager.Instance;
+        rb = gameObject.GetComponent<Rigidbody>();
     }
 
     public virtual void Spawn(GridCell spawnPoint)
@@ -42,50 +43,38 @@ public class EntityModel : MonoBehaviour, IDamagable
     public virtual void Shoot()
     {
         //TODO: add sound and feedback
-        var bullet = GameManager.Instance.poolManager.GetBullet(BulletType.Player);
+        var bullet = gameManager.poolManager.GetBullet(BulletType.Player);
         bullet.SetTarget(firepoint, transform.forward);
     }
 
     public void Move(Vector3 direction)
     {
-        if (direction == Vector3.zero) return;
+        currentDirection = direction;
 
         if (GetNextCell(direction))
         {
-            Vector3 directionSpeed = targetCell.spawnPoint.position * speed;
-            directionSpeed.y = rb.velocity.y;
-            directionSpeed.z = transform.position.z;
             rb.velocity = direction * speed;
         }
     }
 
+    public void Idle()
+    {
+        rb.velocity = Vector3.zero;
+    }
+
     public void LookDirection(Vector3 dir)
     {
-        if (dir == Vector3.zero) return;
-        if (dir == currentDirection) return;
         dir.y = 0; //Sacar una vez que utilizemos Y
-        model.transform.forward = dir;
+        transform.forward = dir;
     }
 
     public bool GetNextCell(Vector3 direction)
     {
-        targetCell = levelGrid.GetNextCell(currentCell, direction);
+        targetCell = gameManager.levelGrid.GetNextCell(currentCell, direction);
 
         bool isValid = currentCell != targetCell ? ValidCell(targetCell) : false;
 
         return isValid;
-    }
-
-    public void CheckWhereWeAre() //call only while in moving;
-    {
-        if( targetCell != null)
-        {
-            var distance = Vector3.SqrMagnitude(targetCell.spawnPoint.position - transform.position);
-            if(distance <= levelGrid.cellCenterDistance)
-            {
-                UpdateCurrentCellStatus(targetCell);
-            }
-        }
     }
 
     public virtual bool ValidCell(GridCell targetCell)
@@ -109,6 +98,8 @@ public class EntityModel : MonoBehaviour, IDamagable
 
     public void UpdateCurrentCellStatus(GridCell gridCell)
     {
+        if (currentCell == gridCell) return;
+
         if(currentCell != null)
         {
             currentCell.SetOccupiedStatus(false, this);

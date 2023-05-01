@@ -11,17 +11,23 @@ public class EnemyModel : EntityModel
     public bool CanAttack { get; set; }
 
     private RaycastHit[] currentRaycastBuffer = new RaycastHit[5];
-    private GameManager gameManager;
 
-    public bool CanShoot()
+    public bool CheckWhereWeAre() //call only while in moving;
     {
-        int hitCount = Physics.RaycastNonAlloc(new Ray(firepoint.position, transform.forward), currentRaycastBuffer, enemyConfig.maxRayDistance, enemyConfig.raycastDectection);
-        bool canShoot = false;
-        for (int i = 0; i < hitCount; i++)
+        bool isOnCenter = false;
+        if (targetCell != null)
         {
-            //currentRaycastBuffer[i];
+            var distance = Vector3.SqrMagnitude(targetCell.spawnPoint.position - transform.position);
+            if (distance <= gameManager.levelGrid.cellCenterDistance)
+            {
+                if(distance <= enemyConfig.distanceFromCenter)
+                {
+                    isOnCenter = true;
+                }
+                UpdateCurrentCellStatus(targetCell);
+            }
         }
-        return canShoot;
+        return isOnCenter;
     }
 
     public GridCell GetRandomDirection(bool skipCurrentDirection = false)
@@ -41,13 +47,6 @@ public class EnemyModel : EntityModel
         return newDirection;
     }
 
-    protected IEnumerator AttackTimer(float time)
-    {
-        yield return new WaitForSeconds(time);
-        CanAttack = true;
-        //print("Can attack again!");
-    }
-
     public override bool ValidCell(GridCell targetCell)
     {
         bool answer = true;
@@ -56,7 +55,7 @@ public class EnemyModel : EntityModel
         {
             if (targetCell.IsOcupied)
             {
-                if(targetCell.Entity != null) //EXPECTED PAD: most of the cells that are occupied are walls. So they don't have an entity on them. Thus we first check that one
+                if (targetCell.Entity != null) //EXPECTED PAD: most of the cells that are occupied are walls. So they don't have an entity on them. Thus we first check that one
                 {
                     answer = false;
                 }
@@ -70,9 +69,21 @@ public class EnemyModel : EntityModel
         return answer;
     }
 
-    public override void TakeDamage()
+    protected IEnumerator AttackTimer(float time)
     {
-        base.TakeDamage();
-        //TODO return to pool!
+        yield return new WaitForSeconds(time);
+        CanAttack = true;
+        //print("Can attack again!");
+    }
+
+    public bool CanShoot()
+    {
+        int hitCount = Physics.RaycastNonAlloc(new Ray(firepoint.position, transform.forward), currentRaycastBuffer, enemyConfig.maxRayDistance, enemyConfig.raycastDectection);
+        bool canShoot = false;
+        for (int i = 0; i < hitCount; i++)
+        {
+            //currentRaycastBuffer[i];
+        }
+        return canShoot;
     }
 }

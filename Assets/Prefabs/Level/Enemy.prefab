@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 3471069439897086941}
   - component: {fileID: 2832208479391684073}
   - component: {fileID: 6521685025685924916}
-  - component: {fileID: 7733753607054056880}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Cabin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,19 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7733753607054056880
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 697683547842042943}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1484941632988239656
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,8 +95,7 @@ GameObject:
   - component: {fileID: 4688640168939288413}
   - component: {fileID: 3244569252784594580}
   - component: {fileID: 5409159163492814265}
-  - component: {fileID: 4884425353378424624}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,22 +171,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4884425353378424624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484941632988239656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79f3ee83b9c2ee24b9daf7ae671bdd6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  model: {fileID: 1484941632988239656}
-  firepoint: {fileID: 8579285769618047914}
-  bulletType: 1
-  speed: 5
 --- !u!1 &3680750548876323221
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,8 +182,7 @@ GameObject:
   - component: {fileID: 776596704641479339}
   - component: {fileID: 1143512808128845560}
   - component: {fileID: 1648413448220941969}
-  - component: {fileID: 5988935835996009252}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,20 +254,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5988935835996009252
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3680750548876323221}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &6743621627000239838
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,7 +266,8 @@ GameObject:
   - component: {fileID: 2523644046712005616}
   - component: {fileID: 7229985438933840287}
   - component: {fileID: 8644007861208784497}
-  m_Layer: 6
+  - component: {fileID: 3869092363309002751}
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -376,6 +331,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a153379f98a06e44be0092f45c0f882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  model: {fileID: 3869092363309002751}
+--- !u!114 &3869092363309002751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743621627000239838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79f3ee83b9c2ee24b9daf7ae671bdd6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 1484941632988239656}
+  firepoint: {fileID: 8579285769618047914}
+  bulletType: 1
+  speed: 5
+  currentDirection: {x: 0, y: 0, z: 0}
+  enemyConfig: {fileID: 11400000, guid: 4f84b3b3fa31be94c9ee7eab156e4ddb, type: 2}
 --- !u!1 &7486047097606866728
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,7 +362,7 @@ GameObject:
   - component: {fileID: 5072440613540636927}
   - component: {fileID: 9166723766490502115}
   - component: {fileID: 6820424335276987824}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +412,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 15d241d4dcf34c0478dab510d9395484, type: 2}
+  - {fileID: 2100000, guid: 7e5d141ab58209b40b1b12fbd9923a83, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -485,8 +459,7 @@ GameObject:
   - component: {fileID: 794023820799597858}
   - component: {fileID: 7798468388620550369}
   - component: {fileID: 4862922461174287158}
-  - component: {fileID: 962331885652896450}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Wheel 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -558,20 +531,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &962331885652896450
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7775554623467127105}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &9157417682294873202
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +540,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8579285769618047914}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -8,6 +8,7 @@ using UnityEngine;
 public class EnemyConfig : ScriptableObject
 {
     [Header("Movement")]
+    public float distanceFromCenter;
     public float maxRayDistance;
     public LayerMask raycastDectection;
     public int posibleDirectionsCount = 4;

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3471069439897086941}
   - component: {fileID: 2832208479391684073}
   - component: {fileID: 6521685025685924916}
-  - component: {fileID: 7733753607054056880}
   m_Layer: 6
   m_Name: Cabin
   m_TagString: Untagged
@@ -85,19 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7733753607054056880
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 697683547842042943}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1484941632988239656
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,8 +187,9 @@ MonoBehaviour:
   model: {fileID: 1484941632988239656}
   firepoint: {fileID: 8579285769618047914}
   bulletType: 0
-  rotationSpeed: 10
   speed: 5
+  currentDirection: {x: 0, y: 0, z: 0}
+  spawnLookDirection: {x: 0, y: 0, z: 1}
   maxBullets: 6
   rechargeTimeInSeconds: 1
 --- !u!1 &3680750548876323221
@@ -216,7 +203,6 @@ GameObject:
   - component: {fileID: 776596704641479339}
   - component: {fileID: 1143512808128845560}
   - component: {fileID: 1648413448220941969}
-  - component: {fileID: 5988935835996009252}
   m_Layer: 6
   m_Name: Wheel
   m_TagString: Untagged
@@ -232,7 +218,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3680750548876323221}
   m_LocalRotation: {x: 0.7071065, y: -0, z: -0, w: 0.7071072}
-  m_LocalPosition: {x: -0.5, y: -0.010000229, z: 0}
+  m_LocalPosition: {x: -0.453, y: -0.010000229, z: 0}
   m_LocalScale: {x: 0.5, y: 0.51, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -289,20 +275,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5988935835996009252
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3680750548876323221}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &6743621627000239838
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,8 +285,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6743621627000239831}
   - component: {fileID: 2523644046712005616}
-  - component: {fileID: 6743621627000239835}
   - component: {fileID: 7229985438933840287}
+  - component: {fileID: 6743621627000239835}
+  - component: {fileID: 7313149483888130114}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -349,21 +322,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.97864866, y: 0.8589771, z: 1}
-  m_Center: {x: -0.010675669, y: 0.17856467, z: 0}
---- !u!114 &6743621627000239835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6743621627000239838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3028b49fae2e9744094b59e7e413f8c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  model: {fileID: 0}
+  m_Size: {x: 1.1161454, y: 0.8589771, z: 1}
+  m_Center: {x: -0.0018096268, y: 0.17856467, z: 0}
 --- !u!54 &7229985438933840287
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -380,6 +340,39 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &6743621627000239835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743621627000239838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3028b49fae2e9744094b59e7e413f8c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 0}
+--- !u!114 &7313149483888130114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743621627000239838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21217286dfb5ad84a8e73d017ec25c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 1484941632988239656}
+  firepoint: {fileID: 8579285769618047914}
+  bulletType: 0
+  speed: 5
+  currentDirection: {x: 0, y: 0, z: 0}
+  spawnLookDirection: {x: 0, y: 0, z: 1}
+  maxBullets: 6
+  rechargeTimeInSeconds: 1
 --- !u!1 &7486047097606866728
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,7 +482,6 @@ GameObject:
   - component: {fileID: 794023820799597858}
   - component: {fileID: 7798468388620550369}
   - component: {fileID: 4862922461174287158}
-  - component: {fileID: 962331885652896450}
   m_Layer: 6
   m_Name: Wheel 2
   m_TagString: Untagged
@@ -562,20 +554,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &962331885652896450
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7775554623467127105}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &9157417682294873202
 GameObject:
   m_ObjectHideFlags: 0

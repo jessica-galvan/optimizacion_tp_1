@@ -7,6 +7,7 @@ public class PlayerStateMove<T> : PlayerStateBase<T>
 {
     private T inputIdle;
     private InputManager inputManager;
+    private Vector3 previousDirection;
 
     public PlayerStateMove(T myInputRunning)
     {
@@ -20,6 +21,7 @@ public class PlayerStateMove<T> : PlayerStateBase<T>
 
         inputManager.OnAttack += OnShoot;
         inputManager.OnMove += OnMove;
+        inputManager.OnIdle += OnIdle;
     }
 
     public override void Execute()
@@ -28,18 +30,20 @@ public class PlayerStateMove<T> : PlayerStateBase<T>
         inputManager.PlayerUpdate();
     }
 
-    private void OnMove(Vector3 movement)
+    private void OnMove(Vector3 direction)
     {
-        if (movement == Vector3.zero)
-        {
-            fsm.Transition(inputIdle);
-            return;
-        }
-
-        Vector3 direction = new Vector3(movement.x, 0, movement.z).normalized;
         model.Move(direction);
-        model.LookDirection(direction);
         model.CheckWhereWeAre();
+        if(previousDirection != direction)
+        {
+            previousDirection = direction;
+            model.LookDirection(direction);
+        }
+    }
+
+    private void OnIdle()
+    {
+        fsm.Transition(inputIdle);
     }
 
     private void OnShoot()
@@ -52,6 +56,5 @@ public class PlayerStateMove<T> : PlayerStateBase<T>
         base.Sleep();
         inputManager.OnAttack -= OnShoot;
         inputManager.OnMove -= OnMove;
-        model.Move(Vector3.zero);
     }
 }

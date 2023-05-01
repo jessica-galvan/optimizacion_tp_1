@@ -18,7 +18,7 @@ public class CustomUpdate : MonoBehaviour
         if (limitTargetFrame)
         {
             //calculamos el tiempo de cada framerate
-            targetTime = (float)1 / targetFrame; //PRECOMPUTATION
+            targetTime = 1f / targetFrame; //PRECOMPUTATION
         }
     }
 

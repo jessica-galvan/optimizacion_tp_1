@@ -11,13 +11,12 @@ public class UpdateManager : MonoBehaviour
 
     public void Initialize()
     {
-        //there are two gaemplayList because the second one can constantly change as the bullets and enemies come and go.
-        //Meanwhile the fixed one does not change from start to finish and has the main things: 
-        //GameManager, InputManager, EnemyManger, PlayerController,
-        //concidentally, those are the ones we want to check before the other ones
+        //there are two gameplayList because the second one can constantly change as the bullets and enemies come and go.
+        //Meanwhile the fixed one are the ones that don't have a set frame, they update all the frames as we want don't want to limit the frame check as they depend on the craprichious input system
+        //GameManager, InputManager, PlayerController.
 
         fixCustomUpdater = gameObject.AddComponent<CustomUpdate>();
-        fixCustomUpdater.Initialize(GameManager.Instance.globalConfig.gameplayFPSTarget, "Managers");
+        fixCustomUpdater.Initialize(0, "Managers");
 
         gameplayCustomUpdate = gameObject.AddComponent<CustomUpdate>();
         gameplayCustomUpdate.Initialize(GameManager.Instance.globalConfig.gameplayFPSTarget, "Gameplay");

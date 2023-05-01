@@ -8,20 +8,7 @@ public class EnemyModel : EntityModel
 {
     public EnemyConfig enemyConfig;
 
-    private RaycastHit[] currentRaycastBuffer = new RaycastHit[5];
-
     public bool CanAttack { get; set; }
-
-    public bool CanShoot()
-    {
-        int hitCount = Physics.RaycastNonAlloc(new Ray(firepoint.position, transform.forward), currentRaycastBuffer, enemyConfig.maxRayDistance, enemyConfig.raycastDectection);
-        bool canShoot = false;
-        for (int i = 0; i < hitCount; i++)
-        {
-            //currentRaycastBuffer[i]; //TODO implemente non alloc raycast;
-        }
-        return canShoot;
-    }
 
     public GridCell GetRandomDirection(bool skipCurrentDirection = false)
     {

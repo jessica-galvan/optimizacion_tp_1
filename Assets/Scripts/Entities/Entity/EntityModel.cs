@@ -8,6 +8,7 @@ public class EntityModel : MonoBehaviour, IDamagable
 {
     [Header("References")]
     [SerializeField] private GameObject model;
+    public MovementConfig movementConfig;
     public Transform firepoint;
     public BulletType bulletType;
 
@@ -18,6 +19,7 @@ public class EntityModel : MonoBehaviour, IDamagable
     protected GridCell currentCell;
     protected GridCell targetCell;
     protected GameManager gameManager;
+    protected RaycastHit[] currentRaycastBuffer = new RaycastHit[5];
     [ReadOnly][SerializeField] protected Vector3 currentDirection;
 
     public Rigidbody RB => rb;
@@ -63,6 +65,17 @@ public class EntityModel : MonoBehaviour, IDamagable
     {
         dir.y = 0; //Sacar una vez que utilizemos Y
         transform.forward = dir;
+    }
+
+    public bool CanMoveFoward()
+    {
+        int hitCount = Physics.RaycastNonAlloc(new Ray(firepoint.position, transform.forward), currentRaycastBuffer, movementConfig.maxRayDistance, movementConfig.raycastDectection);
+        bool canShoot = false;
+        for (int i = 0; i < hitCount; i++)
+        {
+            //currentRaycastBuffer[i]; //TODO implemente non alloc raycast;
+        }
+        return canShoot;
     }
 
     public bool GetNextCell(Vector3 direction)

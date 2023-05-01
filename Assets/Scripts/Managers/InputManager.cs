@@ -84,4 +84,8 @@ public class InputManager : MonoBehaviour, IUpdate
         }
     }
 
+    private void OnDestroy()
+    {
+        gameManager.updateManager.fixCustomUpdater.Remove(this);
+    }
 }

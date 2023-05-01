@@ -8,19 +8,24 @@ public class CustomUpdate : MonoBehaviour
     private List<IUpdate> updatingList = new List<IUpdate>();
     private float targetTime;
     private float currentTime;
+    private bool limitTargetFrame;
 
     public void Initialize(int targetFrame, string displayName = "")
     {
         updaterName = displayName;
 
-        //calculamos el tiempo de cada framerate
-        targetTime = (float) 1 / targetFrame;
+        limitTargetFrame = targetFrame > 0;
+        if (limitTargetFrame)
+        {
+            //calculamos el tiempo de cada framerate
+            targetTime = (float)1 / targetFrame; //PRECOMPUTATION
+        }
     }
 
     public void UpdateList()
     {
         //en cada frame, nos fijamos si es el momento de updatear esta lista, si devuelve falso, no updatea y ya. 
-        if (!CanUpdate()) return;
+        if (limitTargetFrame && !CanUpdate()) return;
 
         for (int i = 0; i < updatingList.Count; i++)
         {

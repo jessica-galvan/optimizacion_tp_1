@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: GlobalConfig
   m_EditorClassIdentifier: 
   playerWaitTimeRespawn: 2
-  gameplayFPSTarget: 60
-  uiFPSTarget: 60
-  activeMaxAppTarget: 1
+  gameplayFPSTarget: 0
+  uiFPSTarget: 0
+  activeMaxAppTarget: 0
   maxFPSTarget: 75
   totalEnemiesLevel: 100
   maxEnemiesInLevelAtAllTimes: 4

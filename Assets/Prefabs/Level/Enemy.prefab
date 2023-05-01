@@ -202,6 +202,8 @@ MonoBehaviour:
   firepoint: {fileID: 8579285769618047914}
   bulletType: 1
   speed: 5
+  currentDirection: {x: 0, y: 0, z: 0}
+  enemyConfig: {fileID: 11400000, guid: 4f84b3b3fa31be94c9ee7eab156e4ddb, type: 2}
 --- !u!1 &3680750548876323221
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,6 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a153379f98a06e44be0092f45c0f882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  model: {fileID: 0}
 --- !u!1 &7486047097606866728
 GameObject:
   m_ObjectHideFlags: 0

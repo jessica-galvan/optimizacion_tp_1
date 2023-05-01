@@ -59,6 +59,11 @@ public class EnemyController : EntityController, IPoolable, IUpdate
         hidePoint = hidePosition;
     }
 
+    public void Spawn(GridCell cell)
+    {
+        model.Spawn(cell);
+    }
+
     public void ReturnToPool()
     {
         GameManager.Instance.updateManager.gameplayCustomUpdate.Remove(this);

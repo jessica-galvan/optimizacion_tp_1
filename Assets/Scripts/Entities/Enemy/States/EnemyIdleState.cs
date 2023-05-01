@@ -5,14 +5,11 @@ using UnityEngine;
 
 public class EnemyIdleState<T> : EnemyBaseState<T>
 {
-    private T inputRunning;
     private float currentTime;
-    private Action onEndActivityCallback;
 
-    public EnemyIdleState(T myInputRunning, Action onEndActivityCallback)
+    public EnemyIdleState(T transitionInput, Action onEndActivityCallback) : base(transitionInput, onEndActivityCallback)
     {
-        inputRunning = myInputRunning;
-        this.onEndActivityCallback = onEndActivityCallback;
+
     }
 
     public override void Awake()
@@ -29,11 +26,5 @@ public class EnemyIdleState<T> : EnemyBaseState<T>
         {
             onEndActivityCallback();
         }
-    }
-
-    private void OnMove(Vector3 movement)
-    {
-        if (movement != Vector3.zero)
-            fsm.Transition(inputRunning);
     }
 }

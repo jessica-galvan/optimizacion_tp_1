@@ -8,10 +8,9 @@ public class EnemyModel : EntityModel
 {
     public EnemyConfig enemyConfig;
 
-    public bool CanAttack { get; set; }
-
     private RaycastHit[] currentRaycastBuffer = new RaycastHit[5];
-    private GameManager gameManager;
+
+    public bool CanAttack { get; set; }
 
     public bool CanShoot()
     {
@@ -19,7 +18,7 @@ public class EnemyModel : EntityModel
         bool canShoot = false;
         for (int i = 0; i < hitCount; i++)
         {
-            //currentRaycastBuffer[i];
+            //currentRaycastBuffer[i]; //TODO implemente non alloc raycast;
         }
         return canShoot;
     }
@@ -43,9 +42,27 @@ public class EnemyModel : EntityModel
 
     protected IEnumerator AttackTimer(float time)
     {
+        //TODO change timer for one that takes pause into account
         yield return new WaitForSeconds(time);
         CanAttack = true;
-        //print("Can attack again!");
+    }
+
+    public bool HasArrivedToPlace()
+    {
+        bool isOnCenter = false;
+        if (targetCell != null)
+        {
+            var distance = Vector3.SqrMagnitude(targetCell.spawnPoint.position - transform.position);
+            if (distance <= gameManager.levelGrid.cellCenterDistance)
+            {
+                if (distance <= enemyConfig.distanceFromCenter)
+                {
+                    isOnCenter = true;
+                }
+                UpdateCurrentCellStatus(targetCell);
+            }
+        }
+        return isOnCenter;
     }
 
     public override bool ValidCell(GridCell targetCell)
@@ -56,14 +73,9 @@ public class EnemyModel : EntityModel
         {
             if (targetCell.IsOcupied)
             {
-                if(targetCell.Entity != null) //EXPECTED PAD: most of the cells that are occupied are walls. So they don't have an entity on them. Thus we first check that one
-                {
-                    answer = false;
-                }
-                else
-                {
-                    answer = targetCell != gameManager.Player.CurrentCell; // if it's not the player THEEN it's a enemy and thus we don't go that way
-                }
+                //EXPECTED PAD: most of the cells that are occupied are walls. So they don't have an entity on them. Thus we first check that one
+                //if it's not the player THEEN it's a enemy and thus we don't go that way
+                answer = targetCell.Entity != null ? false : targetCell != gameManager.Player.CurrentCell;
             }
         }
 

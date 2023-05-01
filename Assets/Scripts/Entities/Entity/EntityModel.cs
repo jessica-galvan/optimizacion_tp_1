@@ -15,9 +15,9 @@ public class EntityModel : MonoBehaviour, IDamagable
     public float speed;
 
     protected Rigidbody rb;
-    protected LevelGrid levelGrid;
     protected GridCell currentCell;
     protected GridCell targetCell;
+    protected GameManager gameManager;
     [ReadOnly][SerializeField] protected Vector3 currentDirection;
 
     public Rigidbody RB => rb;
@@ -27,7 +27,7 @@ public class EntityModel : MonoBehaviour, IDamagable
 
     public virtual void Initialize()
     {
-        levelGrid = GameManager.Instance.levelGrid;
+        gameManager = GameManager.Instance;
     }
 
     public virtual void Spawn(GridCell spawnPoint)
@@ -69,7 +69,7 @@ public class EntityModel : MonoBehaviour, IDamagable
 
     public bool GetNextCell(Vector3 direction)
     {
-        targetCell = levelGrid.GetNextCell(currentCell, direction);
+        targetCell = gameManager.levelGrid.GetNextCell(currentCell, direction);
 
         bool isValid = currentCell != targetCell ? ValidCell(targetCell) : false;
 
@@ -81,7 +81,7 @@ public class EntityModel : MonoBehaviour, IDamagable
         if( targetCell != null)
         {
             var distance = Vector3.SqrMagnitude(targetCell.spawnPoint.position - transform.position);
-            if(distance <= levelGrid.cellCenterDistance)
+            if(distance <= gameManager.levelGrid.cellCenterDistance)
             {
                 UpdateCurrentCellStatus(targetCell);
             }

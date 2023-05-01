@@ -12,14 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b07994cbae4484ca37993b63c348ca, type: 3}
   m_Name: EnemyConfig
   m_EditorClassIdentifier: 
+  distanceFromCenter: 0
   maxRayDistance: 0
   raycastDectection:
     serializedVersion: 2
-    m_Bits: 0
-  shootCooldown: 3
+    m_Bits: 576
   posibleDirectionsCount: 4
   posibleDirections:
+  - {x: 0, y: 0, z: 1}
+  - {x: 1, y: 0, z: 0}
+  - {x: 1, y: 0, z: 1}
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  enemyStatesWeight:
+  - state: 0
+    weight: 25
+  - state: 1
+    weight: 50
+  shootCooldown: 3
+  minIdleWaitTime: 2
+  maxIdleWaitTime: 5

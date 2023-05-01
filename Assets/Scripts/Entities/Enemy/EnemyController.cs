@@ -15,12 +15,12 @@ public class EnemyController : EntityController, IPoolable, IUpdate
 
     private FSM<EnemyStates> fsm;
     private Vector3 hidePoint;
-    private INode root;
-    private Dictionary<EnemyStates, EnemyBaseState<EnemyStates>> enemyStates = new Dictionary<EnemyStates, EnemyBaseState<EnemyStates>>();
+    private bool isActive;
 
     private void Start()
     {
         model = GetComponentInChildren<EnemyModel>();
+        model.Initialize();
         model.OnDie += OnDie;
         InitializeFSM();
     }
@@ -59,15 +59,19 @@ public class EnemyController : EntityController, IPoolable, IUpdate
         hidePoint = hidePosition;
     }
 
-    public void Spawn(GridCell cell)
+    public void Spawn(GridCell spawnPoint)
     {
-        model.Spawn(cell);
+        isActive = true;
+        gameObject.SetActive(false);
+        model.Spawn(spawnPoint);
     }
 
     public void ReturnToPool()
     {
-        GameManager.Instance.updateManager.gameplayCustomUpdate.Remove(this);
+        isActive = false;
         transform.position = hidePoint;
+        gameObject.SetActive(false);
+        GameManager.Instance.updateManager.gameplayCustomUpdate.Remove(this);
     }
     #endregion
 

@@ -14,9 +14,10 @@ public class EnemyManager : MonoBehaviour, IUpdate
     private bool canSpawnEnemies;
     private int maxSpawnPoints;
 
-    void Awake()
+    public void Initialize()
     {
         canSpawnEnemies = true;
+        gameManager = GameManager.Instance;
         maxSpawnPoints = gameManager.levelGrid.enemySpawnPoints.Count - 1; //Precomputation. The spaces are not going to change and better do this calculation once than everywhere we might need it;
         currentTime = gameManager.globalConfig.retrySpawnTime;
 
@@ -25,13 +26,9 @@ public class EnemyManager : MonoBehaviour, IUpdate
         {
             enemyStatesWeight[enemyConfig.enemyStatesWeight[i].state] = enemyConfig.enemyStatesWeight[i].weight;
         }
-    }
 
-    void Start()
-    {
         gameManager = GameManager.Instance;
         gameManager.updateManager.fixCustomUpdater.Add(this);
-
     }
 
     public void DoUpdate()
@@ -42,7 +39,7 @@ public class EnemyManager : MonoBehaviour, IUpdate
         {
             currentTime -= Time.deltaTime;
 
-            if(currentTime <= 0)
+            if (currentTime <= 0)
             {
                 EnemySpawn();
             }
@@ -79,10 +76,10 @@ public class EnemyManager : MonoBehaviour, IUpdate
             triesPerSpawn--;
         }
 
-        if(spawnPoint != null)
+        if (spawnPoint != null)
         {
             var enemy = gameManager.poolManager.GetEnemy();
-            enemy.model.Spawn(spawnPoint);
+            enemy.Spawn(spawnPoint);
             currentTime = gameManager.globalConfig.spawningTime;
             currentEnemyQuantitySpawned++;
             canSpawnEnemies = HasSpaceToSpawnEnemy();
@@ -97,14 +94,6 @@ public class EnemyManager : MonoBehaviour, IUpdate
     {
         if (totalKilled == gameManager.globalConfig.totalEnemiesLevel)
             GameManager.Instance.WinGame();
-    }
-
-    private void OnDestroy()
-    {
-        if (GameManager.HasInstance)
-        {
-            gameManager.updateManager.fixCustomUpdater.Remove(this);
-        }
     }
 
     public EnemyStates GetRandomAction()
@@ -130,5 +119,13 @@ public class EnemyManager : MonoBehaviour, IUpdate
         }
 
         return states;
+    }
+
+    private void OnDestroy()
+    {
+        if (GameManager.HasInstance)
+        {
+            gameManager.updateManager.fixCustomUpdater.Remove(this);
+        }
     }
 }

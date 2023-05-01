@@ -8,11 +8,13 @@ using UnityEngine;
 public class EnemyConfig : ScriptableObject
 {
     [Header("Movement")]
+    public float distanceFromCenter;
     public float maxRayDistance;
     public LayerMask raycastDectection;
     public int posibleDirectionsCount = 4;
     public Vector3[] posibleDirections = new Vector3[4];
 
+    [Serializable]
     public class EnemyStatesWeight
     {
         public EnemyStates state;

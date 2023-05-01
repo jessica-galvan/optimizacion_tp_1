@@ -5,24 +5,39 @@ using UnityEngine;
 
 public class EnemyMovingState<T> : EnemyBaseState<T>
 {
-    private T inputRunning;
-    private Action onEndActivityCallback;
+    private Vector3 direction;
 
-    public EnemyMovingState(T myInputRunning, Action onEndActivityCallback)
+    public EnemyMovingState(T transitionInput, Action onEndActivityCallback) : base(transitionInput, onEndActivityCallback)
     {
-        inputRunning = myInputRunning;
-        this.onEndActivityCallback = onEndActivityCallback;
+
     }
 
     public override void Awake()
     {
         base.Awake();
+
         //Get a posible direction that we can move. if nothin works, then set it back to stop moving. 
+        var targetDirection = model.GetRandomDirection();
+        if (targetDirection != null) //expected path, there should usually be at least ONE spawn open
+        {
+            direction = (targetDirection.spawnPoint.position - model.transform.position).normalized;
+            direction = new Vector3(direction.x, 0, direction.z);
+        }
+        else
+        {
+            fsm.Transition(transitionInput);
+        }
     }
 
     public override void Execute()
     {
         base.Execute();
-        //TODO check if it's in the new area, call to random again
+
+        model.Move(direction);
+
+        if (model.HasArrivedToPlace())
+        {
+            onEndActivityCallback();
+        }
     }
 }

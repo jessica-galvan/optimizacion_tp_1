@@ -42,7 +42,9 @@ public class EnemyModel : EntityModel
 
     protected IEnumerator AttackTimer(float time)
     {
-        //TODO change timer for one that takes pause into account
+
+
+        //TODO change timer for one that takes pause into account => GameManager.Instance.PausableTimerCoroutine()
         yield return new WaitForSeconds(time);
         CanAttack = true;
     }
@@ -85,6 +87,5 @@ public class EnemyModel : EntityModel
     public override void TakeDamage()
     {
         base.TakeDamage();
-        //TODO return to pool!
     }
 }

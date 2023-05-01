@@ -126,12 +126,6 @@ public class GameManager : MonoBehaviour, IUpdate
         StartCoroutine(PausableTimerCoroutine(globalConfig.playerWaitTimeRespawn, () => Player.Spawn(levelGrid.playerSpawnPoint)));
     }
 
-    public void OnDestroy()
-    {
-        inputManager.OnPause -= TogglePause;
-        updateManager.fixCustomUpdater.Remove(this);
-    }
-
     public IEnumerator PausableTimerCoroutine(float timeDuration, Action OnEndAction)
     {
         float t = 0f;
@@ -146,5 +140,11 @@ public class GameManager : MonoBehaviour, IUpdate
         }
 
         OnEndAction();
+    }
+
+    public void OnDestroy()
+    {
+        inputManager.OnPause -= TogglePause;
+        updateManager.fixCustomUpdater.Remove(this);
     }
 }

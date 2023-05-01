@@ -59,7 +59,7 @@ public class BulletController : MonoBehaviour, IUpdate, IPoolable
 
     private void Die()
     {
-        //TODO:particle system explosion
+        //TODO: particle system explosion
         GameManager.Instance.poolManager.ReturnBullet(this);
     }
 

@@ -50,9 +50,6 @@ public class EntityModel : MonoBehaviour, IDamagable
     {
         if (GetNextCell(direction))
         {
-            //Vector3 directionSpeed = targetCell.spawnPoint.position * speed;
-            //directionSpeed.y = rb.velocity.y;
-            //directionSpeed.z = transform.position.z;
             rb.velocity = direction * speed;
         }
     }

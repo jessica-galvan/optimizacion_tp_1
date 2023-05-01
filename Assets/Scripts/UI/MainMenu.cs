@@ -10,13 +10,11 @@ using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
-    public string levelScene = "TestScene";
+    private const string LEVE_SCENE = "Level";
 
     [Header("Screens")]
     public GameObject menu;
     public GameObject credits;
-    public GameObject splashArt;
-    public float splashArtTime = 2f;
 
     [Header("Skip")]
     public KeyCode skipKey = KeyCode.F1;
@@ -24,31 +22,28 @@ public class MainMenu : MonoBehaviour
     public float skipTextAnimationTime = 3f;
 
     [Header("Buttons")]
-    public Button playButton;
-    public Button creditsButton;
-    public Button quitButton;
-    public Button goBackButton;
+    public MenuButton playButton;
+    public MenuButton creditsButton;
+    public MenuButton quitButton;
+    public MenuButton goBackButton;
     public KeyCode goBackKey = KeyCode.Escape;
 
     private bool notInMainMenu;
-    private bool activeSplashArt;
-    private float splashTimer;
+    private MenuButton currentSelectedButton;
 
     void Awake()
     {
-        playButton.onClick.AddListener(OnClickPlayHandler);
-        creditsButton.onClick.AddListener(OnClickCreditsHandler);
-        quitButton.onClick.AddListener(OnClickQuitHandler);
-        goBackButton.onClick.AddListener(OnClickGoBackHandler);
+        playButton.button.onClick.AddListener(OnClickPlayHandler);
+        creditsButton.button.onClick.AddListener(OnClickCreditsHandler);
+        quitButton.button.onClick.AddListener(OnClickQuitHandler);
+        goBackButton.button.onClick.AddListener(OnClickGoBackHandler);
 
-        skipText.text = $"Press {skipKey} to skip";
-
-        activeSplashArt = true;
-        splashArt.gameObject.SetActive(true);
-        menu.gameObject.SetActive(false);
-        credits.gameObject.SetActive(false);
+        skipText.text = $"{skipKey} to skip";
 
         StartCoroutine(SkipButtonAnimation(skipTextAnimationTime));
+
+        currentSelectedButton = playButton;
+        GoBack();
     }
 
     private void GoBack()
@@ -56,6 +51,7 @@ public class MainMenu : MonoBehaviour
         menu.SetActive(true);
         credits.SetActive(false);
         notInMainMenu = false;
+        SelectButton(currentSelectedButton);
     }
 
     private void Update()
@@ -68,29 +64,25 @@ public class MainMenu : MonoBehaviour
         {
             GoBack();
         }
-
-        if (activeSplashArt)
-        {
-            splashTimer += Time.deltaTime;
-            if(splashTimer > splashArtTime)
-            {
-                splashArt.gameObject.SetActive(false);
-                menu.gameObject.SetActive(true);
-                activeSplashArt = false;
-            }
-        }
     }
 
     private void OnClickPlayHandler()
     {
-        SceneManager.LoadScene(levelScene);
+        SceneManager.LoadScene(LEVE_SCENE);
     }
 
     private void OnClickCreditsHandler()
     {
+        currentSelectedButton = creditsButton;
         notInMainMenu = true;
         menu.SetActive(false);
         credits.SetActive(true);
+        SelectButton(goBackButton);
+    }
+
+    private void SelectButton(MenuButton button)
+    {
+        button.button.Select();
     }
 
     private void OnClickGoBackHandler()
@@ -105,10 +97,10 @@ public class MainMenu : MonoBehaviour
 
     private void OnDestroy()
     {
-        playButton.onClick.RemoveListener(OnClickPlayHandler);
-        creditsButton.onClick.RemoveListener(OnClickCreditsHandler);
-        quitButton.onClick.RemoveListener(OnClickQuitHandler);
-        goBackButton.onClick.RemoveListener(OnClickGoBackHandler);
+        playButton.button.onClick.RemoveListener(OnClickPlayHandler);
+        creditsButton.button.onClick.RemoveListener(OnClickCreditsHandler);
+        quitButton.button.onClick.RemoveListener(OnClickQuitHandler);
+        goBackButton.button.onClick.RemoveListener(OnClickGoBackHandler);
     }
 
     private IEnumerator SkipButtonAnimation(float time)

@@ -135,6 +135,14 @@ PrefabInstance:
       value: Grid(7,0)_BorderWall
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 1
       objectReference: {fileID: 0}
@@ -252,6 +260,14 @@ PrefabInstance:
       value: Grid(1,3)_EnemySpawnPoint
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 5
       objectReference: {fileID: 0}
@@ -352,6 +368,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(11,4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 63
@@ -412,6 +436,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(5,3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -499,6 +531,18 @@ PrefabInstance:
       value: Grid(6,9)
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 3
       objectReference: {fileID: 0}
@@ -583,6 +627,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(4,6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 82
@@ -643,6 +695,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(6,12)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -712,6 +776,10 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(0,0)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -798,6 +866,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(9,6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 87
@@ -858,6 +934,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(10,7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -969,6 +1053,14 @@ PrefabInstance:
       value: Grid(5,8)
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 0
       objectReference: {fileID: 0}
@@ -1052,6 +1144,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(7,2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -1139,6 +1243,14 @@ PrefabInstance:
       value: Grid(11,7)_EnemySpawnPoint
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 5
       objectReference: {fileID: 0}
@@ -1206,6 +1318,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(2,7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -1307,6 +1431,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(1,1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -1418,6 +1550,18 @@ PrefabInstance:
       value: Grid(2,9)
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 3
       objectReference: {fileID: 0}
@@ -1485,6 +1629,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(9,4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -1652,6 +1808,18 @@ PrefabInstance:
       value: Grid(1,12)_BorderWall
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 1
       objectReference: {fileID: 0}
@@ -1785,6 +1953,18 @@ PrefabInstance:
       value: Grid(9,2)
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 3
       objectReference: {fileID: 0}
@@ -1868,6 +2048,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(7,12)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -1955,6 +2147,14 @@ PrefabInstance:
       value: Grid(4,0)_BorderWall
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 1
       objectReference: {fileID: 0}
@@ -2022,6 +2222,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(1,4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -2115,6 +2323,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(0,4)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -2217,6 +2433,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(9,1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -2277,6 +2501,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(12,7)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -2380,6 +2616,18 @@ PrefabInstance:
       value: Grid(6,7)
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 2
       objectReference: {fileID: 0}
@@ -2447,6 +2695,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(8,1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -2542,6 +2798,18 @@ PrefabInstance:
       value: Grid(6,10)
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 3
       objectReference: {fileID: 0}
@@ -2609,6 +2877,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(8,5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -2688,6 +2964,18 @@ PrefabInstance:
       value: Grid(9,12)_BorderWall
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 1
       objectReference: {fileID: 0}
@@ -2755,6 +3043,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(11,11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -2848,6 +3144,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(2,0)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -2967,6 +3271,18 @@ PrefabInstance:
       value: Grid(9,9)
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 3
       objectReference: {fileID: 0}
@@ -3051,6 +3367,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(8,3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 47
@@ -3129,6 +3453,14 @@ PrefabInstance:
       value: Grid(0,5)_BorderWall
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 1
       objectReference: {fileID: 0}
@@ -3196,6 +3528,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(5,11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -3290,6 +3630,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(4,11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 147
@@ -3383,6 +3731,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(8,6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 86
@@ -3444,6 +3800,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(10,5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 75
@@ -3504,6 +3868,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(12,10)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -3589,6 +3965,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(6,1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -3698,6 +4082,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(11,1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -3841,6 +4233,18 @@ PrefabInstance:
       value: Grid(9,7)
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 3
       objectReference: {fileID: 0}
@@ -3908,6 +4312,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(9,8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -4011,6 +4427,18 @@ PrefabInstance:
       value: Grid(9,3)
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 3
       objectReference: {fileID: 0}
@@ -4079,6 +4507,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(7,11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 150
@@ -4140,6 +4576,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(1,11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 144
@@ -4200,6 +4644,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(0,6)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -4301,6 +4753,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(3,2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -4410,6 +4870,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(7,4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -4561,6 +5033,14 @@ PrefabInstance:
       value: Grid(11,3)_EnemySpawnPoint
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 5
       objectReference: {fileID: 0}
@@ -4644,6 +5124,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(4,1)_PlayerSpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -4730,6 +5218,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(3,8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 107
@@ -4790,6 +5286,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(12,6)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -4859,6 +5367,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(4,8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -4937,6 +5453,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(4,2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 30
@@ -4997,6 +5521,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(4,12)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -5099,6 +5635,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(8,9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 125
@@ -5175,6 +5719,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(5,12)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -5262,6 +5818,18 @@ PrefabInstance:
       value: Grid(12,3)_BorderWall
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 1
       objectReference: {fileID: 0}
@@ -5346,6 +5914,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(8,10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 138
@@ -5406,6 +5982,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(12,9)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -5475,6 +6063,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(9,11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -5586,6 +6182,14 @@ PrefabInstance:
       value: Grid(7,8)
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 0
       objectReference: {fileID: 0}
@@ -5653,6 +6257,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(10,4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -5731,6 +6343,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(6,3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 45
@@ -5791,6 +6411,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(0,9)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -6569,6 +7197,18 @@ PrefabInstance:
       value: Grid(10,12)_BorderWall
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 1
       objectReference: {fileID: 0}
@@ -6636,6 +7276,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(3,6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -6721,6 +7369,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(5,2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -6879,6 +7539,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(2,5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 67
@@ -6940,6 +7608,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(2,11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 145
@@ -7000,6 +7676,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(9,10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -7079,6 +7763,14 @@ PrefabInstance:
       value: Grid(1,6)
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 0
       objectReference: {fileID: 0}
@@ -7148,6 +7840,14 @@ PrefabInstance:
       value: Grid(0,3)_BorderWall
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 1
       objectReference: {fileID: 0}
@@ -7215,6 +7915,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(10,9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -7326,6 +8034,14 @@ PrefabInstance:
       value: Grid(5,1)
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 0
       objectReference: {fileID: 0}
@@ -7394,6 +8110,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(2,10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 132
@@ -7454,6 +8178,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(11,5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -7533,6 +8265,18 @@ PrefabInstance:
       value: Grid(12,11)_BorderWall
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 1
       objectReference: {fileID: 0}
@@ -7601,6 +8345,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(1,10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 131
@@ -7661,6 +8413,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(2,1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -7723,6 +8483,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(4,10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 134
@@ -7783,6 +8551,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(5,7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -7925,6 +8701,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(11,9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 128
@@ -8001,6 +8785,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(3,10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -8079,6 +8871,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(4,7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 95
@@ -8155,6 +8955,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(1,0)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -8242,6 +9050,18 @@ PrefabInstance:
       value: Grid(12,4)_BorderWall
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 1
       objectReference: {fileID: 0}
@@ -8309,6 +9129,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(1,7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -8403,6 +9231,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(11,8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 115
@@ -8495,6 +9331,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(3,5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -8590,6 +9434,14 @@ PrefabInstance:
       value: Grid(0,8)_BorderWall
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 1
       objectReference: {fileID: 0}
@@ -8657,6 +9509,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(2,4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -8727,6 +9591,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(4,5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 69
@@ -8787,6 +9659,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(2,3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -8857,6 +9741,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(11,10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 141
@@ -8917,6 +9809,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(11,12)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -8986,6 +9890,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(0,10)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -9150,6 +10062,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(7,1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -9210,6 +10130,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(1,8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -9376,6 +10304,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(10,6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 88
@@ -9485,6 +10421,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(5,5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 70
@@ -9545,6 +10489,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(3,4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -9622,6 +10574,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(8,2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -9717,6 +10677,14 @@ PrefabInstance:
       value: Grid(9,0)_BorderWall
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 1
       objectReference: {fileID: 0}
@@ -9784,6 +10752,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(0,7)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -9854,6 +10830,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(9,5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 74
@@ -9914,6 +10898,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(7,5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -9991,6 +10983,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(4,4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -10086,6 +11086,14 @@ PrefabInstance:
       value: Grid(0,1)_BorderWall
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 1
       objectReference: {fileID: 0}
@@ -10153,6 +11161,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(5,6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -10239,6 +11255,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(5,10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 135
@@ -10299,6 +11323,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(8,7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -10361,6 +11393,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(11,2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 37
@@ -10421,6 +11461,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(12,12)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -10507,6 +11559,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(3,7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 94
@@ -10567,6 +11627,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(5,0)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -10685,6 +11753,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(10,10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 140
@@ -10779,6 +11855,18 @@ PrefabInstance:
       value: Grid(12,8)_BorderWall
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 1
       objectReference: {fileID: 0}
@@ -10846,6 +11934,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(8,0)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -10996,6 +12092,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(4,9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 121
@@ -11057,6 +12161,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(4,3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 43
@@ -11117,6 +12229,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(12,0)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -11186,6 +12306,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(11,6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -11329,6 +12457,18 @@ PrefabInstance:
       value: Grid(2,8)
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 3
       objectReference: {fileID: 0}
@@ -11412,6 +12552,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(12,5)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -11498,6 +12650,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(1,2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 27
@@ -11559,6 +12719,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(8,11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 151
@@ -11619,6 +12787,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(10,8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -11698,6 +12874,18 @@ PrefabInstance:
       value: Grid(5,9)
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 3
       objectReference: {fileID: 0}
@@ -11767,6 +12955,18 @@ PrefabInstance:
       value: Grid(2,12)_BorderWall
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 1
       objectReference: {fileID: 0}
@@ -11834,6 +13034,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(10,1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -11913,6 +13121,18 @@ PrefabInstance:
       value: Grid(2,2)
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 3
       objectReference: {fileID: 0}
@@ -11980,6 +13200,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(10,2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -12073,6 +13301,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(8,12)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -12176,6 +13416,14 @@ PrefabInstance:
       value: Grid(0,11)_BorderWall
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 1
       objectReference: {fileID: 0}
@@ -12244,6 +13492,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(10,3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 49
@@ -12304,6 +13560,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(0,2)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -12373,6 +13637,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(3,12)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -12460,6 +13736,18 @@ PrefabInstance:
       value: Grid(6,6)
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 2
       objectReference: {fileID: 0}
@@ -12528,6 +13816,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(7,10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 137
@@ -12588,6 +13884,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(6,8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -12707,6 +14011,14 @@ PrefabInstance:
       value: Grid(11,0)_BorderWall
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 1
       objectReference: {fileID: 0}
@@ -12792,6 +14104,14 @@ PrefabInstance:
       value: Grid(7,6)
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 0
       objectReference: {fileID: 0}
@@ -12859,6 +14179,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(1,9)_EnemySpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -12929,6 +14257,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(7,7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 98
@@ -12989,6 +14325,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(10,0)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -13059,6 +14403,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(8,4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 60
@@ -13119,6 +14471,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(3,1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -13198,6 +14558,18 @@ PrefabInstance:
       value: Grid(12,1)_BorderWall
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 1
       objectReference: {fileID: 0}
@@ -13267,6 +14639,14 @@ PrefabInstance:
       value: Grid(3,0)_BorderWall
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 1
       objectReference: {fileID: 0}
@@ -13334,6 +14714,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(7,3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -13411,6 +14799,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(2,6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -13497,6 +14893,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(8,8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 112
@@ -13557,6 +14961,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(12,2)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -13627,6 +15043,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(3,3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 42
@@ -13687,6 +15111,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(10,11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
@@ -13764,6 +15196,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(6,11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -13866,6 +15310,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(1,5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 66
@@ -13927,6 +15379,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(3,9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 120
@@ -13987,6 +15447,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(5,4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -14058,6 +15530,18 @@ PrefabInstance:
       value: Grid(6,4)
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 3
       objectReference: {fileID: 0}
@@ -14125,6 +15609,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(6,5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -14195,6 +15687,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid(3,11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964254, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_RootOrder
       value: 146
@@ -14255,6 +15755,14 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(0,12)_BorderWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -14374,6 +15882,18 @@ PrefabInstance:
       value: Grid(7,9)
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 3
       objectReference: {fileID: 0}
@@ -14491,6 +16011,14 @@ PrefabInstance:
       value: Grid(6,0)_BorderWall
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
       value: 1
       objectReference: {fileID: 0}
@@ -14574,6 +16102,18 @@ PrefabInstance:
     - target: {fileID: 1442060556074964252, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: m_Name
       value: Grid(6,2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posX
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: posY
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
+      propertyPath: ocupied
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442060556074964253, guid: 48b799f69f5cf564087d91f97c6682ff, type: 3}
       propertyPath: cellType
@@ -14793,6 +16333,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3416984897035591288, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416984897035591289, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416984897035591289, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416984897035591289, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416984897035591289, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4255655696770452781, guid: be9e07e59d851364db53d34fe721be85, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -14806,6 +16366,38 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4255655696770452781, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4346160119080449711, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4346160119080449711, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4346160119080449711, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4346160119080449711, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4517362468600411527, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4517362468600411527, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4517362468600411527, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4517362468600411527, guid: be9e07e59d851364db53d34fe721be85, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -14836,6 +16428,42 @@ PrefabInstance:
     - target: {fileID: 5057421484340009719, guid: be9e07e59d851364db53d34fe721be85, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061884319228103282, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061884319228103282, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061884319228103282, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061884319228103282, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667484405071975154, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667484405071975154, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667484405071975154, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667484405071975154, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667484405071975155, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6563902186431500541, guid: be9e07e59d851364db53d34fe721be85, type: 3}
       propertyPath: m_AnchorMax.y
@@ -14962,6 +16590,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7632379520790268405, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661053832080310627, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661053832080310627, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661053832080310627, guid: be9e07e59d851364db53d34fe721be85, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661053832080310627, guid: be9e07e59d851364db53d34fe721be85, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}

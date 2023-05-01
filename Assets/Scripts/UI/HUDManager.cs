@@ -9,12 +9,16 @@ using UnityEngine.SceneManagement;
 
 public class HUDManager : MonoBehaviour, IUpdate
 {
+    private const string MAIN_MENU_SCENE = "Menu";
+
     [Header("Pause")]
     [SerializeField] private GameObject pauseMenu;
-    [SerializeField] private Button resumeButton;
-    [SerializeField] private Button restartButton;
-    [SerializeField] private Button menuButton;
-    [SerializeField] private Button quitButton;
+    [SerializeField] private GameObject buttonsContainer;
+    [SerializeField] private MenuButton resumeButton;
+    [SerializeField] private MenuButton restartButton;
+    [SerializeField] private MenuButton menuButton;
+    [SerializeField] private MenuButton quitButton;
+    public KeyCode goBackKey = KeyCode.Escape;
 
     [Header("HUD")]
     [SerializeField] private GameObject hud;
@@ -23,12 +27,20 @@ public class HUDManager : MonoBehaviour, IUpdate
     [SerializeField] private TMP_Text enemyCount;
     [SerializeField] private TMP_Text deadCount;
 
+    [Header("ExitPopup")]
+    [SerializeField] private GameObject exitPopup;
+    [SerializeField] private MenuButton exitPopupButton;
+    [SerializeField] private MenuButton cancelExitPopupButton;
+
     [Header("WinPopup")]
-    [SerializeField] private string mainMenuScene = "Menu";
     [SerializeField] private GameObject popupWin;
-    [SerializeField] private Button popupMenuButton;
+    [SerializeField] private MenuButton popupConfirmWinButton;
 
     private GameManager gameManager;
+    private MenuButton selectedButton;
+    private Action confirmAction = delegate { };
+    private bool promptPopupActive;
+
     private List<GameObject> bulletsUI = new List<GameObject>();
 
     private void Start()
@@ -45,22 +57,19 @@ public class HUDManager : MonoBehaviour, IUpdate
 
         //Pause
         pauseMenu.SetActive(false);
-        resumeButton.onClick.AddListener(OnClickResumeHandler);
-        restartButton.onClick.AddListener(OnClickRestartHandler);
-        menuButton.onClick.AddListener(OnClickMenuHandler);
-        quitButton.onClick.AddListener(OnClickQuitHandler);
-        popupMenuButton.onClick.AddListener(OnClickMenuHandler);
+        resumeButton.button.onClick.AddListener(OnClickResumeHandler);
+        restartButton.button.onClick.AddListener(OnClickRestartHandler);
+        menuButton.button.onClick.AddListener(OnClickMenuHandler);
+        quitButton.button.onClick.AddListener(OnClickQuitHandler);
+
+        exitPopup.SetActive(false);
+        promptPopupActive = false;
+        popupConfirmWinButton.button.onClick.AddListener(MainMenu);
+        exitPopupButton.button.onClick.AddListener(ConfirmAction);
+        cancelExitPopupButton.button.onClick.AddListener(()=>SetExitPopupActive(false));
 
         //HUD
         hud.SetActive(true);
-
-        //bulletsUI.Add(bulletUI);
-        //int maxNeedBullets = player.maxBullets - 1;
-        //for (int i = 0; i < maxNeedBullets; i++)
-        //{
-        //    var bulletAux = Instantiate(bulletUI, bulletUI.transform.parent);
-        //    bulletsUI.Add(bulletAux);
-        //}
 
         //POP
         gameManager.OnWin += OnWin;
@@ -69,7 +78,6 @@ public class HUDManager : MonoBehaviour, IUpdate
 
     public void DoUpdate()
     {
-        //UpdateBullets(player.CurrentBullets); //could be an event
         UpdateTimer(gameManager.CurrentTime);
     }
 
@@ -77,23 +85,34 @@ public class HUDManager : MonoBehaviour, IUpdate
     {
         hud.SetActive(!isPause);
         pauseMenu.SetActive(isPause);
+
+        if (isPause)
+        {
+            selectedButton = resumeButton;
+            selectedButton.button.Select();
+        }
+        else
+        {
+            SetExitPopupActive(false);
+        }
+
     }
 
     #region HUD
-    private void UpdateBullets(int bulletQuantity)
-    {
-        bool bulletVisilble = true;
-        bulletQuantity--; //because the bulletsUI starts in 0
-        for (int i = 0; i < bulletsUI.Count; i++)
-        {
-            if (bulletVisilble)
-            {
-                bulletVisilble = bulletQuantity >= i;
-            }
+    //private void UpdateBullets(int bulletQuantity)
+    //{
+    //    bool bulletVisilble = true;
+    //    bulletQuantity--; //because the bulletsUI starts in 0
+    //    for (int i = 0; i < bulletsUI.Count; i++)
+    //    {
+    //        if (bulletVisilble)
+    //        {
+    //            bulletVisilble = bulletQuantity >= i;
+    //        }
 
-            bulletsUI[i].SetActive(bulletVisilble);
-        }
-    }
+    //        bulletsUI[i].SetActive(bulletVisilble);
+    //    }
+    //}
 
     public void UpdateTimer(float timeInSeconds)
     {
@@ -105,49 +124,106 @@ public class HUDManager : MonoBehaviour, IUpdate
     #region PauseMenu
     private void OnClickResumeHandler()
     {
+        selectedButton = resumeButton;
         gameManager.SetPause(false);
     }
 
     private void OnClickRestartHandler()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        selectedButton = restartButton;
+        confirmAction = ReloadScene;
+        SetExitPopupActive(true);
     }
 
     private void OnClickMenuHandler()
     {
-        SceneManager.LoadScene(mainMenuScene);
+        selectedButton = menuButton;
+        confirmAction = MainMenu;
+        SetExitPopupActive(true);
     }
 
     private void OnClickQuitHandler()
     {
-        print("Quit Game");
+        selectedButton = quitButton;
+        confirmAction = QuitApp;
+        SetExitPopupActive(true);
+    }
+
+    private void ConfirmAction()
+    {
+        confirmAction.Invoke();
+    }
+
+    private void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    private void MainMenu()
+    {
+        SceneManager.LoadScene(MAIN_MENU_SCENE);
+    }
+
+    private void QuitApp()
+    {
         Application.Quit();
     }
 
     #endregion
 
-    public void OnWin()
+    private void SetExitPopupActive(bool value)
+    {
+        if (promptPopupActive == value) return;
+        promptPopupActive = value;
+
+        exitPopup.SetActive(value);
+        buttonsContainer.SetActive(!value);
+
+        if (!value)
+        {
+            confirmAction = null;
+            if (gameManager.Pause)
+            {
+                exitPopupButton.Deselect();
+                cancelExitPopupButton.Deselect();
+                selectedButton.button.Select();
+            }
+        }
+        else
+        {
+            exitPopupButton.button.Select();
+        }
+    }
+
+    private void OnWin()
     {
         SetWinPopUpActive(true);
     }
 
-    public void SetWinPopUpActive(bool value)
+    private void SetWinPopUpActive(bool value)
     {
         popupWin.SetActive(value);
+
+        if (value)
+        {
+            popupConfirmWinButton.button.Select();
+        }
     }
 
-    public void OnPlayerDead()
+    private void OnPlayerDead()
     {
         deadCount.text = gameManager.PlayerDeadCounter.ToString();
     }
 
     private void OnDestroy()
     {
-        resumeButton.onClick.RemoveAllListeners();
-        restartButton.onClick.RemoveAllListeners();
-        menuButton.onClick.RemoveAllListeners();
-        quitButton.onClick.RemoveAllListeners();
-        popupMenuButton.onClick.RemoveAllListeners();
+        resumeButton.button.onClick.RemoveAllListeners();
+        restartButton.button.onClick.RemoveAllListeners();
+        menuButton.button.onClick.RemoveAllListeners();
+        quitButton.button.onClick.RemoveAllListeners();
+        popupConfirmWinButton.button.onClick.RemoveAllListeners();
+        exitPopupButton.button.onClick.RemoveAllListeners();
+        cancelExitPopupButton.button.onClick.RemoveAllListeners();
 
         if (GameManager.HasInstance)
         {

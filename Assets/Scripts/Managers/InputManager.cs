@@ -5,26 +5,23 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour, IUpdate
 {
-    #region KeyCodes
-    public KeyCode attack = KeyCode.Space;
-    public KeyCode pause = KeyCode.Escape;
     private const string HORIZONTAL_AXIS = "Horizontal";
     private const string VERTICAL_AXIS = "Vertical";
-    #endregion
 
-    #region Events
+
+    public KeyCode attack = KeyCode.Space;
+    public KeyCode pause = KeyCode.Escape;
+
     public Action OnPause;
     public Action OnAttack;
     public Action<Vector3> OnMove;
     public Action OnStopMoving;
-    #endregion
 
     private bool previousMovingState = false;
     private GameManager gameManager;
 
     public bool IsMoving { get; private set; }
 
-    #region Unity
     private void Awake()
     {
         gameManager = GameManager.Instance;
@@ -45,9 +42,7 @@ public class InputManager : MonoBehaviour, IUpdate
             CheckMovement();
         }
     }
-    #endregion
 
-    #region Private
     private void CheckMovement()
     {
         float horizontal = Input.GetAxisRaw(HORIZONTAL_AXIS);
@@ -62,12 +57,16 @@ public class InputManager : MonoBehaviour, IUpdate
         {
             previousMovingState = IsMoving;
 
-            if(!IsMoving)
+            if (!IsMoving)
+            {
                 OnStopMoving?.Invoke();
+            }
         }
 
-        if(IsMoving)
+        if (IsMoving)
+        {
             OnMove?.Invoke(new Vector3(horizontal, 0, vertical));
+        }
     }
 
     private void CheckAttack()
@@ -84,5 +83,5 @@ public class InputManager : MonoBehaviour, IUpdate
             OnPause?.Invoke();
         }
     }
-    #endregion
+
 }

@@ -33,6 +33,11 @@ public class LevelGridEditor : Editor
         if (GUILayout.Button("Save & Validate"))
         {
             levelGrid.SaveAndValidateSetUp();
+
+            for (int i = 0; i < levelGrid.gridList.Count; i++)
+            {
+                EditorUtility.SetDirty(levelGrid.gridList[i]);
+            }
         }
 
         //if (GUILayout.Button("Reset Pos Info"))

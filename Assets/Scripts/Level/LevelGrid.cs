@@ -1,11 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.UIElements;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class LevelGrid : MonoBehaviour
 {
@@ -34,6 +34,7 @@ public class LevelGrid : MonoBehaviour
         gridPos.Clear();
     }
 
+#if UNITY_EDITOR
     public void CreateGrid()
     {
         if(prefabsReferences != null & prefabsReferences.gridCellPrefab == null)
@@ -111,6 +112,8 @@ public class LevelGrid : MonoBehaviour
             Debug.LogError("There is no enemy spawning point in this level");
         }
     }
+
+#endif
 
     public void ResetPosInfo()
     {

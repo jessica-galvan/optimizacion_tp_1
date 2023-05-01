@@ -14674,7 +14674,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 290631580200928871, guid: 7afc44136378e4f439a2656e0f51a71c, type: 3}
       propertyPath: pause
-      value: 101
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 1960593472493000738, guid: 7afc44136378e4f439a2656e0f51a71c, type: 3}
       propertyPath: gameplayCustomUpdate

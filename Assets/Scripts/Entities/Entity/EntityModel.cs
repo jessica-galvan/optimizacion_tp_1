@@ -65,7 +65,7 @@ public class EntityModel : MonoBehaviour, IDamagable
     public void LookDirection(Vector3 dir)
     {
         dir.y = 0; //Sacar una vez que utilizemos Y
-        model.transform.forward = dir;
+        transform.forward = dir;
     }
 
     public bool GetNextCell(Vector3 direction)

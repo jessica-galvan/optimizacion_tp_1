@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.VersionControl.Asset;
 
 public enum EnemyStates
 {
@@ -11,15 +10,15 @@ public enum EnemyStates
 
 public class EnemyController : EntityController, IPoolable, IUpdate
 {
-    public EnemyModel model;
+    [ReadOnly] public EnemyModel model;
 
     private FSM<EnemyStates> fsm;
     private Vector3 hidePoint;
-    private bool isActive;
+    [ReadOnly] [SerializeField] private bool isActive;
 
     private void Start()
     {
-        model = GetComponentInChildren<EnemyModel>();
+        model = GetComponent<EnemyModel>();
         model.Initialize();
         model.OnDie += OnDie;
         InitializeFSM();

@@ -9,12 +9,13 @@ public enum PlayerEnums
 
 public class PlayerController : MonoBehaviour, IUpdate
 {
-    public PlayerModel model;
+    [ReadOnly] public PlayerModel model;
+
     private FSM<PlayerEnums> fsm;
 
     public void Initialize()
     {
-        model = GetComponentInChildren<PlayerModel>();
+        model = GetComponent<PlayerModel>();
         model.Initialize();
         InitializeFSM();
         GameManager.Instance.updateManager.fixCustomUpdater.Add(this);

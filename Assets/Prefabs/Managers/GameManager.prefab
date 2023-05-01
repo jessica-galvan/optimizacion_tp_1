@@ -77,13 +77,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f96843e4f4a474a91e832ba7c0dade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  globalConfig: {fileID: 11400000, guid: 458684e75a8f1f24da688f4d5a9a89fa, type: 2}
   prefabReferences: {fileID: 11400000, guid: 5e37a64cae4cb624c9c811b755174692, type: 2}
   levelGrid: {fileID: 0}
-  spawningOffset: 2
   hidePoolPoint: {fileID: 1563844740}
+  waitTimeToRespawn: 2
   inputManager: {fileID: 0}
   updateManager: {fileID: 0}
   poolManager: {fileID: 0}
+  enemyManager: {fileID: 0}
 --- !u!114 &290631580200928871
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -93,7 +93,9 @@ public class EnemyManager : MonoBehaviour, IUpdate
     private void CheckWinCondition()
     {
         if (totalKilled == gameManager.globalConfig.totalEnemiesLevel)
+        {
             GameManager.Instance.WinGame();
+        }
     }
 
     public EnemyStates GetRandomAction()

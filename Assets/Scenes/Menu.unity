@@ -928,7 +928,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60bc94dc979aaa64cb9070643bfbc2fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelScene: Level
   menu: {fileID: 724276863}
   credits: {fileID: 1636172755}
   skipKey: 282

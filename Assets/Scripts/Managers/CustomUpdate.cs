@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CustomUpdate : MonoBehaviour
 {
-    [SerializeField] [ReadOnly] public int targetFrameRate; //podria ser un scriptable object donde tengo los framerates de todos los customUpdates y los instancio en el awake del update manager pero quizas es too much.
     [SerializeField] [ReadOnly] public string updaterName;
     private List<IUpdate> updatingList = new List<IUpdate>();
     private float targetTime;
@@ -12,11 +11,10 @@ public class CustomUpdate : MonoBehaviour
 
     public void Initialize(int targetFrame, string displayName = "")
     {
-        targetFrameRate = targetFrame;
         updaterName = displayName;
 
         //calculamos el tiempo de cada framerate
-        targetTime = (float) 1 / targetFrameRate;
+        targetTime = (float) 1 / targetFrame;
     }
 
     public void UpdateList()
@@ -33,10 +31,10 @@ public class CustomUpdate : MonoBehaviour
     private bool CanUpdate()
     {
         var answer = false;
-        currentTime += Time.deltaTime;
-        if (currentTime >= targetTime)
+        currentTime -= Time.deltaTime;
+        if (currentTime <= 0)
         {
-            currentTime = 0;
+            currentTime = targetTime;
             answer = true;
         }
         return answer;

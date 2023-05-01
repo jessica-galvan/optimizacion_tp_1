@@ -7,13 +7,7 @@ public class UpdateManager : MonoBehaviour
 {
     [ReadOnly] public CustomUpdate fixCustomUpdater;
     [ReadOnly] public CustomUpdate gameplayCustomUpdate;
-    public int targetFrameRateGameplay = 60;
-
     [ReadOnly] public CustomUpdate uiCustomUpdate;
-    public int targetFrameRateUI = 30;
-
-    public bool setApplicationTargetFramte = false;
-    public int maxTargetFrame = 75;
 
     public void Initialize()
     {
@@ -23,19 +17,19 @@ public class UpdateManager : MonoBehaviour
         //concidentally, those are the ones we want to check before the other ones
 
         fixCustomUpdater = gameObject.AddComponent<CustomUpdate>();
-        fixCustomUpdater.Initialize(targetFrameRateGameplay, "Managers");
+        fixCustomUpdater.Initialize(GameManager.Instance.globalConfig.gameplayFPSTarget, "Managers");
 
         gameplayCustomUpdate = gameObject.AddComponent<CustomUpdate>();
-        gameplayCustomUpdate.Initialize(targetFrameRateGameplay, "Gameplay");
+        gameplayCustomUpdate.Initialize(GameManager.Instance.globalConfig.gameplayFPSTarget, "Gameplay");
 
         uiCustomUpdate = gameObject.AddComponent<CustomUpdate>();
-        uiCustomUpdate.Initialize(targetFrameRateUI, "UI");
+        uiCustomUpdate.Initialize(GameManager.Instance.globalConfig.uiFPSTarget, "UI");
 
 
-        if (setApplicationTargetFramte)
+        if (GameManager.Instance.globalConfig.activeMaxAppTarget)
         {
             QualitySettings.vSyncCount = 0;
-            Application.targetFrameRate = maxTargetFrame;
+            Application.targetFrameRate = GameManager.Instance.globalConfig.maxFPSTarget;
         }
     }
 

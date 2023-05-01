@@ -13,27 +13,24 @@ public class GameManager : MonoBehaviour, IUpdate
     public LevelGrid levelGrid;
     public Transform hidePoolPoint;
 
-    [Header("Player Dead Config")]
-    public float waitTimeToRespawn = 2f;
-
     [Header("Managers")]
     [ReadOnly] public InputManager inputManager;
     [ReadOnly] public UpdateManager updateManager;
     [ReadOnly] public PoolManager poolManager;
     [ReadOnly] public EnemyManager enemyManager;
 
-    private static GameManager _instance;
+    private static GameManager instance;
     private int playerDeadCount = 0;
-    private bool _pause = false;
-    private float _currentTime;
+    private bool pause = false;
+    private float currentTime;
     private bool won = false;
 
     //Properties
-    public static GameManager Instance => _instance;
-    public static bool HasInstance => _instance != null;
+    public static GameManager Instance => instance;
+    public static bool HasInstance => instance != null;
     public PlayerModel Player { get; private set; }
-    public bool Pause => _pause;
-    public float CurrentTime => _currentTime;
+    public bool Pause => pause;
+    public float CurrentTime => currentTime;
     public int PlayerDeadCounter => playerDeadCount;
     public bool Won => won;
 
@@ -44,13 +41,13 @@ public class GameManager : MonoBehaviour, IUpdate
 
     private void Awake()
     {
-        if (_instance != null)
+        if (instance != null)
         {
             Destroy(this);
             return;
         }
 
-        _instance = this;
+        instance = this;
 
         levelGrid.ReGenerateMatrix();
         
@@ -71,20 +68,13 @@ public class GameManager : MonoBehaviour, IUpdate
     }
 
 
-    private void Start()
-    {
-
-        //TODO enemy manager
-    }
-
     public void DoUpdate()
     {
         if (!Pause)
         {
-            _currentTime += Time.deltaTime;
+            currentTime += Time.deltaTime;
             TestingCheats();
         }
-
     }
 
     private void TestingCheats()
@@ -98,11 +88,6 @@ public class GameManager : MonoBehaviour, IUpdate
         {
             Player.TakeDamage();
         }
-
-        if (Input.GetKeyDown(KeyCode.F3))
-        {
-
-        }
     }
 
     public void SetPlayer(PlayerModel player)
@@ -112,22 +97,22 @@ public class GameManager : MonoBehaviour, IUpdate
 
     public void SetPause(bool value)
     {
-        if (_pause == value) return;
+        if (pause == value) return;
 
-        _pause = value;
-        OnPause.Invoke(_pause);
+        pause = value;
+        OnPause.Invoke(pause);
     }
 
     private void TogglePause()
     {
         if (Won) return;
-        SetPause(!_pause);
+        SetPause(!pause);
     }
 
     public void WinGame()
     {
         won = true;
-        _pause = true;
+        pause = true;
 
         OnWin.Invoke();
     }
@@ -147,7 +132,9 @@ public class GameManager : MonoBehaviour, IUpdate
         while (t < 1f)
         {
             if (!Pause)
-                t += Time.deltaTime / waitTimeToRespawn;
+            {
+                t += Time.deltaTime / globalConfig.playerWaitTimeRespawn;
+            }
             yield return null;
         }
 

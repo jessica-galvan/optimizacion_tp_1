@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class PlayerStateBase<T> : State<T>
 {
-    //PROTECTED: publica para los que heredan,
-    //privada para los que no.
+    protected T inputTransition;
     protected PlayerModel model;
     protected FSM<T> fsm;
+    protected InputManager inputManager;
 
-    public void InitializeState(PlayerModel playerModel, FSM<T> playerFSM)
+    public PlayerStateBase(PlayerModel playerModel, FSM<T> playerFSM, T transitionInput)
     {
         model = playerModel;
         fsm = playerFSM;
+        inputTransition = transitionInput;
+        inputManager = GameManager.Instance.inputManager;
     }
 }

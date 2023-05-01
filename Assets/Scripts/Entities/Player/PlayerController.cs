@@ -4,14 +4,13 @@ using UnityEngine;
 public enum PlayerEnums
 {
     Idle,
-    Running,
+    Moving,
 }
 
 public class PlayerController : MonoBehaviour, IUpdate
 {
     public PlayerModel model;
     private FSM<PlayerEnums> fsm;
-    private List<PlayerStateBase<PlayerEnums>> states;
 
     public void Initialize()
     {
@@ -23,23 +22,12 @@ public class PlayerController : MonoBehaviour, IUpdate
 
     public void InitializeFSM()
     {
-        //el player state base se crea para no tener que hacer siempre
-        //la misma función y no tener que pasar siempre los mismos componentes
-        //que son el model y el fsm.
-
         fsm = new FSM<PlayerEnums>();
-        states = new List<PlayerStateBase<PlayerEnums>>();
 
-        var idle = new PlayerStateIdle<PlayerEnums>(PlayerEnums.Running);
-        var move = new PlayerStateMove<PlayerEnums>(PlayerEnums.Idle);
+        var idle = new PlayerStateIdle<PlayerEnums>(model, fsm, PlayerEnums.Moving);
+        var move = new PlayerStateMove<PlayerEnums>(model, fsm, PlayerEnums.Idle);
 
-        idle.InitializeState(model, fsm);
-        move.InitializeState(model, fsm);
-
-        //si al idle le paso este input "playerEnums.Running" va a "move"
-        idle.AddTransition(PlayerEnums.Running, move);
-
-        //si al idle le paso este input "playerEnums.Idle" va a "idle"
+        idle.AddTransition(PlayerEnums.Moving, move);
         move.AddTransition(PlayerEnums.Idle, idle);
 
         fsm.SetInit(idle);

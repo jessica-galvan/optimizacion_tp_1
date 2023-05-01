@@ -48,21 +48,22 @@ public class EntityModel : MonoBehaviour, IDamagable
 
     public void Move(Vector3 direction)
     {
-        if (direction == Vector3.zero) return;
-
         if (GetNextCell(direction))
         {
-            Vector3 directionSpeed = targetCell.spawnPoint.position * speed;
-            directionSpeed.y = rb.velocity.y;
-            directionSpeed.z = transform.position.z;
+            //Vector3 directionSpeed = targetCell.spawnPoint.position * speed;
+            //directionSpeed.y = rb.velocity.y;
+            //directionSpeed.z = transform.position.z;
             rb.velocity = direction * speed;
         }
     }
 
+    public void Idle()
+    {
+        rb.velocity = Vector3.zero;
+    }
+
     public void LookDirection(Vector3 dir)
     {
-        if (dir == Vector3.zero) return;
-        if (dir == currentDirection) return;
         dir.y = 0; //Sacar una vez que utilizemos Y
         model.transform.forward = dir;
     }

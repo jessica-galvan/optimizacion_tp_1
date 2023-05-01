@@ -5,13 +5,11 @@ using UnityEngine;
 
 public class PlayerStateMove<T> : PlayerStateBase<T>
 {
-    private T inputIdle;
-    private InputManager inputManager;
+    private Vector3 previousDireciton;
 
-    public PlayerStateMove(T myInputRunning)
+    public PlayerStateMove(PlayerModel playerModel, FSM<T> playerFSM, T transitionInput) : base(playerModel, playerFSM, transitionInput)
     {
-        inputIdle = myInputRunning;
-        inputManager = GameManager.Instance.inputManager;
+
     }
 
     public override void Awake()
@@ -20,6 +18,7 @@ public class PlayerStateMove<T> : PlayerStateBase<T>
 
         inputManager.OnAttack += OnShoot;
         inputManager.OnMove += OnMove;
+        inputManager.OnStopMoving += Idle;
     }
 
     public override void Execute()
@@ -28,18 +27,16 @@ public class PlayerStateMove<T> : PlayerStateBase<T>
         inputManager.PlayerUpdate();
     }
 
-    private void OnMove(Vector3 movement)
+    private void OnMove(Vector3 direction)
     {
-        if (movement == Vector3.zero)
-        {
-            fsm.Transition(inputIdle);
-            return;
-        }
-
-        Vector3 direction = new Vector3(movement.x, 0, movement.z).normalized;
         model.Move(direction);
-        model.LookDirection(direction);
         model.CheckWhereWeAre();
+
+        if(previousDireciton != direction)
+        {
+            previousDireciton = direction;
+            model.LookDirection(direction);
+        }
     }
 
     private void OnShoot()
@@ -47,11 +44,16 @@ public class PlayerStateMove<T> : PlayerStateBase<T>
         model.Shoot();
     }
 
+    private void Idle()
+    {
+        fsm.Transition(inputTransition);
+    }
+
     public override void Sleep()
     {
         base.Sleep();
         inputManager.OnAttack -= OnShoot;
         inputManager.OnMove -= OnMove;
-        model.Move(Vector3.zero);
+        inputManager.OnStopMoving -= Idle;
     }
 }

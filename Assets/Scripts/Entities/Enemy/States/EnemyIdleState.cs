@@ -20,6 +20,8 @@ public class EnemyIdleState<T> : EnemyBaseState<T>
 
     public override void Execute()
     {
+        model.ShootingCooldown();
+
         currentTime -= Time.deltaTime;
 
         if (currentTime < 0)

@@ -25,6 +25,7 @@ public class PlayerStateIdle<T> : PlayerStateBase<T>
     {
         base.Execute();
         inputManager.PlayerUpdate();
+        model.ShootingCooldown();
     }
 
     private void OnMove(Vector3 movement)

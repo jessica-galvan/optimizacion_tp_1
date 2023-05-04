@@ -25,12 +25,13 @@ public class PlayerStateMove<T> : PlayerStateBase<T>
     {
         base.Execute();
         inputManager.PlayerUpdate();
+        model.ShootingCooldown();
     }
 
     private void OnMove(Vector3 direction)
     {
         model.Move(direction);
-        model.CheckWhereWeAre();
+        model.CheckWhereWeAre(direction);
 
         if(previousDireciton != direction)
         {

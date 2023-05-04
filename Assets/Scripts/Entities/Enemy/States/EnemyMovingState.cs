@@ -17,11 +17,12 @@ public class EnemyMovingState<T> : EnemyBaseState<T>
         base.Awake();
 
         //Get a posible direction that we can move. if nothin works, then set it back to stop moving. 
-        var targetDirection = model.GetRandomDirection();
-        if (targetDirection != null) //expected path, there should usually be at least ONE spawn open
+        var targetPoint = model.GetRandomDirection(); //Here we already get the target cell and the target direction
+        if (targetPoint != null) //expected path, there should usually be at least ONE spawn open
         {
-            direction = (targetDirection.spawnPoint.position - model.transform.position).normalized;
+            direction = (targetPoint.spawnPoint.position - model.transform.position).normalized;
             direction = new Vector3(direction.x, 0, direction.z);
+            model.LookDirection(direction);
         }
         else
         {
@@ -33,11 +34,20 @@ public class EnemyMovingState<T> : EnemyBaseState<T>
     {
         base.Execute();
 
-        model.Move(direction);
+        model.ShootingCooldown();
 
-        if (model.HasArrivedToPlace())
+        if (model.CanMoveFoward())
         {
-            onEndActivityCallback();
+            model.Move(direction);
+
+            if (model.HasArrivedToPlace())
+            {
+                onEndActivityCallback();
+            }
+        }
+        else
+        {
+            fsm.Transition(transitionInput);
         }
     }
 }

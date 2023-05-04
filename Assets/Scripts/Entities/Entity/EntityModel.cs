@@ -8,21 +8,22 @@ public class EntityModel : MonoBehaviour, IDamagable
 {
     [Header("References")]
     [SerializeField] private GameObject model;
-    public MovementConfig movementConfig;
+    public EntityConfig entityConfig;
     public Transform firepoint;
-    public BulletType bulletType;
 
-    [Header("Movement")]
-    public float speed;
-
+    protected GameManager gameManager;
     protected Rigidbody rb;
+
+    //Cell System && movement
     protected GridCell currentCell;
     protected GridCell targetCell;
-    protected GameManager gameManager;
-    protected RaycastHit[] currentRaycastBuffer = new RaycastHit[5];
+    protected bool hasTargetCell;
     [ReadOnly][SerializeField] protected Vector3 currentDirection;
+    protected RaycastHit[] currentRaycastBuffer = new RaycastHit[5];
 
-    public Rigidbody RB => rb;
+    //Shooting
+    protected bool canShoot = true;
+    protected float cooldownShootTimer = 0f;
 
     public Action OnSpawned = delegate { };
     public Action OnDie = delegate { };
@@ -44,16 +45,17 @@ public class EntityModel : MonoBehaviour, IDamagable
     public virtual void Shoot()
     {
         //TODO: add sound and feedback
-        var bullet = GameManager.Instance.poolManager.GetBullet(BulletType.Player);
+        if (!canShoot) return;
+        var bullet = GameManager.Instance.poolManager.GetBullet(entityConfig.bulletType);
         bullet.SetTarget(firepoint, transform.forward);
+        canShoot = false;
+        cooldownShootTimer = 0f;
     }
 
-    public void Move(Vector3 direction)
+    public virtual void Move(Vector3 direction)
     {
-        if (GetNextCell(direction))
-        {
-            rb.velocity = direction * speed;
-        }
+        //if (!CanMoveFoward()) return;
+        rb.velocity = direction * entityConfig.speed;
     }
 
     public void Idle()
@@ -63,57 +65,69 @@ public class EntityModel : MonoBehaviour, IDamagable
 
     public void LookDirection(Vector3 dir)
     {
-        dir.y = 0; //Sacar una vez que utilizemos Y
         transform.forward = dir;
     }
 
     public bool CanMoveFoward()
     {
-        int hitCount = Physics.RaycastNonAlloc(new Ray(firepoint.position, transform.forward), currentRaycastBuffer, movementConfig.maxRayDistance, movementConfig.raycastDectection);
-        bool canShoot = false;
-        for (int i = 0; i < hitCount; i++)
+        int hitCount = Physics.RaycastNonAlloc(new Ray(firepoint.position, transform.forward), currentRaycastBuffer, entityConfig.maxRayDistance, entityConfig.raycastDectection);
+        return hitCount == 0;
+    }
+
+    public void GetNextCell(Vector3 direction)
+    {
+        var auxCell = gameManager.levelGrid.GetNextCell(currentCell, direction);
+
+        if (ValidCell(auxCell))
         {
-            //currentRaycastBuffer[i]; //TODO implemente non alloc raycast;
+            hasTargetCell = true;
+            targetCell = auxCell;
         }
-        return canShoot;
+        else
+        {
+            hasTargetCell = false;
+            targetCell = null;
+        }
     }
 
-    public bool GetNextCell(Vector3 direction)
+    public void CheckWhereWeAre(Vector3 direction) //call only while in moving;
     {
-        targetCell = gameManager.levelGrid.GetNextCell(currentCell, direction);
-
-        bool isValid = currentCell != targetCell ? ValidCell(targetCell) : false;
-
-        return isValid;
-    }
-
-    public void CheckWhereWeAre() //call only while in moving;
-    {
-        if( targetCell != null)
+        if(hasTargetCell)
         {
             var distance = Vector3.SqrMagnitude(targetCell.spawnPoint.position - transform.position);
             if(distance <= gameManager.levelGrid.cellCenterDistance)
             {
+                GetNextCell(direction);
                 UpdateCurrentCellStatus(targetCell);
             }
         }
     }
 
+    public void ShootingCooldown()
+    {
+        if (canShoot) return;
+
+        cooldownShootTimer += Time.deltaTime;
+
+        if(cooldownShootTimer >= entityConfig.cooldownShooting)
+        {
+            canShoot = true;
+        }
+    }
+
     public virtual bool ValidCell(GridCell targetCell)
     {
-        bool answer = false;
-        if (currentCell != targetCell)
+        bool answer = true;
+
+        //only if it's not our cell somehow, the target cell is occupied and the entity is null
+        //then we return it's not a valid cell, as it has a wall on it
+        if (currentCell != targetCell && targetCell.IsOcupied && targetCell.Entity == null)
         {
-            if (targetCell.IsOcupied && targetCell.Entity != null)
-            {
-                //TODO check if's not the player, then change direction, if it's player, stay in place and wait to be able to shoot
-                //player should be able to move?
-            }
-            else
-            {
-                //TODO move towards that direction; when reached the cell then change status of old cell and new cell
-            }
+            answer = false;
         }
+
+        //is it expected path if we check in the importance order? like first that it's not the same,
+        //then that it's occupied and lastly it is has an owner?
 
         return answer;
     }

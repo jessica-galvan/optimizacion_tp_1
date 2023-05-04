@@ -6,9 +6,8 @@ using UnityEngine.UIElements;
 
 public class EnemyModel : EntityModel
 {
+    [Header("Enemy")]
     public EnemyConfig enemyConfig;
-
-    public bool CanAttack { get; set; }
 
     public GridCell GetRandomDirection(bool skipCurrentDirection = false)
     {
@@ -17,58 +16,34 @@ public class EnemyModel : EntityModel
         for (int i = 0; i < enemyConfig.posibleDirectionsCount; i++)
         {
             if (skipCurrentDirection && enemyConfig.posibleDirections[i] == currentDirection) continue;
+            var auxCell = gameManager.levelGrid.GetNextCell(currentCell, enemyConfig.posibleDirections[i]);
 
-            if (GetNextCell(enemyConfig.posibleDirections[i]))
-            {
-                newDirection = targetCell;
-            }
+            if (auxCell.IsOcupied) continue;
+            targetCell = auxCell;
+            newDirection = targetCell;
         }
 
         return newDirection;
     }
 
-    protected IEnumerator AttackTimer(float time)
-    {
-
-
-        //TODO change timer for one that takes pause into account => GameManager.Instance.PausableTimerCoroutine()
-        yield return new WaitForSeconds(time);
-        CanAttack = true;
-    }
-
     public bool HasArrivedToPlace()
     {
         bool isOnCenter = false;
-        if (targetCell != null)
+        if (hasTargetCell)
         {
             var distance = Vector3.SqrMagnitude(targetCell.spawnPoint.position - transform.position);
             if (distance <= gameManager.levelGrid.cellCenterDistance)
             {
-                if (distance <= enemyConfig.distanceFromCenter)
+                if (distance <= entityConfig.distanceFromCenter)
                 {
+                    hasTargetCell = false;
+                    targetCell = null;
                     isOnCenter = true;
                 }
                 UpdateCurrentCellStatus(targetCell);
             }
         }
         return isOnCenter;
-    }
-
-    public override bool ValidCell(GridCell targetCell)
-    {
-        bool answer = true;
-
-        if (currentCell != targetCell)
-        {
-            if (targetCell.IsOcupied)
-            {
-                //EXPECTED PAD: most of the cells that are occupied are walls. So they don't have an entity on them. Thus we first check that one
-                //if it's not the player THEEN it's a enemy and thus we don't go that way
-                answer = targetCell.Entity != null ? false : targetCell != gameManager.Player.CurrentCell;
-            }
-        }
-
-        return answer;
     }
 
     public override void TakeDamage()

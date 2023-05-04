@@ -361,8 +361,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 1484941632988239656}
+  entityConfig: {fileID: 11400000, guid: 7a787d7b9987b3b4783ec9586b5aa1e9, type: 2}
   firepoint: {fileID: 8579285769618047914}
-  bulletType: 1
   speed: 5
   currentDirection: {x: 0, y: 0, z: 0}
   enemyConfig: {fileID: 11400000, guid: 4f84b3b3fa31be94c9ee7eab156e4ddb, type: 2}

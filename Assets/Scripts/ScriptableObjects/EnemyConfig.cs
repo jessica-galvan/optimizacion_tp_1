@@ -8,9 +8,6 @@ using UnityEngine;
 public class EnemyConfig : ScriptableObject
 {
     [Header("Movement")]
-    public float distanceFromCenter;
-    public float maxRayDistance;
-    public LayerMask raycastDectection;
     public int posibleDirectionsCount = 4;
     public Vector3[] posibleDirections = new Vector3[4];
 
@@ -25,7 +22,6 @@ public class EnemyConfig : ScriptableObject
     public EnemyStatesWeight[] enemyStatesWeight;
 
     [Header("Times")]
-    public float shootCooldown = 3f;
     public float minIdleWaitTime = 2f;
     public float maxIdleWaitTime = 5f;
 }

@@ -360,8 +360,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 1484941632988239656}
+  entityConfig: {fileID: 11400000, guid: 50b3755e67214df4c81488d07a23d7ef, type: 2}
   firepoint: {fileID: 8579285769618047914}
-  bulletType: 0
   speed: 5
   currentDirection: {x: 0, y: 0, z: 0}
   spawnLookDirection: {x: 0, y: 0, z: 1}

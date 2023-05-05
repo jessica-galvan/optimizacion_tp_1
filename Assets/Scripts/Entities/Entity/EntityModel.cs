@@ -20,14 +20,10 @@ public class EntityModel : MonoBehaviour, IDamagable
     protected bool hasTargetCell;
     [ReadOnly][SerializeField] protected Vector3 currentDirection;
     protected RaycastHit[] currentRaycastBuffer = new RaycastHit[5];
-    protected RaycastHit[] currentCollisionBuffer = new RaycastHit[5];
-    protected Coroutine collisionCoroutine = null;
 
     //Shooting
     protected bool canShoot = true;
     protected float cooldownShootTimer = 0f;
-
-    public bool CanCheckCollision { get; private set; }
 
     public Action OnSpawned = delegate { };
     public Action OnDie = delegate { };
@@ -35,6 +31,7 @@ public class EntityModel : MonoBehaviour, IDamagable
     public virtual void Initialize()
     {
         gameManager = GameManager.Instance;
+
     }
 
     public virtual void Spawn(GridCell spawnPoint)
@@ -78,37 +75,6 @@ public class EntityModel : MonoBehaviour, IDamagable
         return hitCount == 0;
     }
 
-    public void CheckCollisions()
-    {
-        int hitCount = Physics.SphereCastNonAlloc(transform.position, entityConfig.collisionDistance, transform.forward, currentCollisionBuffer, entityConfig.collisionDectection);
-
-        if(hitCount == 0)
-        {
-            StartCollisionTimer();
-        }
-        else
-        {
-            TakeDamage();
-        }
-
-    }
-
-    public void StartCollisionTimer()
-    {
-        if(collisionCoroutine != null)
-        {
-            StopCoroutine(collisionCoroutine);
-        }
-
-        CanCheckCollision = false;
-        gameManager.PausableTimerCoroutine(entityConfig.collisionCheckTimer, EndAction);
-
-        void EndAction()
-        {
-            collisionCoroutine = null;
-            CanCheckCollision = true;
-        }
-    }
 
     public void GetNextCell(Vector3 direction)
     {

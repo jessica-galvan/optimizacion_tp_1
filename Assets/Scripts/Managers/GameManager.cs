@@ -59,15 +59,14 @@ public class GameManager : MonoBehaviour, IUpdate
         inputManager.Initialize();
         inputManager.OnPause += TogglePause;
 
-
-        poolManager = Instantiate(prefabReferences.poolManagerPrefab);
-        poolManager.Initialize();
-
         var playerController = Instantiate(prefabReferences.playerPrefab, levelGrid.playerSpawnPoint.spawnPoint.position, levelGrid.playerSpawnPoint.transform.rotation);
         playerController.Initialize();
         Player = playerController.model;
         Player.Spawn(levelGrid.playerSpawnPoint);
         Player.OnDie += OnPlayerHasDie;
+
+        poolManager = Instantiate(prefabReferences.poolManagerPrefab);
+        poolManager.Initialize();
 
         enemyManager = Instantiate(prefabReferences.enemyManager);
         enemyManager.Initialize();

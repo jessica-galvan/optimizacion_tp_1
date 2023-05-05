@@ -50,11 +50,7 @@ public class EnemyController : EntityController, IPoolable, IUpdate
         if (GameManager.Instance.Pause) return;
 
         fsm.OnUpdate();
-
-        if (model.CanCheckCollision)
-        {
-            model.CheckCollisions();
-        }
+        model.CheckCollisions();
     }
 
     #region PoolManager
@@ -68,6 +64,7 @@ public class EnemyController : EntityController, IPoolable, IUpdate
         isActive = true;
         gameObject.SetActive(true);
         model.Spawn(spawnPoint);
+        GameManager.Instance.updateManager.gameplayCustomUpdate.Add(this);
     }
 
     public void ReturnToPool()

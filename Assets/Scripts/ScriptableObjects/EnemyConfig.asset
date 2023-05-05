@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b07994cbae4484ca37993b63c348ca, type: 3}
   m_Name: EnemyConfig
   m_EditorClassIdentifier: 
-  distanceFromCenter: 0
-  maxRayDistance: 0
-  raycastDectection:
+  collisionDectection:
     serializedVersion: 2
-    m_Bits: 960
+    m_Bits: 0
+  collisionRadious: 1
+  preCollisionDetection: 1.5
+  collisionBox: {x: 1.5, y: 0.5, z: 1.5}
+  precollisionBox: {x: 2, y: 0.5, z: 2}
+  offset: {x: 0, y: 0, z: 0.2}
   posibleDirectionsCount: 4
   posibleDirections:
   - {x: 0, y: 0, z: 1}
@@ -28,6 +31,5 @@ MonoBehaviour:
     weight: 25
   - state: 1
     weight: 50
-  shootCooldown: 3
   minIdleWaitTime: 2
   maxIdleWaitTime: 5

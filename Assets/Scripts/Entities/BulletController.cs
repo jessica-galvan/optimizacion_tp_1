@@ -43,6 +43,7 @@ public class BulletController : MonoBehaviour, IUpdate, IPoolable
         }
     }
 
+    //It's a OnTrigger enter instead of something else because we don't not what the target is.. is it an Entity? A wall? Who knows. 
     private void OnTriggerEnter(Collider other)
     {
         //if (!MiscUtils.IsInLayerMask(other.gameObject.layer, bulletData.targets)) return;

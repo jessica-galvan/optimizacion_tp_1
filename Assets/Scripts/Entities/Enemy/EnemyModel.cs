@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -8,6 +9,16 @@ public class EnemyModel : EntityModel
 {
     [Header("Enemy")]
     public EnemyConfig enemyConfig;
+
+    private PlayerModel player;
+    private RaycastHit[] currentCollisionBuffer = new RaycastHit[5];
+
+    //as they are instantiated AFTER the player, then we can do this in the awake
+    public override void Initialize()
+    {
+        base.Initialize();
+        player = GameManager.Instance.Player;
+    }
 
     public GridCell GetRandomDirection(bool skipCurrentDirection = false)
     {
@@ -50,4 +61,48 @@ public class EnemyModel : EntityModel
     {
         base.TakeDamage();
     }
+
+    public void CheckCollisions()
+    {
+        Vector3 distance = (player.transform.position + enemyConfig.offset) - transform.position;
+
+        bool xDistance = Mathf.Abs(distance.x) <= enemyConfig.precollisionBox.x / 2;
+        bool zDistance = Mathf.Abs(distance.y) <= enemyConfig.precollisionBox.z / 2;
+
+        if (xDistance && zDistance)
+        {
+            int hitCount = Physics.BoxCastNonAlloc(transform.position, enemyConfig.precollisionBox, transform.forward, currentCollisionBuffer, Quaternion.identity,enemyConfig.preCollisionDetection, enemyConfig.collisionDectection);
+
+            if (hitCount == 0)
+            {
+                TakeDamage();
+            }
+        }
+
+        //Although radious is easier, the game is by cells, so box is better. 
+        //float distance = (player.transform.position - transform.position).magnitude;
+        //if (distance < enemyConfig.preCollisionDetection) //If too far, return false
+        //{
+        //    int hitCount = Physics.SphereCastNonAlloc(transform.position, enemyConfig.collisionRadious, transform.forward, currentCollisionBuffer, enemyConfig.collisionDectection);
+
+        //    if (hitCount == 0)
+        //    {
+        //        TakeDamage();
+        //    }
+        //}
+    }
+
+#if UNITY_EDITOR
+    public void OnSelectedDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        //Gizmos.DrawWireSphere(transform.position, enemyConfig.preCollisionDetection);
+        Gizmos.DrawWireCube(transform.position + enemyConfig.offset, enemyConfig.precollisionBox);
+        
+        Gizmos.color = Color.green;
+        //Gizmos.DrawWireSphere(transform.position, enemyConfig.collisionRadious);
+        Gizmos.DrawWireCube(transform.position + enemyConfig.offset, enemyConfig.collisionBox);
+
+    }
+#endif
 }

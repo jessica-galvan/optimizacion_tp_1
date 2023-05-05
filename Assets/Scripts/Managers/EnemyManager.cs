@@ -18,6 +18,7 @@ public class EnemyManager : MonoBehaviour, IUpdate
     {
         canSpawnEnemies = true;
         gameManager = GameManager.Instance;
+        gameManager.updateManager.fixCustomUpdater.Add(this);
         maxSpawnPoints = gameManager.levelGrid.enemySpawnPoints.Count - 1; //Precomputation. The spaces are not going to change and better do this calculation once than everywhere we might need it;
         currentTime = gameManager.globalConfig.retrySpawnTime;
 
@@ -26,9 +27,6 @@ public class EnemyManager : MonoBehaviour, IUpdate
         {
             enemyStatesWeight[enemyConfig.enemyStatesWeight[i].state] = enemyConfig.enemyStatesWeight[i].weight;
         }
-
-        gameManager = GameManager.Instance;
-        gameManager.updateManager.fixCustomUpdater.Add(this);
     }
 
     public void DoUpdate()

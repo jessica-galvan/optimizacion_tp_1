@@ -16,7 +16,7 @@ public class EnemyController : EntityController, IPoolable, IUpdate
     private Vector3 hidePoint;
     [ReadOnly] [SerializeField] private bool isActive;
 
-    private void Start()
+    private void Awake()
     {
         model = GetComponent<EnemyModel>();
         model.Initialize();
@@ -50,6 +50,11 @@ public class EnemyController : EntityController, IPoolable, IUpdate
         if (GameManager.Instance.Pause) return;
 
         fsm.OnUpdate();
+
+        if (model.CanCheckCollision)
+        {
+            model.CheckCollisions();
+        }
     }
 
     #region PoolManager
@@ -61,7 +66,7 @@ public class EnemyController : EntityController, IPoolable, IUpdate
     public void Spawn(GridCell spawnPoint)
     {
         isActive = true;
-        gameObject.SetActive(false);
+        gameObject.SetActive(true);
         model.Spawn(spawnPoint);
     }
 

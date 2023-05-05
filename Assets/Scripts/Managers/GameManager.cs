@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour, IUpdate
         inputManager.Initialize();
         inputManager.OnPause += TogglePause;
 
+
         poolManager = Instantiate(prefabReferences.poolManagerPrefab);
         poolManager.Initialize();
 
@@ -67,6 +68,9 @@ public class GameManager : MonoBehaviour, IUpdate
         Player = playerController.model;
         Player.Spawn(levelGrid.playerSpawnPoint);
         Player.OnDie += OnPlayerHasDie;
+
+        enemyManager = Instantiate(prefabReferences.enemyManager);
+        enemyManager.Initialize();
     }
 
 

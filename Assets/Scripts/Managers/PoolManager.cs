@@ -54,7 +54,7 @@ public class PoolManager : MonoBehaviour
 
     public void ReturnEnemy(EnemyController enemy)
     {
-        enemyBulletPool.BackToPool(enemy);
+        enemyPool.BackToPool(enemy);
     }
 
 

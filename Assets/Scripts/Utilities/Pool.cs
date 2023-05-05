@@ -15,6 +15,7 @@ public class Pool : MonoBehaviour
         for (int i = 0; i < startingSize; i++)
         {
             var item = InstantiateObject();
+            item.ReturnToPool();
             availableItems.Add(item);
         }
     }

@@ -30,6 +30,7 @@ public class EntityModel : MonoBehaviour, IDamagable
 
     public virtual void Initialize()
     {
+        rb = gameObject.GetComponentInParent<Rigidbody>();
         gameManager = GameManager.Instance;
     }
 

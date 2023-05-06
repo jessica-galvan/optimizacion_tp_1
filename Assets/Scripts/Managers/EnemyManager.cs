@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 using Random = UnityEngine.Random;
 
 public class EnemyManager : MonoBehaviour, IUpdate
@@ -11,7 +12,7 @@ public class EnemyManager : MonoBehaviour, IUpdate
     [ReadOnly] public int currentEnemyQuantitySpawned = 0;
     [ReadOnly] public int currentTimeFrame;
 
-    private Dictionary<EnemyStates, int> enemyStatesWeight;
+    private int totalWeight = 0;
     private GameManager gameManager;
     private float currentTime;
     private bool canSpawnEnemies;
@@ -27,10 +28,9 @@ public class EnemyManager : MonoBehaviour, IUpdate
         maxSpawnPoints = gameManager.levelGrid.enemySpawnPoints.Count - 1; //Precomputation. The spaces are not going to change and better do this calculation once than everywhere we might need it;
         currentTime = gameManager.globalConfig.retrySpawnTime;
 
-        enemyStatesWeight = new Dictionary<EnemyStates, int>();
-        for (int i = 0; i < enemyStatesWeight.Count; i++)
+        for (int i = 0; i < enemyConfig.enemyStatesWeight.Length; i++)
         {
-            enemyStatesWeight[enemyConfig.enemyStatesWeight[i].state] = enemyConfig.enemyStatesWeight[i].weight;
+            totalWeight += enemyConfig.enemyStatesWeight[i].weight; //PRECOMPUTATION. why should we re add it every time we get a random action when we could do it once here?
         }
     }
 
@@ -108,22 +108,17 @@ public class EnemyManager : MonoBehaviour, IUpdate
 
     public EnemyStates GetRandomAction()
     {
-        EnemyStates states = EnemyStates.Idle;
+        EnemyStates states = EnemyStates.Move;
 
-        int total = 0;
-        foreach (var item in enemyStatesWeight)
+        int random = Random.Range(0, totalWeight + 1);
+
+        for (int i = 0; i < enemyConfig.enemyStatesWeight.Length; i++)
         {
-            total += item.Value;
-        }
+            random -= enemyConfig.enemyStatesWeight[i].weight;
 
-        int random = Random.Range(0, total + 1);
-
-        foreach (var item in enemyStatesWeight)
-        {
-            random -= item.Value;
             if (random <= 0)
             {
-                states = item.Key;
+                states = enemyConfig.enemyStatesWeight[i].state;
                 break;
             }
         }

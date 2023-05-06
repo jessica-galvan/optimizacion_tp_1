@@ -11,7 +11,7 @@ public class PlayerModel : EntityModel
     public override void Initialize()
     {
         base.Initialize();
-        rb = gameObject.GetComponentInParent<Rigidbody>();    }
+    }
 
     public override void Spawn(GridCell spawn)
     {

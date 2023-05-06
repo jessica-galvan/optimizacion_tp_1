@@ -32,6 +32,7 @@ public class EnemyModel : EntityModel
             if (auxCell.IsOcupied) continue;
             targetCell = auxCell;
             newDirection = targetCell;
+            break;
         }
 
         return newDirection;

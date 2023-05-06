@@ -47,7 +47,7 @@ public class EnemyMovingState<T> : EnemyBaseState<T>
         }
         else
         {
-            fsm.Transition(transitionInput);
+            onEndActivityCallback();
         }
     }
 }

@@ -43,7 +43,9 @@ public class EnemyController : EntityController, IPoolable, IUpdate
 
     public void ResetAction()
     {
-        fsm.Transition(GameManager.Instance.enemyManager.GetRandomAction());
+        var newSate = GameManager.Instance.enemyManager.GetRandomAction();
+        print("ResetAction newState " + newSate);
+        fsm.Transition(newSate);
     }
 
     public void DoUpdate()
@@ -67,10 +69,11 @@ public class EnemyController : EntityController, IPoolable, IUpdate
 
     public void Spawn(GridCell spawnPoint)
     {
-        isActive = true;
         gameObject.SetActive(true);
         model.Spawn(spawnPoint);
+        isActive = true;
         GameManager.Instance.updateManager.gameplayCustomUpdate.Add(this);
+        ResetAction();
     }
 
     public void ReturnToPool()

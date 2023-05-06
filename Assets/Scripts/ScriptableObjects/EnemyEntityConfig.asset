@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyEntityConfig
   m_EditorClassIdentifier: 
   maxRayDistance: 0.3
-  distanceFromCenter: 0.8
+  distanceFromCenter: 0.7
   raycastDectection:
     serializedVersion: 2
     m_Bits: 896

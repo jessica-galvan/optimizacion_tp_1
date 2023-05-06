@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Pool : MonoBehaviour
 {
-    [SerializeField] private GameObject prefab;
-    [SerializeField] private int startingSize = 5;
+    [ReadOnly][SerializeField] private GameObject prefab;
 
     private List<IPoolable> allItems = new List<IPoolable>();
     private List<IPoolable> availableItems = new List<IPoolable>();
 
-    public void Initialize()
+    public void Initialize(GameObject prefab, int startingSize)
     {
+        this.prefab = prefab;
         for (int i = 0; i < startingSize; i++)
         {
             var item = InstantiateObject();

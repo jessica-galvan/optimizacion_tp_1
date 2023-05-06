@@ -11,9 +11,9 @@ public class PoolManager : MonoBehaviour
 
     public void Initialize()
     {
-        playerBulletPool.Initialize();
-        enemyBulletPool.Initialize();
-        enemyPool.Initialize();
+        playerBulletPool.Initialize(GameManager.Instance.prefabReferences.playerBulletPrefab.gameObject, GameManager.Instance.globalConfig.initialPoolBullet);
+        enemyBulletPool.Initialize(GameManager.Instance.prefabReferences.enemyBulletPrefab.gameObject, GameManager.Instance.globalConfig.initialPoolBullet);
+        enemyPool.Initialize(GameManager.Instance.prefabReferences.enemyPrefab.gameObject, GameManager.Instance.globalConfig.maxEnemiesInLevelAtAllTimes);
     }
 
     public BulletController GetBullet(BulletType bulletType)

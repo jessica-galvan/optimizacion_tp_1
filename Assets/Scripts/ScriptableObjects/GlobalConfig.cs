@@ -21,4 +21,7 @@ public class GlobalConfig : ScriptableObject
     public float spawningTime = 10f;
     public float retrySpawnTime = 4f;
     public int triesPerSpawn = 4;
+
+    [Header("Extra Settings")]
+    public int initialPoolBullet = 5;
 }

@@ -28,7 +28,7 @@ public class EnemyModel : EntityModel
 
         bool foundViableDirection = false;
 
-        var directions = enemyConfig.posibleDirections;
+        var directions = new List<Vector3>(enemyConfig.posibleDirections);
 
         while (!foundViableDirection && directions.Count > 0)
         {
@@ -46,23 +46,29 @@ public class EnemyModel : EntityModel
             HasTargetCell = true;
             foundViableDirection = true;
             currentDirection = directions[randomPosition];
-            print($"{gameObject.name} New Direction : {currentDirection} and RadomNumber = {randomPosition}");
+            //print($"{gameObject.name} New Direction : {currentDirection} and RadomNumber = {randomPosition}");
         }
-
         return newDirection;
     }
 
     public bool HasArrivedToPlace()
     {
         bool isOnCenter = false;
-        var distance = Vector3.SqrMagnitude(targetCell.spawnPoint.position - transform.position);
-        if (distance <= entityConfig.distanceFromCenter)
-        {
-            print($"{gameObject.name} has arrived to the center of cell {targetCell.gameObject.name}");
-            isOnCenter = true;
-            UpdateCurrentCellStatus(targetCell);
 
+        if (HasTargetCell)
+        {
+            var aux = targetCell.spawnPoint.position - transform.position;
+            var distance = Vector3.SqrMagnitude(aux);
+
+            if (distance <= entityConfig.distanceFromCenter)
+            {
+                print($"{gameObject.name} has arrived to the center of cell {targetCell.gameObject.name}");
+                isOnCenter = true;
+                UpdateCurrentCellStatus(targetCell);
+
+            }
         }
+
         return isOnCenter;
     }
 

@@ -56,7 +56,6 @@ public class EnemyController : EntityController, IPoolable, IUpdate
             currentEnemyState = newState;
             fsm.Transition(newState);
         }
-        print("ResetAction newState " + newState);
     }
 
     public void DoUpdate()

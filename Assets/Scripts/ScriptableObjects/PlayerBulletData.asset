@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 0
   targets:
     serializedVersion: 2
-    m_Bits: 640
+    m_Bits: 896
   speed: 10
   hasLifeTimer: 1
   lifeTime: 5

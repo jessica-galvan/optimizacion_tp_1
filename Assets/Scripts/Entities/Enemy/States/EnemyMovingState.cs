@@ -26,11 +26,11 @@ public class EnemyMovingState<T> : EnemyBaseState<T>
     {
         base.Execute();
 
-        if (model.CanMoveFoward())
+        if (model.HasTargetCell && model.CanMoveFoward())
         {
             model.Move(model.CurrentDirection);
 
-            if (model.HasTargetCell && model.HasArrivedToPlace())
+            if (model.HasArrivedToPlace())
             {
                 Exit();
             }
@@ -44,7 +44,6 @@ public class EnemyMovingState<T> : EnemyBaseState<T>
 
     private void Exit()
     {
-        model.CleanTargetCell();
         onEndActivityCallback();
     }
 

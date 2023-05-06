@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -11,28 +12,39 @@ public class EnemyModel : EntityModel
     public EnemyConfig enemyConfig;
 
     private PlayerModel player;
-    private RaycastHit[] currentCollisionBuffer = new RaycastHit[2];
+    private RaycastHit[] currentPlayerCollisionBuffer = new RaycastHit[2];
 
-    //as they are instantiated AFTER the player, then we can do this in the awake
     public override void Initialize()
     {
         base.Initialize();
         player = GameManager.Instance.Player;
     }
 
-    public GridCell GetRandomDirection(bool skipCurrentDirection = false)
+    public GridCell GetRandomDirection()
     {
         GridCell newDirection = null;
-        //TODO do a random instead of a for. and while no newDirection is settle, do a new one up until max number of times has been done?
-        for (int i = 0; i < enemyConfig.posibleDirectionsCount; i++)
-        {
-            if (skipCurrentDirection && enemyConfig.posibleDirections[i] == currentDirection) continue;
-            var auxCell = gameManager.levelGrid.GetNextCell(currentCell, enemyConfig.posibleDirections[i]);
 
-            if (auxCell.IsOcupied) continue;
+        bool foundViableDirection = false;
+
+        var directions = enemyConfig.posibleDirections;
+
+        while (!foundViableDirection && directions.Count > 0)
+        {
+            int randomPosition = MiscUtils.RandomInt(0, directions.Count - 1 );
+
+            var auxCell = gameManager.levelGrid.GetNextCell(currentCell, directions[randomPosition]);
+            if (auxCell == null ||auxCell.IsOcupied)
+            {
+                directions.RemoveAt(randomPosition);
+                continue;
+            }
+
             targetCell = auxCell;
             newDirection = targetCell;
-            break;
+            HasTargetCell = true;
+            foundViableDirection = true;
+            currentDirection = directions[randomPosition];
+            print($"New Direction : {currentDirection} and RadomNumber = {randomPosition}");
         }
 
         return newDirection;
@@ -41,18 +53,14 @@ public class EnemyModel : EntityModel
     public bool HasArrivedToPlace()
     {
         bool isOnCenter = false;
-        if (hasTargetCell)
+        var distance = Vector3.SqrMagnitude(targetCell.spawnPoint.position - transform.position);
+        if (distance <= gameManager.levelGrid.cellCenterDistance)
         {
-            var distance = Vector3.SqrMagnitude(targetCell.spawnPoint.position - transform.position);
-            if (distance <= gameManager.levelGrid.cellCenterDistance)
+            if (distance <= entityConfig.distanceFromCenter)
             {
-                if (distance <= entityConfig.distanceFromCenter)
-                {
-                    hasTargetCell = false;
-                    targetCell = null;
-                    isOnCenter = true;
-                }
+                isOnCenter = true;
                 UpdateCurrentCellStatus(targetCell);
+                CleanTargetCell();
             }
         }
         return isOnCenter;
@@ -72,11 +80,11 @@ public class EnemyModel : EntityModel
 
         if (xDistance && zDistance)
         {
-            int hitCount = Physics.BoxCastNonAlloc(transform.position, enemyConfig.collisionBox, transform.forward, currentCollisionBuffer, Quaternion.identity,enemyConfig.preCollisionDetection, enemyConfig.collisionDectection);
+            int hitCount = Physics.BoxCastNonAlloc(transform.position, enemyConfig.collisionBox, transform.forward, currentPlayerCollisionBuffer, Quaternion.identity,enemyConfig.preCollisionDetection, enemyConfig.collisionDectection);
 
             if (hitCount > 0) //the only one that will appear here is the player? 
             {
-                for (int i = 0; i < currentCollisionBuffer.Length; i++)
+                for (int i = 0; i < currentPlayerCollisionBuffer.Length; i++)
                 {
                     player.TakeDamage();
                 }

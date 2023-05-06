@@ -26,12 +26,18 @@ MonoBehaviour:
   - {x: 1, y: 0, z: 0}
   - {x: 0, y: 0, z: -1}
   - {x: -1, y: 0, z: 0}
+  posiblePositions2:
+  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: -1}
+  - {x: 1, y: 0, z: 0}
+  - {x: -1, y: 0, z: 0}
+  numberOfTries: 5
   enemyStatesWeight:
   - state: 0
     weight: 0
   - state: 1
     weight: 70
-  minIdleWaitTime: 2
-  maxIdleWaitTime: 5
+  minIdleWaitTime: 0.5
+  maxIdleWaitTime: 2
   enemyColliderSlicesFrames: 1
   slicesQuantity: 2

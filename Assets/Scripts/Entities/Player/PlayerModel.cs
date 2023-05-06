@@ -22,13 +22,14 @@ public class PlayerModel : EntityModel
 
     public void CheckWhereWeAre(Vector3 direction) //call only while in moving;
     {
-        if (hasTargetCell)
+        if (HasTargetCell)
         {
             var distance = Vector3.SqrMagnitude(targetCell.spawnPoint.position - transform.position);
             if (distance <= gameManager.levelGrid.cellCenterDistance)
             {
                 GetNextCell(direction);
                 UpdateCurrentCellStatus(targetCell);
+                CleanTargetCell();
             }
         }
     }

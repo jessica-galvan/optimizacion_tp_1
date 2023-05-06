@@ -180,7 +180,9 @@ public class LevelGrid : MonoBehaviour
     {
         int xPos = direction.x != 0 ? (int)Mathf.Clamp(currentCell.X + direction.x, 0, gridSize.x) : currentCell.X;
         int yPos = direction.z != 0 ? (int)Mathf.Clamp(currentCell.Y + direction.z, 0, gridSize.y) : currentCell.Y;
-        return levelGrid[xPos, yPos];
+        var cell = levelGrid[xPos, yPos];
+
+        return cell;
     }
 
     public void HideSpawnPoints()

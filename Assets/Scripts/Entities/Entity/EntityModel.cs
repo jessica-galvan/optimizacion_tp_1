@@ -17,7 +17,7 @@ public class EntityModel : MonoBehaviour, IDamagable
     //Cell System && movement
     protected GridCell currentCell;
     protected GridCell targetCell;
-    protected bool hasTargetCell;
+    public bool HasTargetCell { get; protected set; }
     [ReadOnly][SerializeField] protected Vector3 currentDirection;
     protected RaycastHit[] currentRaycastBuffer = new RaycastHit[5];
 
@@ -36,9 +36,8 @@ public class EntityModel : MonoBehaviour, IDamagable
 
     public virtual void Spawn(GridCell spawnPoint)
     {
-        currentCell = spawnPoint;
+        UpdateCurrentCellStatus(spawnPoint);
         transform.position = currentCell.spawnPoint.position;
-        currentCell.SetOccupiedStatus(true, this);
         gameObject.SetActive(true);
         OnSpawned.Invoke();
     }
@@ -82,13 +81,12 @@ public class EntityModel : MonoBehaviour, IDamagable
 
         if (ValidCell(auxCell))
         {
-            hasTargetCell = true;
+            HasTargetCell = true;
             targetCell = auxCell;
         }
         else
         {
-            hasTargetCell = false;
-            targetCell = null;
+            CleanTargetCell();
         }
     }
 
@@ -110,7 +108,7 @@ public class EntityModel : MonoBehaviour, IDamagable
 
         //only if it's not our cell somehow, the target cell is occupied and the entity is null
         //then we return it's not a valid cell, as it has a wall on it
-        if (currentCell != targetCell && targetCell.IsOcupied && targetCell.Entity == null)
+        if (targetCell == null || (currentCell != targetCell && targetCell.IsOcupied && targetCell.Entity == null))
         {
             answer = false;
         }
@@ -119,6 +117,12 @@ public class EntityModel : MonoBehaviour, IDamagable
         //then that it's occupied and lastly it is has an owner?
 
         return answer;
+    }
+
+    public void CleanTargetCell()
+    {
+        targetCell = null;
+        HasTargetCell = false;
     }
 
     public void UpdateCurrentCellStatus(GridCell gridCell)

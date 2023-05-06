@@ -16,8 +16,7 @@ public class EnemyConfig : ScriptableObject
     public Vector3 offset;
 
     [Header("Movement")]
-    public int posibleDirectionsCount = 4;
-    public Vector3[] posibleDirections = new Vector3[4];
+    public List<Vector3> posibleDirections = new List<Vector3>();
 
     [Serializable]
     public class EnemyStatesWeight

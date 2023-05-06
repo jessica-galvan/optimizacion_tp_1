@@ -20,7 +20,7 @@ public class EnemyIdleState<T> : EnemyBaseState<T>
 
     public override void Execute()
     {
-        model.ShootingCooldown();
+        //model.ShootingCooldown();
 
         currentTime -= Time.deltaTime;
 

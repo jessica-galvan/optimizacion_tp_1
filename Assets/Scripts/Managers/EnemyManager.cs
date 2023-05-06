@@ -106,7 +106,7 @@ public class EnemyManager : MonoBehaviour, IUpdate
         }
     }
 
-    public EnemyStates GetRandomAction()
+    public EnemyStates GetRandomWeightAction()
     {
         EnemyStates states = EnemyStates.Move;
 

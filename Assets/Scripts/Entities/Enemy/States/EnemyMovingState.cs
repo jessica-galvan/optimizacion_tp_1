@@ -34,20 +34,37 @@ public class EnemyMovingState<T> : EnemyBaseState<T>
     {
         base.Execute();
 
-        model.ShootingCooldown();
+        //model.ShootingCooldown();
 
         if (model.CanMoveFoward())
         {
             model.Move(direction);
 
-            if (model.HasArrivedToPlace())
+            if (model.HasTargetCell && model.HasArrivedToPlace())
             {
-                onEndActivityCallback();
+                Debug.Log("Has Arrived and exit execute");
+                Exit();
+            }
+            else
+            {
+                Exit();
             }
         }
         else
         {
-            onEndActivityCallback();
+            Debug.Log("Collision detecter and exit execute");
+            Exit();
         }
+    }
+
+    private void Exit()
+    {
+        fsm.Transition(transitionInput);
+    }
+
+    public override void Sleep()
+    {
+        model.CleanTargetCell();
+        onEndActivityCallback();
     }
 }

@@ -43,7 +43,7 @@ public class EnemyController : EntityController, IPoolable, IUpdate
 
     public void ResetAction()
     {
-        var newSate = GameManager.Instance.enemyManager.GetRandomAction();
+        var newSate = GameManager.Instance.enemyManager.GetRandomWeightAction();
         print("ResetAction newState " + newSate);
         fsm.Transition(newSate);
     }
@@ -53,7 +53,8 @@ public class EnemyController : EntityController, IPoolable, IUpdate
         if (GameManager.Instance.Pause) return;
 
         fsm.OnUpdate();
-
+        model.Shoot();
+        model.ShootingCooldown();
         //SLICE frame, we don't need to check collisions every frame, so we can slice it and do it every other one to just be sure everything it's ok
         if (!model.enemyConfig.enemyColliderSlicesFrames || model.gameManager.enemyManager.currentTimeFrame == 0)
         {

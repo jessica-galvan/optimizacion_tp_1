@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b19f46749393da147944446b14a02969, type: 3}
   m_Name: EnemyBulletData
   m_EditorClassIdentifier: 
+  type: 0
   targets:
     serializedVersion: 2
-    m_Bits: 320
+    m_Bits: 576
   speed: 10
   hasLifeTimer: 1
   lifeTime: 5

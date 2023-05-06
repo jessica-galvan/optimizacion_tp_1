@@ -32,4 +32,9 @@ public class EnemyConfig : ScriptableObject
     [Header("Times")]
     public float minIdleWaitTime = 2f;
     public float maxIdleWaitTime = 5f;
+
+    [Header("Performance")]
+    public bool enemyColliderSlicesFrames = true;
+    public int slicesQuantity = 2;
 }
+

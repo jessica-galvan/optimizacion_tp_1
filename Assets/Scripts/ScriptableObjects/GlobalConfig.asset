@@ -13,13 +13,12 @@ MonoBehaviour:
   m_Name: GlobalConfig
   m_EditorClassIdentifier: 
   playerWaitTimeRespawn: 2
-  vipFPSTarget: 60
   gameplayFPSTarget: 60
   uiFPSTarget: 30
   activeMaxAppTarget: 0
   maxFPSTarget: 75
-  totalEnemiesLevel: 100
-  maxEnemiesInLevelAtAllTimes: 4
-  spawningTime: 10
+  totalEnemiesLevel: 5
+  maxEnemiesInLevelAtAllTimes: 1
+  spawningTime: 2
   retrySpawnTime: 4
   triesPerSpawn: 4

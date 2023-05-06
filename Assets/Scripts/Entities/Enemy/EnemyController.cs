@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 public enum EnemyStates
 {
@@ -50,7 +51,12 @@ public class EnemyController : EntityController, IPoolable, IUpdate
         if (GameManager.Instance.Pause) return;
 
         fsm.OnUpdate();
-        model.CheckCollisions();
+
+        //SLICE frame, we don't need to check collisions every frame, so we can slice it and do it every other one to just be sure everything it's ok
+        if (!model.enemyConfig.enemyColliderSlicesFrames || model.gameManager.enemyManager.currentTimeFrame == 0)
+        {
+            model.CheckCollisions();
+        }
     }
 
     #region PoolManager

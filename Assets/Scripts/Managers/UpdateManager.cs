@@ -23,13 +23,6 @@ public class UpdateManager : MonoBehaviour
 
         uiCustomUpdate = gameObject.AddComponent<CustomUpdate>();
         uiCustomUpdate.Initialize(GameManager.Instance.globalConfig.uiFPSTarget, "UI");
-
-
-        if (GameManager.Instance.globalConfig.activeMaxAppTarget)
-        {
-            QualitySettings.vSyncCount = 0;
-            Application.targetFrameRate = GameManager.Instance.globalConfig.maxFPSTarget;
-        }
     }
 
     void Update()

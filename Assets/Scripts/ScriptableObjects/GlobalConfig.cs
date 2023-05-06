@@ -14,8 +14,6 @@ public class GlobalConfig : ScriptableObject
 
     [Tooltip("This FrameRate is for the UI")]
     public int uiFPSTarget = 60;
-    public bool activeMaxAppTarget = false;
-    public int maxFPSTarget = 75;
 
     [Header("Enemy Settings")]
     public int totalEnemiesLevel = 100;

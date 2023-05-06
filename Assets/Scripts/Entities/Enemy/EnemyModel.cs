@@ -11,7 +11,7 @@ public class EnemyModel : EntityModel
     public EnemyConfig enemyConfig;
 
     private PlayerModel player;
-    private RaycastHit[] currentCollisionBuffer = new RaycastHit[5];
+    private RaycastHit[] currentCollisionBuffer = new RaycastHit[2];
 
     //as they are instantiated AFTER the player, then we can do this in the awake
     public override void Initialize()
@@ -65,23 +65,27 @@ public class EnemyModel : EntityModel
     public void CheckCollisions()
     {
         Vector3 distance = (player.transform.position + enemyConfig.offset) - transform.position;
-
-        bool xDistance = Mathf.Abs(distance.x) <= enemyConfig.precollisionBox.x / 2;
-        bool zDistance = Mathf.Abs(distance.y) <= enemyConfig.precollisionBox.z / 2;
+        distance = new Vector3(Mathf.Abs(distance.x), 0, Mathf.Abs(distance.z));
+        bool xDistance = distance.x <= gameManager.enemyManager.enemyConfig.precollisionBox.x;
+        bool zDistance = distance.z <= gameManager.enemyManager.enemyConfig.precollisionBox.z;
 
         if (xDistance && zDistance)
         {
-            int hitCount = Physics.BoxCastNonAlloc(transform.position, enemyConfig.precollisionBox, transform.forward, currentCollisionBuffer, Quaternion.identity,enemyConfig.preCollisionDetection, enemyConfig.collisionDectection);
+            int hitCount = Physics.BoxCastNonAlloc(transform.position, enemyConfig.collisionBox, transform.forward, currentCollisionBuffer, Quaternion.identity,enemyConfig.preCollisionDetection, enemyConfig.collisionDectection);
 
-            if (hitCount == 0)
+            if (hitCount > 0) //the only one that will appear here is the player? 
             {
+                for (int i = 0; i < currentCollisionBuffer.Length; i++)
+                {
+                    player.TakeDamage();
+                }
                 TakeDamage();
             }
         }
 
         //Although radious is easier, the game is by cells, so box is better. 
         //float distance = (player.transform.position - transform.position).magnitude;
-        //if (distance < enemyConfig.preCollisionDetection) //If too far, return false
+        //if (distance < enemyConfig.preCollisionDetection) //If too far... don't do anything
         //{
         //    int hitCount = Physics.SphereCastNonAlloc(transform.position, enemyConfig.collisionRadious, transform.forward, currentCollisionBuffer, enemyConfig.collisionDectection);
 
@@ -93,7 +97,7 @@ public class EnemyModel : EntityModel
     }
 
 #if UNITY_EDITOR
-    public void OnSelectedDrawGizmos()
+    public void DrawGizmos()
     {
         Gizmos.color = Color.red;
         //Gizmos.DrawWireSphere(transform.position, enemyConfig.preCollisionDetection);

@@ -1,18 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyManager : MonoBehaviour, IUpdate
 {
     public EnemyConfig enemyConfig;
     [ReadOnly] public int totalKilled = 0;
     [ReadOnly] public int currentEnemyQuantitySpawned = 0;
+    [ReadOnly] public int currentTimeFrame;
 
     private Dictionary<EnemyStates, int> enemyStatesWeight;
     private GameManager gameManager;
     private float currentTime;
     private bool canSpawnEnemies;
     private int maxSpawnPoints;
+
+    public Action<int> OnEnemyKilled = delegate { };
 
     public void Initialize()
     {
@@ -33,6 +38,9 @@ public class EnemyManager : MonoBehaviour, IUpdate
     {
         if (gameManager.Pause) return;
 
+        if(enemyConfig.enemyColliderSlicesFrames)
+            currentTimeFrame = Time.frameCount % enemyConfig.slicesQuantity;
+
         if (canSpawnEnemies)
         {
             currentTime -= Time.deltaTime;
@@ -46,13 +54,15 @@ public class EnemyManager : MonoBehaviour, IUpdate
 
     private bool HasSpaceToSpawnEnemy()
     {
-        return currentEnemyQuantitySpawned <= gameManager.globalConfig.maxEnemiesInLevelAtAllTimes;
+        return currentEnemyQuantitySpawned < gameManager.globalConfig.maxEnemiesInLevelAtAllTimes;
     }
 
     public void EnemyKilled()
     {
-        CheckWinCondition();
+        totalKilled++;
+        OnEnemyKilled.Invoke(totalKilled);
         currentEnemyQuantitySpawned--;
+        CheckWinCondition();
         canSpawnEnemies = HasSpaceToSpawnEnemy(); //is it lazy computation if we only update it when the number changes instead of doing the method on every frame of the DoUpdate?)
     }
 

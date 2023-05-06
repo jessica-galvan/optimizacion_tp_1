@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3471069439897086941}
   - component: {fileID: 2832208479391684073}
   - component: {fileID: 6521685025685924916}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cabin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4688640168939288413}
   - component: {fileID: 3244569252784594580}
   - component: {fileID: 5409159163492814265}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 1143512808128845560}
   - component: {fileID: 1648413448220941969}
   - component: {fileID: 5988935835996009252}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,6 +363,7 @@ MonoBehaviour:
   model: {fileID: 1484941632988239656}
   entityConfig: {fileID: 11400000, guid: 7a787d7b9987b3b4783ec9586b5aa1e9, type: 2}
   firepoint: {fileID: 8579285769618047914}
+  gameManager: {fileID: 0}
   currentDirection: {x: 0, y: 0, z: 0}
   enemyConfig: {fileID: 11400000, guid: 4f84b3b3fa31be94c9ee7eab156e4ddb, type: 2}
 --- !u!1 &7486047097606866728
@@ -475,7 +476,7 @@ GameObject:
   - component: {fileID: 7798468388620550369}
   - component: {fileID: 4862922461174287158}
   - component: {fileID: 962331885652896450}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Wheel 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -570,7 +571,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8579285769618047914}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

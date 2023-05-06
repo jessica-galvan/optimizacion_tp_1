@@ -11,7 +11,7 @@ public class EntityModel : MonoBehaviour, IDamagable
     public EntityConfig entityConfig;
     public Transform firepoint;
 
-    protected GameManager gameManager;
+    [PortLabelHidden] public GameManager gameManager;
     protected Rigidbody rb;
 
     //Cell System && movement
@@ -31,7 +31,6 @@ public class EntityModel : MonoBehaviour, IDamagable
     public virtual void Initialize()
     {
         gameManager = GameManager.Instance;
-
     }
 
     public virtual void Spawn(GridCell spawnPoint)
@@ -89,19 +88,6 @@ public class EntityModel : MonoBehaviour, IDamagable
         {
             hasTargetCell = false;
             targetCell = null;
-        }
-    }
-
-    public void CheckWhereWeAre(Vector3 direction) //call only while in moving;
-    {
-        if(hasTargetCell)
-        {
-            var distance = Vector3.SqrMagnitude(targetCell.spawnPoint.position - transform.position);
-            if(distance <= gameManager.levelGrid.cellCenterDistance)
-            {
-                GetNextCell(direction);
-                UpdateCurrentCellStatus(targetCell);
-            }
         }
     }
 

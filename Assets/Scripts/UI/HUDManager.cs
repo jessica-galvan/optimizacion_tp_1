@@ -57,6 +57,10 @@ public class HUDManager : MonoBehaviour, IUpdate
         gameManager.OnPlayerDie += OnPlayerDead;
         gameManager.updateManager.uiCustomUpdate.Add(this);
 
+        gameManager.enemyManager.OnEnemyKilled += UpdateEnemyCounter;
+
+        UpdateEnemyCounter(gameManager.enemyManager.totalKilled);
+
         //Pause
         pauseMenu.SetActive(false);
         resumeButton.button.onClick.AddListener(OnClickResumeHandler);
@@ -102,6 +106,11 @@ public class HUDManager : MonoBehaviour, IUpdate
     }
 
     #region HUD
+    private void UpdateEnemyCounter(int currentKilledQuantity)
+    {
+        txtEnemyCount.text = $"{currentKilledQuantity}/{gameManager.globalConfig.totalEnemiesLevel}"; 
+    }
+
     //private void UpdateBullets(int bulletQuantity)
     //{
     //    bool bulletVisilble = true;
@@ -234,12 +243,14 @@ public class HUDManager : MonoBehaviour, IUpdate
         exitPopupButton.button.onClick.RemoveAllListeners();
         cancelExitPopupButton.button.onClick.RemoveAllListeners();
 
+
         if (GameManager.HasInstance)
         {
             gameManager.OnPause -= OnPause;
             gameManager.OnPlayerDie -= OnPlayerDead;
             gameManager.OnWin -= OnWin;
             gameManager.updateManager.uiCustomUpdate.Remove(this);
+            gameManager.enemyManager.OnEnemyKilled -= UpdateEnemyCounter;
         }
     }
 }

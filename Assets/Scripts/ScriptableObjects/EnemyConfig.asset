@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionDectection:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   collisionRadious: 1
   preCollisionDetection: 1.5
   collisionBox: {x: 1.5, y: 0.5, z: 1.5}

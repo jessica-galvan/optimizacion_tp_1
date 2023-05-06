@@ -20,6 +20,12 @@ public class PlayerModel : EntityModel
         LookDirection(spawnLookDirection);
     }
 
+    public override void Move(Vector3 direction)
+    {
+        //if (!CanMoveFoward()) return;
+        rb.velocity = direction * entityConfig.speed;
+    }
+
     public void CheckWhereWeAre(Vector3 direction) //call only while in moving;
     {
         if (HasTargetCell)

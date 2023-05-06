@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 6743621627000239838, guid: 7a71b689c892d2e42a9075f7834dd68a, type: 3}
-  startingSize: 5
+  startingSize: 1
 --- !u!1 &8855363850741082360
 GameObject:
   m_ObjectHideFlags: 0

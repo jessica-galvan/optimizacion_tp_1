@@ -14,6 +14,8 @@ public class EnemyModel : EntityModel
     private PlayerModel player;
     private RaycastHit[] currentPlayerCollisionBuffer = new RaycastHit[2];
 
+    public Vector3 CurrentDirection => currentDirection;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -44,7 +46,7 @@ public class EnemyModel : EntityModel
             HasTargetCell = true;
             foundViableDirection = true;
             currentDirection = directions[randomPosition];
-            print($"New Direction : {currentDirection} and RadomNumber = {randomPosition}");
+            print($"{gameObject.name} New Direction : {currentDirection} and RadomNumber = {randomPosition}");
         }
 
         return newDirection;
@@ -54,16 +56,24 @@ public class EnemyModel : EntityModel
     {
         bool isOnCenter = false;
         var distance = Vector3.SqrMagnitude(targetCell.spawnPoint.position - transform.position);
-        if (distance <= gameManager.levelGrid.cellCenterDistance)
+        if (distance <= entityConfig.distanceFromCenter)
         {
-            if (distance <= entityConfig.distanceFromCenter)
-            {
-                isOnCenter = true;
-                UpdateCurrentCellStatus(targetCell);
-                CleanTargetCell();
-            }
+            print($"{gameObject.name} has arrived to the center of cell {targetCell.gameObject.name}");
+            isOnCenter = true;
+            UpdateCurrentCellStatus(targetCell);
+
         }
         return isOnCenter;
+    }
+
+    public void UpdateDirection()
+    {
+        CleanTargetCell();
+        GetRandomDirection();
+        if (HasTargetCell)
+        {
+            LookDirection(currentDirection);
+        }
     }
 
     public override void TakeDamage()

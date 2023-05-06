@@ -18,7 +18,7 @@ public class EntityModel : MonoBehaviour, IDamagable
     protected GridCell currentCell;
     protected GridCell targetCell;
     public bool HasTargetCell { get; protected set; }
-    [ReadOnly][SerializeField] protected Vector3 currentDirection;
+    protected Vector3 currentDirection;
     protected RaycastHit[] currentRaycastBuffer = new RaycastHit[5];
 
     //Shooting
@@ -55,7 +55,7 @@ public class EntityModel : MonoBehaviour, IDamagable
     public virtual void Move(Vector3 direction)
     {
         //if (!CanMoveFoward()) return;
-        rb.velocity = direction * entityConfig.speed;
+        transform.position += direction * entityConfig.speed * Time.deltaTime;
     }
 
     public void Idle()

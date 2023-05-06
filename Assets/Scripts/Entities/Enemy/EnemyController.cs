@@ -15,6 +15,7 @@ public class EnemyController : EntityController, IPoolable, IUpdate
 
     private FSM<EnemyStates> fsm;
     private Vector3 hidePoint;
+    private EnemyStates currentEnemyState;
     [ReadOnly] [SerializeField] private bool isActive;
 
     private void Awake()
@@ -22,7 +23,6 @@ public class EnemyController : EntityController, IPoolable, IUpdate
         model = GetComponent<EnemyModel>();
         model.Initialize();
         model.OnDie += OnDie;
-        InitializeFSM();
     }
 
     public void InitializeFSM()
@@ -38,14 +38,25 @@ public class EnemyController : EntityController, IPoolable, IUpdate
         idle.AddTransition(EnemyStates.Move, move);
         move.AddTransition(EnemyStates.Idle, idle);
 
-        fsm.SetInit(idle);
+        currentEnemyState = EnemyStates.Idle;
+        fsm.SetInit(idle); //until enemy is spawn, better left them on idle as the don't have a current cell
     }
 
     public void ResetAction()
     {
-        var newSate = GameManager.Instance.enemyManager.GetRandomWeightAction();
-        print("ResetAction newState " + newSate);
-        fsm.Transition(newSate);
+        EnemyStates newState = GameManager.Instance.enemyManager.GetRandomWeightAction();
+
+        if(newState == EnemyStates.Move)
+        {
+            model.UpdateDirection();
+        }
+
+        if(currentEnemyState != newState)
+        {
+            currentEnemyState = newState;
+            fsm.Transition(newState);
+        }
+        print("ResetAction newState " + newState);
     }
 
     public void DoUpdate()
@@ -66,6 +77,7 @@ public class EnemyController : EntityController, IPoolable, IUpdate
     public void Initialize(Vector3 hidePosition)
     {
         hidePoint = hidePosition;
+        InitializeFSM();
     }
 
     public void Spawn(GridCell spawnPoint)
@@ -74,7 +86,6 @@ public class EnemyController : EntityController, IPoolable, IUpdate
         model.Spawn(spawnPoint);
         isActive = true;
         GameManager.Instance.updateManager.gameplayCustomUpdate.Add(this);
-        ResetAction();
     }
 
     public void ReturnToPool()

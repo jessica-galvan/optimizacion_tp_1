@@ -20,24 +20,17 @@ MonoBehaviour:
   collisionBox: {x: 1.5, y: 0.5, z: 1.5}
   precollisionBox: {x: 2, y: 0.5, z: 2}
   offset: {x: 0, y: 0, z: 0.2}
-  posibleDirectionsCount: 3
   posibleDirections:
-  - {x: 0, y: 0, z: 1}
   - {x: 1, y: 0, z: 0}
-  - {x: 0, y: 0, z: -1}
-  - {x: -1, y: 0, z: 0}
-  posiblePositions2:
   - {x: 0, y: 0, z: 1}
   - {x: 0, y: 0, z: -1}
-  - {x: 1, y: 0, z: 0}
   - {x: -1, y: 0, z: 0}
-  numberOfTries: 5
   enemyStatesWeight:
   - state: 0
     weight: 0
   - state: 1
     weight: 70
-  minIdleWaitTime: 0.5
-  maxIdleWaitTime: 2
+  minIdleWaitTime: 0.2
+  maxIdleWaitTime: 0.7
   enemyColliderSlicesFrames: 1
   slicesQuantity: 2

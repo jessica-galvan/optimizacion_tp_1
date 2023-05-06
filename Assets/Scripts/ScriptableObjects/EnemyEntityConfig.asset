@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83a2adf46738bfe49a900df1cb647fe7, type: 3}
   m_Name: EnemyEntityConfig
   m_EditorClassIdentifier: 
-  maxRayDistance: 1.05
-  distanceFromCenter: 0.1
+  maxRayDistance: 0.3
+  distanceFromCenter: 0.8
   raycastDectection:
     serializedVersion: 2
     m_Bits: 896
-  speed: 5
-  cooldownShooting: 1
+  speed: 15
+  cooldownShooting: 0.5
   bulletType: 1

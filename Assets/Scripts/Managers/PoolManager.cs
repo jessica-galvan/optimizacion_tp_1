@@ -5,12 +5,21 @@ using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
-    public Pool playerBulletPool;
-    public Pool enemyBulletPool;
-    public Pool enemyPool;
+    public Pool reference;
+
+    [ReadOnly] public Pool playerBulletPool;
+    [ReadOnly] public Pool enemyBulletPool;
+    [ReadOnly] public Pool enemyPool;
 
     public void Initialize()
     {
+        playerBulletPool = Instantiate(reference, transform);
+        playerBulletPool.gameObject.name = "PlayerBulletPool";
+        enemyBulletPool = Instantiate(reference, transform);
+        enemyBulletPool.gameObject.name = "EnemyBulletPool";
+        enemyPool = reference;
+        reference.gameObject.name = "EnemyPool";
+
         playerBulletPool.Initialize(GameManager.Instance.prefabReferences.playerBulletPrefab.gameObject, GameManager.Instance.globalConfig.initialPoolBullet);
         enemyBulletPool.Initialize(GameManager.Instance.prefabReferences.enemyBulletPrefab.gameObject, GameManager.Instance.globalConfig.initialPoolBullet);
         enemyPool.Initialize(GameManager.Instance.prefabReferences.enemyPrefab.gameObject, GameManager.Instance.globalConfig.maxEnemiesInLevelAtAllTimes);

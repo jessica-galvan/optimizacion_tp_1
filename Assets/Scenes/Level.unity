@@ -6653,7 +6653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabsReferences: {fileID: 11400000, guid: 5e37a64cae4cb624c9c811b755174692, type: 2}
   gridSize: {x: 12, y: 12}
-  gridSpaceSize: 2
+  gridSpaceSize: 1.5
   cellCenterDistance: 1.5
   gridList:
   - {fileID: 837533102}

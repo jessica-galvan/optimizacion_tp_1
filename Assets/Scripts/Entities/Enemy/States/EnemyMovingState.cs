@@ -13,12 +13,6 @@ public class EnemyMovingState<T> : EnemyBaseState<T>
     public override void Awake()
     {
         base.Awake();
-
-        if (!model.HasTargetCell)
-        {
-            Exit();
-            return;
-        }
         Debug.Log("Init MovingState");
     }
 
@@ -26,24 +20,19 @@ public class EnemyMovingState<T> : EnemyBaseState<T>
     {
         base.Execute();
 
-        if (model.HasTargetCell && model.CanMoveFoward())
+        if (model.CanMoveFoward(model.transform.forward))
         {
             model.Move(model.CurrentDirection);
-
-            if (model.HasArrivedToPlace()) 
-            {
-                Exit();
-            }
         }
         else
         {
-            Debug.Log("Collision detecter and exit execute");
-            model.ChangeDirection();
+            Exit();
         }
     }
 
     private void Exit()
     {
+        model.ChangeDirection();
         onEndActivityCallback();
     }
 

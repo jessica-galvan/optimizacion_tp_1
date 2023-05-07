@@ -11,6 +11,7 @@ public class EnemyModel : EntityModel
     [Header("Enemy")]
     public EnemyConfig enemyConfig;
     public LayerMask floorLayer;
+    public bool hasChangedDirection;
 
     private PlayerModel player;
     private RaycastHit[] currentPlayerCollisionBuffer = new RaycastHit[2];
@@ -27,6 +28,7 @@ public class EnemyModel : EntityModel
     public void GetRandomDirection()
     {
         bool foundViableDirection = false;
+
         var directions = new List<Vector3>(enemyConfig.posibleDirections);
 
         while (!foundViableDirection && directions.Count > 0)
@@ -47,41 +49,37 @@ public class EnemyModel : EntityModel
 
     public void ChangeDirection()
     {
-        for (int i = 0; i < enemyConfig.posibleDirections.Count; i++)
+        //for (int i = 0; i < enemyConfig.posibleDirections.Count; i++)
+        //{
+        //    LookDirection(enemyConfig.posibleDirections[i]);
+
+        //    if (CanMoveFoward(enemyConfig.posibleDirections[i]))
+        //    {
+        //        hasChangedDirection = true;
+        //        break;
+        //    }
+        //}
+
+        bool foundViableDirection = false;
+        var directions = new List<Vector3>(enemyConfig.posibleDirections);
+        Vector3 originalDir = currentDirection;
+
+        while (!foundViableDirection && directions.Count > 0)
         {
-            if (enemyConfig.posibleDirections[i] == currentDirection) continue;
+            int randomPosition = MiscUtils.RandomInt(0, directions.Count - 1);
 
-
-            
-
-            var auxCell = gameManager.levelGrid.GetNextCell(currentCell, enemyConfig.posibleDirections[i]);
-            if (auxCell == null || auxCell.IsOcupied) continue;
-            SetNewTarget(auxCell, enemyConfig.posibleDirections[i]);
-            UpdateCurrentCellStatus(targetCell);
-            LookDirection(enemyConfig.posibleDirections[i]);
-            break;
-        }
-    }
-
-    public bool HasArrivedToPlace()
-    {
-        bool isOnCenter = false;
-
-        if (HasTargetCell)
-        {
-            var aux = targetCell.spawnPoint.position - transform.position;
-            var distance = Vector3.SqrMagnitude(aux);
-
-            if (distance <= entityConfig.distanceFromCenter)
+            if(originalDir != directions[randomPosition])
             {
-                print($"{gameObject.name} has arrived to the center of cell {targetCell.gameObject.name}");
-                isOnCenter = true;
-                UpdateCurrentCellStatus(targetCell);
+                LookDirection(directions[randomPosition]);
 
+                if (CanMoveFoward(directions[randomPosition]))
+                {
+                    foundViableDirection = true;
+                }
             }
-        }
 
-        return isOnCenter;
+            directions.RemoveAt(randomPosition);
+        }
     }
 
     public void UpdateDirection()

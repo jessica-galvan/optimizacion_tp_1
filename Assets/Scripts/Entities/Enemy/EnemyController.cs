@@ -16,7 +16,6 @@ public class EnemyController : EntityController, IPoolable, IUpdate
     private FSM<EnemyStates> fsm;
     private Vector3 hidePoint;
     private EnemyStates currentEnemyState;
-    [ReadOnly] [SerializeField] private bool isActive;
 
     private void Awake()
     {
@@ -45,11 +44,6 @@ public class EnemyController : EntityController, IPoolable, IUpdate
     public void ResetAction()
     {
         EnemyStates newState = GameManager.Instance.enemyManager.GetRandomWeightAction();
-
-        if(newState == EnemyStates.Move)
-        {
-            model.UpdateDirection();
-        }
 
         if(currentEnemyState != newState)
         {
@@ -83,13 +77,11 @@ public class EnemyController : EntityController, IPoolable, IUpdate
     {
         gameObject.SetActive(true);
         model.Spawn(spawnPoint);
-        isActive = true;
         GameManager.Instance.updateManager.gameplayCustomUpdate.Add(this);
     }
 
     public void ReturnToPool()
     {
-        isActive = false;
         transform.position = hidePoint;
         gameObject.SetActive(false);
         GameManager.Instance.updateManager.gameplayCustomUpdate.Remove(this);

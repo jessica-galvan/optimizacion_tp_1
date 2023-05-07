@@ -28,6 +28,9 @@ public class PlayerModel : EntityModel
 
     public void CheckWhereWeAre(Vector3 direction) //call only while in moving;
     {
+        var currentGrid = gameManager.levelGrid.GetGridPosFromWorld(transform.position);
+        print($"Player get grid pos {currentGrid} vs CurrentCell {currentCell}");
+
         if (HasTargetCell)
         {
             var distance = Vector3.SqrMagnitude(targetCell.spawnPoint.position - transform.position);

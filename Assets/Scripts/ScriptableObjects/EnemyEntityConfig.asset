@@ -17,6 +17,6 @@ MonoBehaviour:
   raycastDectection:
     serializedVersion: 2
     m_Bits: 896
-  speed: 10
+  speed: 5
   cooldownShooting: 0.5
   bulletType: 1

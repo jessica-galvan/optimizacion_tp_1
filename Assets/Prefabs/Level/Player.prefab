@@ -363,7 +363,6 @@ MonoBehaviour:
   entityConfig: {fileID: 11400000, guid: 50b3755e67214df4c81488d07a23d7ef, type: 2}
   firepoint: {fileID: 8579285769618047914}
   gameManager: {fileID: 0}
-  currentDirection: {x: 0, y: 0, z: 0}
   spawnLookDirection: {x: 0, y: 0, z: 1}
 --- !u!1 &7486047097606866728
 GameObject:
@@ -377,7 +376,7 @@ GameObject:
   - component: {fileID: 5072440613540636927}
   - component: {fileID: 9166723766490502115}
   - component: {fileID: 6820424335276987824}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

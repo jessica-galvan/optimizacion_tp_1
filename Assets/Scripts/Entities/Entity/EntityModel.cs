@@ -38,6 +38,7 @@ public class EntityModel : MonoBehaviour, IDamagable
     {
         UpdateCurrentCellStatus(spawnPoint);
         transform.position = currentCell.spawnPoint.position;
+        LookDirection(transform.forward);
         gameObject.SetActive(true);
         OnSpawned.Invoke();
     }
@@ -55,7 +56,8 @@ public class EntityModel : MonoBehaviour, IDamagable
     public virtual void Move(Vector3 direction)
     {
         //if (!CanMoveFoward()) return;
-        transform.position += direction * entityConfig.speed * Time.deltaTime;
+        rb.velocity = direction * entityConfig.speed;
+        //transform.position += direction * entityConfig.speed * Time.deltaTime;
     }
 
     public void Idle()
@@ -65,12 +67,13 @@ public class EntityModel : MonoBehaviour, IDamagable
 
     public void LookDirection(Vector3 dir)
     {
+        currentDirection = dir;
         transform.forward = dir;
     }
 
-    public bool CanMoveFoward()
+    public bool CanMoveFoward(Vector3 direction)
     {
-        int hitCount = Physics.RaycastNonAlloc(new Ray(firepoint.position, transform.forward), currentRaycastBuffer, entityConfig.maxRayDistance, entityConfig.raycastDectection);
+        int hitCount = Physics.RaycastNonAlloc(new Ray(firepoint.position, direction), currentRaycastBuffer, entityConfig.maxRayDistance, entityConfig.raycastDectection);
         return hitCount == 0;
     }
 
@@ -148,5 +151,11 @@ public class EntityModel : MonoBehaviour, IDamagable
         //TODO set visuals to off but still be there?
         //TODO do death feedback!
         OnDie.Invoke();
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(firepoint.position, firepoint.position + (transform.forward * entityConfig.maxRayDistance));
     }
 }

@@ -10,6 +10,7 @@ public class PoolManager : MonoBehaviour
     [ReadOnly] public Pool playerBulletPool;
     [ReadOnly] public Pool enemyBulletPool;
     [ReadOnly] public Pool enemyPool;
+    [ReadOnly] public Pool deathParticlePool;
 
     public void Initialize()
     {
@@ -17,12 +18,15 @@ public class PoolManager : MonoBehaviour
         playerBulletPool.gameObject.name = "PlayerBulletPool";
         enemyBulletPool = Instantiate(reference, transform);
         enemyBulletPool.gameObject.name = "EnemyBulletPool";
+        deathParticlePool = Instantiate(reference, transform);
+        deathParticlePool.gameObject.name = "DeathParticlePool";
         enemyPool = reference;
         reference.gameObject.name = "EnemyPool";
 
         playerBulletPool.Initialize(GameManager.Instance.prefabReferences.playerBulletPrefab.gameObject, GameManager.Instance.globalConfig.initialPoolBullet);
         enemyBulletPool.Initialize(GameManager.Instance.prefabReferences.enemyBulletPrefab.gameObject, GameManager.Instance.globalConfig.initialPoolBullet);
         enemyPool.Initialize(GameManager.Instance.prefabReferences.enemyPrefab.gameObject, GameManager.Instance.globalConfig.maxEnemiesInLevelAtAllTimes);
+        deathParticlePool.Initialize(GameManager.Instance.prefabReferences.deathParticle.gameObject, GameManager.Instance.globalConfig.particlePool);
     }
 
     public BulletController GetBullet(BulletType bulletType)
@@ -66,5 +70,13 @@ public class PoolManager : MonoBehaviour
         enemyPool.BackToPool(enemy);
     }
 
+    public DeathParticle GetDeathParticle()
+    {
+        return (DeathParticle) deathParticlePool.Spawn();
+    }
 
+    public void ReturnParticle(DeathParticle particle)
+    {
+        deathParticlePool.BackToPool(particle);
+    }
 }

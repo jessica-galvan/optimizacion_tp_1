@@ -112,8 +112,8 @@ public class EntityModel : MonoBehaviour, IDamagable
 
     public virtual void TakeDamage()
     {
-        //TODO set visuals to off but still be there?
-        //TODO do death feedback!
+        var particle = gameManager.poolManager.GetDeathParticle();
+        particle.Spawn(transform.position);
         OnDie.Invoke();
     }
 

@@ -8,6 +8,8 @@ public class PlayerModel : EntityModel
     public Vector3 spawnLookDirection = new Vector3(0, 0, 1);
     public bool Alive { get; private set; }
 
+    public Vector2Int currentGrid;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -28,8 +30,13 @@ public class PlayerModel : EntityModel
 
     public void CheckWhereWeAre(Vector3 direction) //call only while in moving;
     {
-        var currentGrid = gameManager.levelGrid.GetGridPosFromWorld(transform.position);
-        print($"Player get grid pos {currentGrid} vs CurrentCell {currentCell}");
+        var newGrid = gameManager.levelGrid.GetGridPosFromWorld(transform.position);
+
+        if(currentGrid != newGrid)
+        {
+            currentGrid = gameManager.levelGrid.GetGridPosFromWorld(transform.position);
+            print($"Player get grid pos {currentGrid} vs CurrentCell {currentCell}");
+        }
 
         if (HasTargetCell)
         {

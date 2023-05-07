@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.VisualScripting;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -24,8 +25,12 @@ public class LevelGrid : MonoBehaviour
     public GridCell playerSpawnPoint;
     public List<GridCell> enemySpawnPoints = new List<GridCell>();
 
+    private int extraBorderCells = 2;
+    private Vector2Int realGridSize = new Vector2Int(14, 14);
+
     public void Initialize()
     {
+        realGridSize = new Vector2Int(gridSize.x + extraBorderCells, gridSize.y + extraBorderCells);
         ResetPosInfo();
         HideSpawnPoints();
 
@@ -43,10 +48,12 @@ public class LevelGrid : MonoBehaviour
             return;
         }
 
-        //now let's make a grid. We add an extra grid because we need a unbreakable wall
-        for (int y = 0; y <= gridSize.y; y++)
+        //now let's make a grid. We add an extra grid because we need a unbreakable wall. Two sides.
+        int gridYSize = gridSize.y + extraBorderCells;
+        int gridXSize = gridSize.x + extraBorderCells;
+        for (int y = 0; y < gridYSize; y++)
         {
-            for (int x = 0; x <= gridSize.x; x++)
+            for (int x = 0; x < gridXSize; x++)
             {
                 //create a new GridCell for each space;
                 GridCell gridCell = PrefabUtility.InstantiatePrefab(prefabsReferences.gridCellPrefab) as GridCell;
@@ -54,7 +61,7 @@ public class LevelGrid : MonoBehaviour
                 gridCell.transform.SetParent(transform);
                 gridCell.SetPosition(x, y);
 
-                if(x == 0 || y == 0 || x == gridSize.x || y == gridSize.y)
+                if(x == 0 || y == 0 || x > gridSize.x  || y > gridSize.y)
                 {
                     gridCell.cellType = GridCell.Type.BorderWall;
                     gridCell.SetVisuals();
@@ -89,8 +96,8 @@ public class LevelGrid : MonoBehaviour
         ClearGrid();
         gridPos.Clear();
 
-        var maxX = gridSize.x + 1;
-        var maxY = gridSize.y + 1;
+        var maxX = gridSize.x + extraBorderCells;
+        var maxY = gridSize.y + extraBorderCells;
 
         //now we run all the matrix to get the new spawning points
         for (int i = 0; i < gridList.Count; i++)
@@ -117,8 +124,8 @@ public class LevelGrid : MonoBehaviour
 
     public void ResetPosInfo()
     {
-        var maxX = gridSize.x + 1;
-        var maxY = gridSize.y + 1;
+        var maxX = gridSize.x + extraBorderCells;
+        var maxY = gridSize.y + extraBorderCells;
         levelGrid = new GridCell[maxX, maxY];
         for (int i = 0; i < gridList.Count; i++)
         {
@@ -134,7 +141,7 @@ public class LevelGrid : MonoBehaviour
     {
         int auxY = currentCell / maxY;
         int ypos = Mathf.FloorToInt(auxY);
-        int xpos = Mathf.Abs(currentCell - (ypos * gridSize.y) - ypos);
+        int xpos = Mathf.Abs(currentCell - (ypos * maxY));
         return new Vector2Int(xpos, ypos);
     }
 
@@ -159,11 +166,11 @@ public class LevelGrid : MonoBehaviour
 
     public Vector2Int GetGridPosFromWorld(Vector3 worldPos)
     {
-        int x = Mathf.FloorToInt(worldPos.x / gridSpaceSize);
-        int y = Mathf.FloorToInt(worldPos.z / gridSpaceSize);
+        int x = Mathf.RoundToInt(worldPos.x / gridSpaceSize);
+        x = Mathf.Clamp(x, 0, realGridSize.x);
 
-        x = Mathf.Clamp(x, 0, gridSize.x);
-        y = Mathf.Clamp(y, 0, gridSize.y);
+        int y = Mathf.RoundToInt(worldPos.z / gridSpaceSize);
+        y = Mathf.Clamp(y, 0, realGridSize.y);
 
         return new Vector2Int(x, y);
     }
@@ -178,8 +185,8 @@ public class LevelGrid : MonoBehaviour
 
     public GridCell GetNextCell(GridCell currentCell, Vector3 direction)
     {
-        int xPos = direction.x != 0 ? (int)Mathf.Clamp(currentCell.X + direction.x, 0, gridSize.x) : currentCell.X;
-        int yPos = direction.z != 0 ? (int)Mathf.Clamp(currentCell.Y + direction.z, 0, gridSize.y) : currentCell.Y;
+        int xPos = direction.x != 0 ? (int)Mathf.Clamp(currentCell.X + direction.x, 0, realGridSize.x) : currentCell.X;
+        int yPos = direction.z != 0 ? (int)Mathf.Clamp(currentCell.Y + direction.z, 0, realGridSize.y) : currentCell.Y;
         var cell = levelGrid[xPos, yPos];
 
         return cell;

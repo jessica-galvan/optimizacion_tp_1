@@ -9,6 +9,7 @@ public class EnemyManager : MonoBehaviour, IUpdate
 {
     public EnemyConfig enemyConfig;
     [ReadOnly] public int totalKilled = 0;
+    [ReadOnly] public int totalSpawned = 0;
     [ReadOnly] public int currentEnemyQuantitySpawned = 0;
     [ReadOnly] public int currentTimeFrameCollider;
     [ReadOnly] public int currentTimeFrameCheckLocation;
@@ -57,7 +58,7 @@ public class EnemyManager : MonoBehaviour, IUpdate
 
     private bool HasSpaceToSpawnEnemy()
     {
-        return currentEnemyQuantitySpawned < gameManager.globalConfig.maxEnemiesInLevelAtAllTimes;
+        return totalSpawned < gameManager.globalConfig.totalEnemiesLevel && currentEnemyQuantitySpawned < gameManager.globalConfig.maxEnemiesInLevelAtAllTimes;
     }
 
     public void EnemyKilled()
@@ -93,6 +94,7 @@ public class EnemyManager : MonoBehaviour, IUpdate
             enemy.Spawn(spawnPoint);
             currentTime = gameManager.globalConfig.spawningTime;
             currentEnemyQuantitySpawned++;
+            totalSpawned++;
             canSpawnEnemies = HasSpaceToSpawnEnemy();
         }
         else

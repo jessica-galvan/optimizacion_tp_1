@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 1442060555166008909}
   - component: {fileID: 1442060555166008908}
   - component: {fileID: 1442060555166008907}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FloorCell
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,9 +10,11 @@ public class EnemyModel : EntityModel
 {
     [Header("Enemy")]
     public EnemyConfig enemyConfig;
+    public LayerMask floorLayer;
 
     private PlayerModel player;
     private RaycastHit[] currentPlayerCollisionBuffer = new RaycastHit[2];
+    private RaycastHit[] locationRaycast = new RaycastHit[1];
 
     public Vector3 CurrentDirection => currentDirection;
 
@@ -22,12 +24,9 @@ public class EnemyModel : EntityModel
         player = GameManager.Instance.Player;
     }
 
-    public GridCell GetRandomDirection()
+    public void GetRandomDirection()
     {
-        GridCell newDirection = null;
-
         bool foundViableDirection = false;
-
         var directions = new List<Vector3>(enemyConfig.posibleDirections);
 
         while (!foundViableDirection && directions.Count > 0)
@@ -41,14 +40,27 @@ public class EnemyModel : EntityModel
                 continue;
             }
 
-            targetCell = auxCell;
-            newDirection = targetCell;
-            HasTargetCell = true;
+            SetNewTarget(auxCell, directions[randomPosition]);
             foundViableDirection = true;
-            currentDirection = directions[randomPosition];
-            //print($"{gameObject.name} New Direction : {currentDirection} and RadomNumber = {randomPosition}");
         }
-        return newDirection;
+    }
+
+    public void ChangeDirection()
+    {
+        for (int i = 0; i < enemyConfig.posibleDirections.Count; i++)
+        {
+            if (enemyConfig.posibleDirections[i] == currentDirection) continue;
+
+
+            
+
+            var auxCell = gameManager.levelGrid.GetNextCell(currentCell, enemyConfig.posibleDirections[i]);
+            if (auxCell == null || auxCell.IsOcupied) continue;
+            SetNewTarget(auxCell, enemyConfig.posibleDirections[i]);
+            UpdateCurrentCellStatus(targetCell);
+            LookDirection(enemyConfig.posibleDirections[i]);
+            break;
+        }
     }
 
     public bool HasArrivedToPlace()

@@ -81,8 +81,7 @@ public class EntityModel : MonoBehaviour, IDamagable
 
         if (ValidCell(auxCell))
         {
-            HasTargetCell = true;
-            targetCell = auxCell;
+            SetNewTarget(auxCell, direction);
         }
         else
         {
@@ -117,6 +116,14 @@ public class EntityModel : MonoBehaviour, IDamagable
         //then that it's occupied and lastly it is has an owner?
 
         return answer;
+    }
+
+    public void SetNewTarget(GridCell newTarget, Vector3 direction)
+    {
+        targetCell = newTarget;
+        HasTargetCell = true;
+        currentDirection = direction;
+        LookDirection(direction);
     }
 
     public void CleanTargetCell()

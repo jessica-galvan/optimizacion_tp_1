@@ -30,7 +30,7 @@ public class EnemyMovingState<T> : EnemyBaseState<T>
         {
             model.Move(model.CurrentDirection);
 
-            if (model.HasArrivedToPlace())
+            if (model.HasArrivedToPlace()) 
             {
                 Exit();
             }
@@ -38,7 +38,7 @@ public class EnemyMovingState<T> : EnemyBaseState<T>
         else
         {
             Debug.Log("Collision detecter and exit execute");
-            Exit();
+            model.ChangeDirection();
         }
     }
 

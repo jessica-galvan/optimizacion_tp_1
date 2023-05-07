@@ -15,7 +15,6 @@ public class EnemyModel : EntityModel
 
     private PlayerModel player;
     private RaycastHit[] currentPlayerCollisionBuffer = new RaycastHit[2];
-    private RaycastHit[] locationRaycast = new RaycastHit[1];
 
     public Vector3 CurrentDirection => currentDirection;
 
@@ -61,46 +60,6 @@ public class EnemyModel : EntityModel
             LookDirection(directions[randomPosition]);
             foundViableDirection = true;
         }
-    }
-
-    public void ChangeDirection()
-    {
-        //for (int i = 0; i < enemyConfig.posibleDirections.Count; i++)
-        //{
-        //    LookDirection(enemyConfig.posibleDirections[i]);
-
-        //    if (CanMoveFoward(enemyConfig.posibleDirections[i]))
-        //    {
-        //        hasChangedDirection = true;
-        //        break;
-        //    }
-        //}
-
-        bool foundViableDirection = false;
-        var directions = new List<Vector3>(enemyConfig.posibleDirections);
-        Vector3 originalDir = currentDirection;
-
-        while (!foundViableDirection && directions.Count > 0)
-        {
-            int randomPosition = MiscUtils.RandomInt(0, directions.Count - 1);
-
-            if(originalDir != directions[randomPosition])
-            {
-                LookDirection(directions[randomPosition]);
-
-                if (CanMoveFoward(directions[randomPosition]))
-                {
-                    foundViableDirection = true;
-                }
-            }
-
-            directions.RemoveAt(randomPosition);
-        }
-    }
-
-    public override void TakeDamage()
-    {
-        base.TakeDamage();
     }
 
     public void CheckCollisions()

@@ -103,23 +103,6 @@ public class EntityModel : MonoBehaviour, IDamagable
         }
     }
 
-    public virtual bool ValidCell(GridCell targetCell)
-    {
-        bool answer = true;
-
-        //only if it's not our cell somehow, the target cell is occupied and the entity is null
-        //then we return it's not a valid cell, as it has a wall on it
-        if (targetCell == null || (currentCell != targetCell && targetCell.IsOcupied && targetCell.Entity == null))
-        {
-            answer = false;
-        }
-
-        //is it expected path if we check in the importance order? like first that it's not the same,
-        //then that it's occupied and lastly it is has an owner?
-
-        return answer;
-    }
-
     public void UpdateCurrentCellStatus(GridCell gridCell)
     {
         if(currentCell != null)

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using static UnityEditor.Progress;
 using Random = UnityEngine.Random;
@@ -19,6 +20,7 @@ public class EnemyManager : MonoBehaviour, IUpdate
     private float currentTime;
     private bool canSpawnEnemies;
     private int maxSpawnPoints;
+    private HashSet<EnemyController> inLevelEnemies = new HashSet<EnemyController>();
 
     public Action<int> OnEnemyKilled = delegate { };
 
@@ -61,8 +63,9 @@ public class EnemyManager : MonoBehaviour, IUpdate
         return totalSpawned < gameManager.globalConfig.totalEnemiesLevel && currentEnemyQuantitySpawned < gameManager.globalConfig.maxEnemiesInLevelAtAllTimes;
     }
 
-    public void EnemyKilled()
+    public void EnemyKilled(EnemyController enemyKilled)
     {
+        inLevelEnemies.Remove(enemyKilled);
         totalKilled++;
         OnEnemyKilled.Invoke(totalKilled);
         currentEnemyQuantitySpawned--;
@@ -92,6 +95,7 @@ public class EnemyManager : MonoBehaviour, IUpdate
         {
             var enemy = gameManager.poolManager.GetEnemy();
             enemy.Spawn(spawnPoint);
+            inLevelEnemies.Add(enemy);
             currentTime = gameManager.globalConfig.spawningTime;
             currentEnemyQuantitySpawned++;
             totalSpawned++;
@@ -129,6 +133,13 @@ public class EnemyManager : MonoBehaviour, IUpdate
         }
 
         return states;
+    }
+
+    public void KillRandomEnemy()
+    {
+        if (currentEnemyQuantitySpawned == 0) return;
+
+        inLevelEnemies.First<EnemyController>().model.TakeDamage();
     }
 
     private void OnDestroy()

@@ -85,7 +85,7 @@ public class HUDManager : MonoBehaviour, IUpdate
 
     public void DoUpdate()
     {
-        UpdateTimer(gameManager.CurrentTime);
+        UpdateTimer(gameManager.updateManager.CurrentTimeGameplay);
     }
 
     private void OnPause(bool isPause)

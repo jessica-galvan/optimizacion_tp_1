@@ -31,8 +31,8 @@ MonoBehaviour:
     weight: 10
   - state: 1
     weight: 70
-  minIdleWaitTime: 0.1
-  maxIdleWaitTime: 0.5
+  minIdleWaitTime: 0
+  maxIdleWaitTime: 0.1
   enemyColliderSlicesFrames: 1
   slicesColliderQuantity: 2
   slicesCellLocationCheckQuantity: 5

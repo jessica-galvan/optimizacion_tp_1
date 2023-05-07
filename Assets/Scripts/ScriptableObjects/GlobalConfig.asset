@@ -15,9 +15,11 @@ MonoBehaviour:
   playerWaitTimeRespawn: 2
   gameplayFPSTarget: 60
   uiFPSTarget: 30
-  totalEnemiesLevel: 10
+  totalEnemiesLevel: 5
   maxEnemiesInLevelAtAllTimes: 3
   spawningTime: 2
   retrySpawnTime: 4
   triesPerSpawn: 4
   initialPoolBullet: 5
+  particlePool: 2
+  maxParticleLife: 5

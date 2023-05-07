@@ -91,6 +91,6 @@ public class EnemyController : EntityController, IPoolable, IUpdate
     private void OnDie()
     {
         GameManager.Instance.poolManager.ReturnEnemy(this);
-        GameManager.Instance.enemyManager.EnemyKilled();
+        GameManager.Instance.enemyManager.EnemyKilled(this);
     }
 }

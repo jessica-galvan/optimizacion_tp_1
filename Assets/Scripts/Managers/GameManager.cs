@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour, IUpdate
+public class GameManager : MonoBehaviour
 {
     [Header("References")]
     public GlobalConfig globalConfig;
@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour, IUpdate
     private static GameManager instance;
     private int playerDeadCount = 0;
     private bool pause = false;
-    private float currentTime;
     private bool won = false;
 
     //Properties
@@ -30,7 +29,6 @@ public class GameManager : MonoBehaviour, IUpdate
     public static bool HasInstance => instance != null;
     public PlayerModel Player { get; private set; }
     public bool Pause => pause;
-    public float CurrentTime => currentTime;
     public int PlayerDeadCounter => playerDeadCount;
     public bool Won => won;
 
@@ -53,7 +51,6 @@ public class GameManager : MonoBehaviour, IUpdate
 
         updateManager = Instantiate(prefabReferences.updateManager);
         updateManager.Initialize();
-        updateManager.fixCustomUpdater.Add(this);
 
         inputManager = GetComponent<InputManager>();
         inputManager.Initialize();
@@ -70,28 +67,6 @@ public class GameManager : MonoBehaviour, IUpdate
 
         enemyManager = Instantiate(prefabReferences.enemyManager);
         enemyManager.Initialize();
-    }
-
-
-    public void DoUpdate()
-    {
-        if (Pause) return;
-
-        currentTime += Time.deltaTime;
-        TestingCheats();
-    }
-
-    private void TestingCheats()
-    {
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
-            WinGame();
-        }
-
-        if (Input.GetKeyDown(KeyCode.F2))
-        {
-            Player.TakeDamage();
-        }
     }
 
     public void SetPlayer(PlayerModel player)
@@ -148,6 +123,5 @@ public class GameManager : MonoBehaviour, IUpdate
     public void OnDestroy()
     {
         inputManager.OnPause -= TogglePause;
-        updateManager.fixCustomUpdater.Remove(this);
     }
 }

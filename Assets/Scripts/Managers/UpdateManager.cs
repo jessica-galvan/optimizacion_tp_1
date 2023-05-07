@@ -9,11 +9,14 @@ public class UpdateManager : MonoBehaviour
     [ReadOnly] public CustomUpdate gameplayCustomUpdate;
     [ReadOnly] public CustomUpdate uiCustomUpdate;
 
+    private float currentTimeGameplay; //we have the timer here as it should not be affected by the max fps on gameplay or UI
+    public float CurrentTimeGameplay => currentTimeGameplay;
+
     public void Initialize()
     {
         //there are two gameplayList because the second one can constantly change as the bullets and enemies come and go.
         //Meanwhile the fixed one are the ones that don't have a set frame, they update all the frames as we want don't want to limit the frame check as they depend on the craprichious input system
-        //GameManager, InputManager, PlayerController.
+        //InputManager, PlayerController, EnemyManager
 
         fixCustomUpdater = gameObject.AddComponent<CustomUpdate>();
         fixCustomUpdater.Initialize(0, "Managers");
@@ -27,6 +30,7 @@ public class UpdateManager : MonoBehaviour
 
     void Update()
     {
+        currentTimeGameplay += Time.deltaTime;
         fixCustomUpdater.UpdateList();
         gameplayCustomUpdate.UpdateList();
         uiCustomUpdate.UpdateList();

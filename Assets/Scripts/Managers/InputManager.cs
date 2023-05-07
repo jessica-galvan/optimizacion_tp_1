@@ -30,8 +30,33 @@ public class InputManager : MonoBehaviour, IUpdate
 
     public void DoUpdate()
     {
-        if(!gameManager.Won)
+        if (!gameManager.Won)
+        {
             CheckPause();
+
+            if (!gameManager.Pause)
+            {
+                TestingCheats();
+            }
+        }
+    }
+
+    private void TestingCheats()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            gameManager.WinGame();
+        }
+
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            gameManager.Player.TakeDamage();
+        }
+
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            gameManager.enemyManager.KillRandomEnemy();
+        }
     }
 
     public void PlayerUpdate()

@@ -74,23 +74,31 @@ public class PoolManager : MonoBehaviour
         enemyPool.BackToPool(enemy);
     }
 
-    public ParticleController GetDeathParticle()
+    public ParticleController GethParticle(ParticleController.ParticleType type)
     {
-        return (ParticleController) deathParticlePool.Spawn();
+        ParticleController particle = null;
+        switch (type)
+        {
+            case ParticleController.ParticleType.BulletImpact:
+                particle = (ParticleController)bulletImpactParticlePool.Spawn();
+                break;
+            case ParticleController.ParticleType.Death:
+                particle = (ParticleController)deathParticlePool.Spawn();
+                break;
+        }
+        return particle;
     }
 
-    public void ReturnDeathParticle(ParticleController particle)
+    public void ReturnParticle(ParticleController particle)
     {
-        deathParticlePool.BackToPool(particle);
-    }
-
-    public ParticleController GetBulletImpactParticle()
-    {
-        return (ParticleController)bulletImpactParticlePool.Spawn();
-    }
-
-    public void ReturnBulletParticle(ParticleController particle)
-    {
-        bulletImpactParticlePool.BackToPool(particle);
+        switch (particle.type)
+        {
+            case ParticleController.ParticleType.BulletImpact:
+                bulletImpactParticlePool.BackToPool(particle);
+                break;
+            case ParticleController.ParticleType.Death:
+                deathParticlePool.BackToPool(particle);
+                break;
+        }
     }
 }

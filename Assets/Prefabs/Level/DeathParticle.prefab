@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca69581d431287f438af065ee37ad01b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
   particle: {fileID: 4194780353263148942}
   hidePosition: {x: 0, y: 0, z: 0}
 --- !u!198 &4194780353263148942 stripped

@@ -60,7 +60,7 @@ public class BulletController : MonoBehaviour, IUpdate, IPoolable
 
     private void Die()
     {
-        var impactVFX = GameManager.Instance.poolManager.GetBulletImpactParticle();
+        var impactVFX = GameManager.Instance.poolManager.GethParticle(ParticleController.ParticleType.BulletImpact);
         impactVFX.Spawn(transform);
         GameManager.Instance.poolManager.ReturnBullet(this);
     }

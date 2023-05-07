@@ -25,4 +25,5 @@ public class GlobalConfig : ScriptableObject
     [Header("Extra Settings")]
     public int initialPoolBullet = 5;
     public int particlePool = 2;
+    public float maxParticleLife = 5f;
 }

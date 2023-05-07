@@ -112,7 +112,7 @@ public class EntityModel : MonoBehaviour, IDamagable
 
     public virtual void TakeDamage()
     {
-        var particle = gameManager.poolManager.GetDeathParticle();
+        var particle = gameManager.poolManager.GethParticle(ParticleController.ParticleType.Death);
         particle.Spawn(transform);
         OnDie.Invoke();
     }

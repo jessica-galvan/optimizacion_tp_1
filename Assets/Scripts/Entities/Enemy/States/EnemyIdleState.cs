@@ -17,8 +17,6 @@ public class EnemyIdleState<T> : EnemyBaseState<T>
     {
         base.Awake();
         currentTime = MiscUtils.RandomFloat(model.enemyConfig.minIdleWaitTime, model.enemyConfig.maxIdleWaitTime);
-
-        Debug.Log($"Init IdleState. CurrentTime {currentTime}");
     }
 
     public override void Execute()
@@ -35,11 +33,4 @@ public class EnemyIdleState<T> : EnemyBaseState<T>
     {
         onEndActivityCallback();
     }
-
-    public override void Sleep()
-    {
-        Debug.Log($"Exit IdleState");
-        //fsm.Transition(transitionInput);
-    }
-
 }

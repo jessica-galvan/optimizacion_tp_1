@@ -25,9 +25,19 @@ public class EnemyModel : EntityModel
         player = GameManager.Instance.Player;
     }
 
+    public override void CheckWhereWeAre()
+    {
+        if (gameManager.enemyManager.currentTimeFrameCheckLocaiton != 0) return;
+
+        base.CheckWhereWeAre();
+    }
+
     public void GetRandomDirection()
     {
         bool foundViableDirection = false;
+
+        var newGridPos = gameManager.levelGrid.GetGridPosFromWorld(transform.position);
+        var current = gameManager.levelGrid.GetGridFromVector2Int(newGridPos);
 
         var directions = new List<Vector3>(enemyConfig.posibleDirections);
 
@@ -35,14 +45,20 @@ public class EnemyModel : EntityModel
         {
             int randomPosition = MiscUtils.RandomInt(0, directions.Count - 1 );
 
-            var auxCell = gameManager.levelGrid.GetNextCell(currentCell, directions[randomPosition]);
+            if (currentDirection == directions[randomPosition]) //if we are changing directions, we are not going to check the current one. 
+            {
+                directions.RemoveAt(randomPosition);
+                continue;
+            }
+
+            var auxCell = gameManager.levelGrid.GetNextCell(current, directions[randomPosition]);
             if (auxCell == null ||auxCell.IsOcupied)
             {
                 directions.RemoveAt(randomPosition);
                 continue;
             }
 
-            SetNewTarget(auxCell, directions[randomPosition]);
+            LookDirection(directions[randomPosition]);
             foundViableDirection = true;
         }
     }
@@ -79,16 +95,6 @@ public class EnemyModel : EntityModel
             }
 
             directions.RemoveAt(randomPosition);
-        }
-    }
-
-    public void UpdateDirection()
-    {
-        CleanTargetCell();
-        GetRandomDirection();
-        if (HasTargetCell)
-        {
-            LookDirection(currentDirection);
         }
     }
 

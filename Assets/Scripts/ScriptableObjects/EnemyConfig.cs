@@ -36,6 +36,7 @@ public class EnemyConfig : ScriptableObject
 
     [Header("Performance")]
     public bool enemyColliderSlicesFrames = true;
-    public int slicesQuantity = 2;
+    public int slicesColliderQuantity = 2;
+    public int slicesCellLocationCheckQuantity = 15;
 }
 

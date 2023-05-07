@@ -15,6 +15,7 @@ public class EntityModel : MonoBehaviour, IDamagable
     protected Rigidbody rb;
 
     //Cell System && movement
+    protected Vector2Int currentGridPos;
     protected GridCell currentCell;
     protected GridCell targetCell;
     public bool HasTargetCell { get; protected set; }
@@ -24,6 +25,7 @@ public class EntityModel : MonoBehaviour, IDamagable
     //Shooting
     protected bool canShoot = true;
     protected float cooldownShootTimer = 0f;
+
 
     public Action OnSpawned = delegate { };
     public Action OnDie = delegate { };
@@ -77,18 +79,15 @@ public class EntityModel : MonoBehaviour, IDamagable
         return hitCount == 0;
     }
 
-
-    public void GetNextCell(Vector3 direction)
+    public virtual void CheckWhereWeAre() //call only while in moving;
     {
-        var auxCell = gameManager.levelGrid.GetNextCell(currentCell, direction);
+        var newGridPos = gameManager.levelGrid.GetGridPosFromWorld(transform.position);
 
-        if (ValidCell(auxCell))
+        if (currentGridPos != newGridPos)
         {
-            SetNewTarget(auxCell, direction);
-        }
-        else
-        {
-            CleanTargetCell();
+            currentGridPos = newGridPos;
+            var newCell = gameManager.levelGrid.GetGridFromVector2Int(newGridPos);
+            UpdateCurrentCellStatus(newCell);
         }
     }
 
@@ -119,20 +118,6 @@ public class EntityModel : MonoBehaviour, IDamagable
         //then that it's occupied and lastly it is has an owner?
 
         return answer;
-    }
-
-    public void SetNewTarget(GridCell newTarget, Vector3 direction)
-    {
-        targetCell = newTarget;
-        HasTargetCell = true;
-        currentDirection = direction;
-        LookDirection(direction);
-    }
-
-    public void CleanTargetCell()
-    {
-        targetCell = null;
-        HasTargetCell = false;
     }
 
     public void UpdateCurrentCellStatus(GridCell gridCell)

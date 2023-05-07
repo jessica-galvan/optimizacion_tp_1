@@ -60,7 +60,7 @@ public class EnemyController : EntityController, IPoolable, IUpdate
         model.Shoot();
         model.ShootingCooldown();
         //SLICE frame, we don't need to check collisions every frame, so we can slice it and do it every other one to just be sure everything it's ok
-        if (!model.enemyConfig.enemyColliderSlicesFrames || model.gameManager.enemyManager.currentTimeFrame == 0)
+        if (!model.enemyConfig.enemyColliderSlicesFrames || model.gameManager.enemyManager.currentTimeFrameCollider == 0)
         {
             model.CheckCollisions();
         }

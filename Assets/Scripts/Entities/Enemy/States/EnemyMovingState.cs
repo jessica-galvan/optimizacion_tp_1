@@ -20,6 +20,8 @@ public class EnemyMovingState<T> : EnemyBaseState<T>
     {
         base.Execute();
 
+        model.CheckWhereWeAre();
+
         if (model.CanMoveFoward(model.transform.forward))
         {
             model.Move(model.CurrentDirection);
@@ -32,7 +34,8 @@ public class EnemyMovingState<T> : EnemyBaseState<T>
 
     private void Exit()
     {
-        model.ChangeDirection();
+        model.GetRandomDirection();
+        //model.ChangeDirection();
         onEndActivityCallback();
     }
 

@@ -10,7 +10,8 @@ public class EnemyManager : MonoBehaviour, IUpdate
     public EnemyConfig enemyConfig;
     [ReadOnly] public int totalKilled = 0;
     [ReadOnly] public int currentEnemyQuantitySpawned = 0;
-    [ReadOnly] public int currentTimeFrame;
+    [ReadOnly] public int currentTimeFrameCollider;
+    [ReadOnly] public int currentTimeFrameCheckLocaiton;
 
     private int totalWeight = 0;
     private GameManager gameManager;
@@ -39,7 +40,9 @@ public class EnemyManager : MonoBehaviour, IUpdate
         if (gameManager.Pause) return;
 
         if(enemyConfig.enemyColliderSlicesFrames)
-            currentTimeFrame = Time.frameCount % enemyConfig.slicesQuantity;
+            currentTimeFrameCollider = Time.frameCount % enemyConfig.slicesColliderQuantity;
+
+        currentTimeFrameCheckLocaiton = Time.frameCount / enemyConfig.slicesCellLocationCheckQuantity;
 
         if (canSpawnEnemies)
         {

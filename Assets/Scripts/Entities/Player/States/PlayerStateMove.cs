@@ -30,8 +30,8 @@ public class PlayerStateMove<T> : PlayerStateBase<T>
 
     private void OnMove(Vector3 direction)
     {
+        model.CheckWhereWeAre();
         model.Move(direction);
-        model.CheckWhereWeAre(direction);
 
         if(previousDireciton != direction)
         {

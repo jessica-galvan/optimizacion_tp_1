@@ -23,6 +23,7 @@ MonoBehaviour:
   posibleDirections:
   - {x: 0, y: 0, z: 1}
   - {x: 1, y: 0, z: 0}
+  - {x: -1, y: 0, z: 0}
   - {x: 0, y: 0, z: -1}
   - {x: -1, y: 0, z: 0}
   enemyStatesWeight:
@@ -33,4 +34,5 @@ MonoBehaviour:
   minIdleWaitTime: 0.1
   maxIdleWaitTime: 0.5
   enemyColliderSlicesFrames: 1
-  slicesQuantity: 2
+  slicesColliderQuantity: 2
+  slicesCellLocationCheckQuantity: 15

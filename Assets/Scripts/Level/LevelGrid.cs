@@ -183,6 +183,11 @@ public class LevelGrid : MonoBehaviour
         return new Vector3(x, 0, y);
     }
 
+    public GridCell GetGridFromVector2Int(Vector2Int gridPos)
+    {
+        return levelGrid[gridPos.x, gridPos.y];
+    }
+
     public GridCell GetNextCell(GridCell currentCell, Vector3 direction)
     {
         int xPos = direction.x != 0 ? (int)Mathf.Clamp(currentCell.X + direction.x, 0, realGridSize.x) : currentCell.X;

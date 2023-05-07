@@ -336,12 +336,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1960, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -430,7 +430,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000000012572855, y: 160}
+  m_AnchoredPosition: {x: 0.000000012572855, y: 102}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &442419036
@@ -648,6 +648,18 @@ PrefabInstance:
       propertyPath: m_text
       value: Quit
       objectReference: {fileID: 0}
+    - target: {fileID: 1896626381785156811, guid: 53ad9e3f727c9ca408d089d31c87b9cc, type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896626381785156811, guid: 53ad9e3f727c9ca408d089d31c87b9cc, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896626381785156811, guid: 53ad9e3f727c9ca408d089d31c87b9cc, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1896626382489615466, guid: 53ad9e3f727c9ca408d089d31c87b9cc, type: 3}
       propertyPath: m_Navigation.m_Mode
       value: 2
@@ -682,11 +694,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1896626382489615467, guid: 53ad9e3f727c9ca408d089d31c87b9cc, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 972.3512
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 1896626382489615467, guid: 53ad9e3f727c9ca408d089d31c87b9cc, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 160.8669
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 1896626382489615467, guid: 53ad9e3f727c9ca408d089d31c87b9cc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -769,6 +781,18 @@ PrefabInstance:
       propertyPath: m_text
       value: Credits
       objectReference: {fileID: 0}
+    - target: {fileID: 1896626381785156811, guid: 53ad9e3f727c9ca408d089d31c87b9cc, type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896626381785156811, guid: 53ad9e3f727c9ca408d089d31c87b9cc, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896626381785156811, guid: 53ad9e3f727c9ca408d089d31c87b9cc, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1896626382489615466, guid: 53ad9e3f727c9ca408d089d31c87b9cc, type: 3}
       propertyPath: m_Navigation.m_Mode
       value: 2
@@ -803,11 +827,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1896626382489615467, guid: 53ad9e3f727c9ca408d089d31c87b9cc, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 972.3512
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 1896626382489615467, guid: 53ad9e3f727c9ca408d089d31c87b9cc, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 160.8669
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 1896626382489615467, guid: 53ad9e3f727c9ca408d089d31c87b9cc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1299,7 +1323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1636172756
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1655,9 +1679,9 @@ RectTransform:
   m_Father: {fileID: 724276864}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -114}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -36}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1983768756
@@ -1680,7 +1704,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <color="red">Battle </color>City
+  m_text: "<color=\"red\">Battle </color> \n<size=80%>City</size>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a952a6bf9319cb40959abfcacbd2825, type: 2}
   m_sharedMaterial: {fileID: 137427663490862294, guid: 7a952a6bf9319cb40959abfcacbd2825, type: 2}
@@ -1707,11 +1731,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 200
+  m_fontSize: 199.95
   m_fontSizeBase: 300
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 70
   m_fontSizeMax: 200
   m_fontStyle: 1
   m_HorizontalAlignment: 2
@@ -1782,6 +1806,18 @@ PrefabInstance:
       propertyPath: m_text
       value: Play
       objectReference: {fileID: 0}
+    - target: {fileID: 1896626381785156811, guid: 53ad9e3f727c9ca408d089d31c87b9cc, type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896626381785156811, guid: 53ad9e3f727c9ca408d089d31c87b9cc, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896626381785156811, guid: 53ad9e3f727c9ca408d089d31c87b9cc, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1896626382489615466, guid: 53ad9e3f727c9ca408d089d31c87b9cc, type: 3}
       propertyPath: m_Navigation.m_Mode
       value: 2
@@ -1816,11 +1852,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1896626382489615467, guid: 53ad9e3f727c9ca408d089d31c87b9cc, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 972.3512
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 1896626382489615467, guid: 53ad9e3f727c9ca408d089d31c87b9cc, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 160.8669
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 1896626382489615467, guid: 53ad9e3f727c9ca408d089d31c87b9cc, type: 3}
       propertyPath: m_LocalPosition.x

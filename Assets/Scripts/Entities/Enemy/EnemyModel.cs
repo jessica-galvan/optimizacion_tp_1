@@ -95,8 +95,9 @@ public class EnemyModel : EntityModel
     }
 
 #if UNITY_EDITOR
-    public void DrawGizmos()
+    public override void OnDrawGizmosSelected()
     {
+        base.OnDrawGizmosSelected();
         Gizmos.color = Color.red;
         //Gizmos.DrawWireSphere(transform.position, enemyConfig.preCollisionDetection);
         Gizmos.DrawWireCube(transform.position + enemyConfig.offset, enemyConfig.precollisionBox);

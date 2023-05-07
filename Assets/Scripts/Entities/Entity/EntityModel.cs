@@ -117,7 +117,7 @@ public class EntityModel : MonoBehaviour, IDamagable
         OnDie.Invoke();
     }
 
-    private void OnDrawGizmosSelected()
+    public virtual void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(firepoint.position, firepoint.position + (transform.forward * entityConfig.maxRayDistance));

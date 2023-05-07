@@ -10,12 +10,6 @@ public class EnemyMovingState<T> : EnemyBaseState<T>
 
     }
 
-    public override void Awake()
-    {
-        base.Awake();
-        Debug.Log("Init MovingState");
-    }
-
     public override void Execute()
     {
         base.Execute();
@@ -35,12 +29,6 @@ public class EnemyMovingState<T> : EnemyBaseState<T>
     private void Exit()
     {
         model.GetRandomDirection();
-        //model.ChangeDirection();
         onEndActivityCallback();
-    }
-
-    public override void Sleep()
-    {
-        Debug.Log($"Exit MovingState");
     }
 }

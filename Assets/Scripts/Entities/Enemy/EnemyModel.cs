@@ -27,8 +27,6 @@ public class EnemyModel : EntityModel
     public override void CheckWhereWeAre()
     {
         if (gameManager.enemyManager.currentTimeFrameCheckLocation != 0) return;
-
-        print($"Enemy checkPos ");
         base.CheckWhereWeAre();
     }
 

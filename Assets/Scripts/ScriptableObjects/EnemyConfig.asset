@@ -17,9 +17,9 @@ MonoBehaviour:
     m_Bits: 64
   collisionRadious: 1
   preCollisionDetection: 1.5
-  collisionBox: {x: 1.5, y: 0.5, z: 1.5}
+  collisionBox: {x: 1.5, y: 0.5, z: 1.2}
   precollisionBox: {x: 2, y: 0.5, z: 2}
-  offset: {x: 0, y: 0, z: 0.2}
+  offset: {x: 0, y: 0, z: 0}
   posibleDirections:
   - {x: 0, y: 0, z: 1}
   - {x: 1, y: 0, z: 0}
@@ -28,7 +28,7 @@ MonoBehaviour:
   - {x: -1, y: 0, z: 0}
   enemyStatesWeight:
   - state: 0
-    weight: 0
+    weight: 10
   - state: 1
     weight: 70
   minIdleWaitTime: 0.1

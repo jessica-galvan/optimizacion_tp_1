@@ -22,5 +22,6 @@ public class PrefabsReferences : ScriptableObject
     public BulletController enemyBulletPrefab;
 
     [Header("Extras")]
-    public DeathParticle deathParticle;
+    public ParticleController deathParticle;
+    public ParticleController bulletImpactParticle;
 }

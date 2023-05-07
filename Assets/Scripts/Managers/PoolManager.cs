@@ -11,6 +11,7 @@ public class PoolManager : MonoBehaviour
     [ReadOnly] public Pool enemyBulletPool;
     [ReadOnly] public Pool enemyPool;
     [ReadOnly] public Pool deathParticlePool;
+    [ReadOnly] public Pool bulletImpactParticlePool;
 
     public void Initialize()
     {
@@ -20,6 +21,8 @@ public class PoolManager : MonoBehaviour
         enemyBulletPool.gameObject.name = "EnemyBulletPool";
         deathParticlePool = Instantiate(reference, transform);
         deathParticlePool.gameObject.name = "DeathParticlePool";
+        bulletImpactParticlePool = Instantiate(reference, transform);
+        bulletImpactParticlePool.gameObject.name = "BulletImpactParticlePool";
         enemyPool = reference;
         reference.gameObject.name = "EnemyPool";
 
@@ -27,6 +30,7 @@ public class PoolManager : MonoBehaviour
         enemyBulletPool.Initialize(GameManager.Instance.prefabReferences.enemyBulletPrefab.gameObject, GameManager.Instance.globalConfig.initialPoolBullet);
         enemyPool.Initialize(GameManager.Instance.prefabReferences.enemyPrefab.gameObject, GameManager.Instance.globalConfig.maxEnemiesInLevelAtAllTimes);
         deathParticlePool.Initialize(GameManager.Instance.prefabReferences.deathParticle.gameObject, GameManager.Instance.globalConfig.particlePool);
+        bulletImpactParticlePool.Initialize(GameManager.Instance.prefabReferences.bulletImpactParticle.gameObject, GameManager.Instance.globalConfig.initialPoolBullet);
     }
 
     public BulletController GetBullet(BulletType bulletType)
@@ -70,13 +74,23 @@ public class PoolManager : MonoBehaviour
         enemyPool.BackToPool(enemy);
     }
 
-    public DeathParticle GetDeathParticle()
+    public ParticleController GetDeathParticle()
     {
-        return (DeathParticle) deathParticlePool.Spawn();
+        return (ParticleController) deathParticlePool.Spawn();
     }
 
-    public void ReturnParticle(DeathParticle particle)
+    public void ReturnDeathParticle(ParticleController particle)
     {
         deathParticlePool.BackToPool(particle);
+    }
+
+    public ParticleController GetBulletImpactParticle()
+    {
+        return (ParticleController)bulletImpactParticlePool.Spawn();
+    }
+
+    public void ReturnBulletParticle(ParticleController particle)
+    {
+        bulletImpactParticlePool.BackToPool(particle);
     }
 }

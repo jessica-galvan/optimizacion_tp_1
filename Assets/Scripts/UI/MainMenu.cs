@@ -44,7 +44,6 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         currentSelectedButton = playButton;
-        StartCoroutine(SkipButtonAnimation(skipTextAnimationTime));
         GoBack();
     }
 
@@ -103,20 +102,5 @@ public class MainMenu : MonoBehaviour
         creditsButton.button.onClick.RemoveListener(OnClickCreditsHandler);
         quitButton.button.onClick.RemoveListener(OnClickQuitHandler);
         goBackButton.button.onClick.RemoveListener(OnClickGoBackHandler);
-    }
-
-    private IEnumerator SkipButtonAnimation(float time)
-    {
-        Color originalColor = skipText.color;
-
-        float t = 0f;
-        while (t < 1f)
-        {
-            Color newColor = new Color(originalColor.r, originalColor.g, originalColor.b, Mathf.Lerp(1, 0, t));
-            skipText.color = newColor;
-            t += Time.deltaTime / time;
-            yield return null;
-        }
-        t = 1f;
     }
 }

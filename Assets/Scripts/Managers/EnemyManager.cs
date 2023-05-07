@@ -11,7 +11,7 @@ public class EnemyManager : MonoBehaviour, IUpdate
     [ReadOnly] public int totalKilled = 0;
     [ReadOnly] public int currentEnemyQuantitySpawned = 0;
     [ReadOnly] public int currentTimeFrameCollider;
-    [ReadOnly] public int currentTimeFrameCheckLocaiton;
+    [ReadOnly] public int currentTimeFrameCheckLocation;
 
     private int totalWeight = 0;
     private GameManager gameManager;
@@ -42,7 +42,7 @@ public class EnemyManager : MonoBehaviour, IUpdate
         if(enemyConfig.enemyColliderSlicesFrames)
             currentTimeFrameCollider = Time.frameCount % enemyConfig.slicesColliderQuantity;
 
-        currentTimeFrameCheckLocaiton = Time.frameCount / enemyConfig.slicesCellLocationCheckQuantity;
+        currentTimeFrameCheckLocation = Time.frameCount % enemyConfig.slicesCellLocationCheckQuantity;
 
         if (canSpawnEnemies)
         {

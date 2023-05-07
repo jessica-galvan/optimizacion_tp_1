@@ -14,7 +14,7 @@ public class EnemyModel : EntityModel
     public bool hasChangedDirection;
 
     private PlayerModel player;
-    private RaycastHit[] currentPlayerCollisionBuffer = new RaycastHit[2];
+    private RaycastHit[] currentPlayerCollisionBuffer = new RaycastHit[1];
 
     public Vector3 CurrentDirection => currentDirection;
 
@@ -26,8 +26,9 @@ public class EnemyModel : EntityModel
 
     public override void CheckWhereWeAre()
     {
-        if (gameManager.enemyManager.currentTimeFrameCheckLocaiton != 0) return;
+        if (gameManager.enemyManager.currentTimeFrameCheckLocation != 0) return;
 
+        print($"Enemy checkPos ");
         base.CheckWhereWeAre();
     }
 
@@ -75,10 +76,7 @@ public class EnemyModel : EntityModel
 
             if (hitCount > 0) //the only one that will appear here is the player? 
             {
-                for (int i = 0; i < currentPlayerCollisionBuffer.Length; i++)
-                {
-                    player.TakeDamage();
-                }
+                player.TakeDamage();
                 TakeDamage();
             }
         }

@@ -35,4 +35,4 @@ MonoBehaviour:
   maxIdleWaitTime: 0.5
   enemyColliderSlicesFrames: 1
   slicesColliderQuantity: 2
-  slicesCellLocationCheckQuantity: 15
+  slicesCellLocationCheckQuantity: 5

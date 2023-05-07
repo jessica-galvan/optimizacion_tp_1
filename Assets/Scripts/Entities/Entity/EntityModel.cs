@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using Unity.VisualScripting;
 
 public class EntityModel : MonoBehaviour, IDamagable
 {
@@ -11,21 +10,18 @@ public class EntityModel : MonoBehaviour, IDamagable
     public EntityConfig entityConfig;
     public Transform firepoint;
 
-    [PortLabelHidden] public GameManager gameManager;
+    [HideInInspector] public GameManager gameManager;
     protected Rigidbody rb;
 
     //Cell System && movement
+    [ReadOnly] [SerializeField] protected GridCell currentCell;
+    [ReadOnly] [SerializeField] protected Vector3 currentDirection;
     protected Vector2Int currentGridPos;
-    protected GridCell currentCell;
-    protected GridCell targetCell;
-    public bool HasTargetCell { get; protected set; }
-    protected Vector3 currentDirection;
     protected RaycastHit[] currentRaycastBuffer = new RaycastHit[5];
 
     //Shooting
     protected bool canShoot = true;
     protected float cooldownShootTimer = 0f;
-
 
     public Action OnSpawned = delegate { };
     public Action OnDie = delegate { };

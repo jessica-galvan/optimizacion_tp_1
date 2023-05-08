@@ -61,11 +61,8 @@ public class InputManager : MonoBehaviour, IUpdate
 
     public void PlayerUpdate()
     {
-        if (!gameManager.Pause && gameManager.Player.Alive)
-        {
-            CheckAttack();
-            CheckMovement();
-        }
+        CheckAttack();
+        CheckMovement();
     }
 
     private void CheckMovement()

@@ -28,7 +28,7 @@ public class BulletController : MonoBehaviour, IUpdate, IPoolable
 
     public void DoUpdate()
     {
-        if (GameManager.Instance.Pause) return;
+        if (GameManager.Instance.Pause || GameManager.Instance.Won) return;
         if (!isActive) return;
 
         body.velocity = transform.forward * bulletData.speed;

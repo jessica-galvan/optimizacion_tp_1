@@ -39,10 +39,12 @@ public class EnemyManager : MonoBehaviour, IUpdate
 
     public void DoUpdate()
     {
-        if (gameManager.Pause) return;
+        if (gameManager.Pause || gameManager.Won) return;
 
-        if(enemyConfig.enemyColliderSlicesFrames)
+        if (enemyConfig.enemyColliderSlicesFrames)
+        {
             currentTimeFrameCollider = Time.frameCount % enemyConfig.slicesColliderQuantity;
+        }
 
         currentTimeFrameCheckLocation = Time.frameCount % enemyConfig.slicesCellLocationCheckQuantity;
 

@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour, IUpdate
 
     public void DoUpdate()
     {
-        if (GameManager.Instance.Pause) return;
+        if (GameManager.Instance.Pause || !model.Alive || GameManager.Instance.Won) return;
 
         fsm.OnUpdate();
     }

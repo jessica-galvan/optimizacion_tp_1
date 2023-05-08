@@ -88,6 +88,7 @@ public class EnemyModel : EntityModel
                 continue;
             }
 
+            currentStuckCounter = 0;
             LookDirection(directions[randomPosition]);
             foundViableDirection = true;
         }

@@ -15,8 +15,9 @@ MonoBehaviour:
   playerWaitTimeRespawn: 2
   gameplayFPSTarget: 60
   uiFPSTarget: 30
-  totalEnemiesLevel: 5
-  maxEnemiesInLevelAtAllTimes: 3
+  spawnTimeAnimation: 2
+  totalEnemiesLevel: 100
+  maxEnemiesInLevelAtAllTimes: 4
   spawningTime: 2
   retrySpawnTime: 4
   triesPerSpawn: 4

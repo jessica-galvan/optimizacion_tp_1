@@ -10,8 +10,7 @@ public class EnemyModel : EntityModel
 {
     [Header("Enemy")]
     public EnemyConfig enemyConfig;
-    public LayerMask floorLayer;
-    public bool hasChangedDirection;
+    public Transform[] wallCollider = new Transform[2]; 
 
     private PlayerModel player;
     private RaycastHit[] currentPlayerCollisionBuffer = new RaycastHit[1];
@@ -28,6 +27,26 @@ public class EnemyModel : EntityModel
     {
         if (gameManager.enemyManager.currentTimeFrameCheckLocation != 0) return;
         base.CheckWhereWeAre();
+    }
+
+    public override bool CanMoveFoward(Vector3 direction)
+    {
+        bool canMove = true;
+        for (int i = 0; i < wallCollider.Length; i++)
+        {
+            int hitCount = Physics.RaycastNonAlloc(new Ray(wallCollider[i].position, direction), currentRaycastBuffer, entityConfig.maxRayDistance, entityConfig.raycastDectection);
+            canMove &= hitCount == 0;
+        }
+        return canMove;
+    }
+
+    public override void CheckIfStuck(Vector2Int currentPos)
+    {
+        currentStuckCounter++;
+        if(currentStuckCounter >= 10)
+        {
+            GetRandomDirection();
+        }
     }
 
     public void GetRandomDirection()
@@ -93,9 +112,8 @@ public class EnemyModel : EntityModel
     }
 
 #if UNITY_EDITOR
-    public override void OnDrawGizmosSelected()
+    public void OnDrawGizmosSelected()
     {
-        base.OnDrawGizmosSelected();
         Gizmos.color = Color.red;
         //Gizmos.DrawWireSphere(transform.position, enemyConfig.preCollisionDetection);
         Gizmos.DrawWireCube(transform.position + enemyConfig.offset, enemyConfig.precollisionBox);
@@ -104,6 +122,11 @@ public class EnemyModel : EntityModel
         //Gizmos.DrawWireSphere(transform.position, enemyConfig.collisionRadious);
         Gizmos.DrawWireCube(transform.position + enemyConfig.offset, enemyConfig.collisionBox);
 
+        Gizmos.color = Color.blue;
+        for (int i = 0; i < wallCollider.Length; i++)
+        {
+            Gizmos.DrawLine(wallCollider[i].position, wallCollider[i].position + (transform.forward * entityConfig.maxRayDistance));
+        }
     }
 #endif
 }

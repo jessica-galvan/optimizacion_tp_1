@@ -22,6 +22,7 @@ public class EntityModel : MonoBehaviour, IDamagable
     //Shooting
     protected bool canShoot = true;
     protected float cooldownShootTimer = 0f;
+    protected float currentStuckCounter = 0f;
 
     public Action OnSpawned = delegate { };
     public Action OnDie = delegate { };
@@ -69,7 +70,7 @@ public class EntityModel : MonoBehaviour, IDamagable
         transform.forward = dir;
     }
 
-    public bool CanMoveFoward(Vector3 direction)
+    public virtual bool CanMoveFoward(Vector3 direction)
     {
         int hitCount = Physics.RaycastNonAlloc(new Ray(firepoint.position, direction), currentRaycastBuffer, entityConfig.maxRayDistance, entityConfig.raycastDectection);
         return hitCount == 0;
@@ -85,6 +86,15 @@ public class EntityModel : MonoBehaviour, IDamagable
             var newCell = gameManager.levelGrid.GetGridFromVector2Int(newGridPos);
             UpdateCurrentCellStatus(newCell);
         }
+        else
+        {
+            CheckIfStuck(newGridPos);
+        }
+    }
+
+    public virtual void CheckIfStuck(Vector2Int currentPos)
+    {
+
     }
 
     public void ShootingCooldown()
@@ -106,6 +116,7 @@ public class EntityModel : MonoBehaviour, IDamagable
             currentCell.SetOccupiedStatus(false, this);
         }
 
+        currentStuckCounter = 0;
         currentCell = gridCell;
         currentCell.SetOccupiedStatus(true, this);
     }
@@ -115,11 +126,5 @@ public class EntityModel : MonoBehaviour, IDamagable
         var particle = gameManager.poolManager.GethParticle(ParticleController.ParticleType.Death);
         particle.Spawn(transform);
         OnDie.Invoke();
-    }
-
-    public virtual void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawLine(firepoint.position, firepoint.position + (transform.forward * entityConfig.maxRayDistance));
     }
 }

@@ -21,5 +21,14 @@ public class PlayerModel : EntityModel
         base.TakeDamage();
         gameObject.SetActive(false);
     }
+
+
+#if UNITY_EDITOR
+    public void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(firepoint.position, firepoint.position + (transform.forward * entityConfig.maxRayDistance));
+    }
+#endif
 }
 

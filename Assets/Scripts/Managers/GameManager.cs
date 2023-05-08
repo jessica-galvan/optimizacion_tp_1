@@ -69,6 +69,11 @@ public class GameManager : MonoBehaviour
         enemyManager.Initialize();
     }
 
+    public void Start()
+    {
+        AudioManager.instance.PlayMusic(AudioManager.instance.soundReferences.levelMusic);
+    }
+
     public void SetPlayer(PlayerModel player)
     {
         Player = player;
@@ -93,6 +98,7 @@ public class GameManager : MonoBehaviour
         won = true;
         pause = true;
 
+        AudioManager.instance.PlaySFXSound(AudioManager.instance.soundReferences.win);
         OnWin.Invoke();
     }
 

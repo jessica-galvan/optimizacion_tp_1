@@ -44,8 +44,6 @@ public class EntityModel : MonoBehaviour, IDamagable
 
     public virtual void Shoot()
     {
-        //TODO: add sound and feedback
-        if (!canShoot) return;
         var bullet = GameManager.Instance.poolManager.GetBullet(entityConfig.bulletType);
         bullet.SetTarget(firepoint, transform.forward);
         canShoot = false;

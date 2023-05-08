@@ -19,7 +19,19 @@ public class PlayerModel : EntityModel
     {
         Alive = false;
         base.TakeDamage();
+        AudioManager.instance.PlayPlayerSound(AudioManager.instance.soundReferences.playerDeath);
         gameObject.SetActive(false);
+    }
+
+    public override void Shoot()
+    {
+        if (!canShoot)
+        {
+            AudioManager.instance.PlayPlayerSound(AudioManager.instance.soundReferences.negativeShootSound);
+            return;
+        }
+        base.Shoot();
+        AudioManager.instance.PlayPlayerSound(AudioManager.instance.soundReferences.playerShoot);
     }
 
 

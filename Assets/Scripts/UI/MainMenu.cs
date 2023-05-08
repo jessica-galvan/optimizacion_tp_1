@@ -33,6 +33,11 @@ public class MainMenu : MonoBehaviour
 
     void Awake()
     {
+        playButton.button.onClick.AddListener(SelectButtonSound);
+        creditsButton.button.onClick.AddListener(SelectButtonSound);
+        quitButton.button.onClick.AddListener(SelectButtonSound);
+        goBackButton.button.onClick.AddListener(SelectButtonSound);
+
         playButton.button.onClick.AddListener(OnClickPlayHandler);
         creditsButton.button.onClick.AddListener(OnClickCreditsHandler);
         quitButton.button.onClick.AddListener(OnClickQuitHandler);
@@ -43,6 +48,8 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.instance.PlayMusic(AudioManager.instance.soundReferences.mainMenu);
+
         currentSelectedButton = playButton;
         GoBack();
     }
@@ -65,6 +72,11 @@ public class MainMenu : MonoBehaviour
         {
             GoBack();
         }
+    }
+
+    private void SelectButtonSound()
+    {
+        AudioManager.instance.PlaySFXSound(AudioManager.instance.soundReferences.selectButton);
     }
 
     private void OnClickPlayHandler()
@@ -98,9 +110,9 @@ public class MainMenu : MonoBehaviour
 
     private void OnDestroy()
     {
-        playButton.button.onClick.RemoveListener(OnClickPlayHandler);
-        creditsButton.button.onClick.RemoveListener(OnClickCreditsHandler);
-        quitButton.button.onClick.RemoveListener(OnClickQuitHandler);
-        goBackButton.button.onClick.RemoveListener(OnClickGoBackHandler);
+        playButton.button.onClick.RemoveAllListeners();
+        creditsButton.button.onClick.RemoveAllListeners();
+        quitButton.button.onClick.RemoveAllListeners();
+        goBackButton.button.onClick.RemoveAllListeners();
     }
 }

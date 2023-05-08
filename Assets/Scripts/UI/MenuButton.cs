@@ -20,6 +20,7 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     private void Select()
     {
+        AudioManager.instance.PlaySFXSound(AudioManager.instance.soundReferences.hoverButton);
         txtButton.text = $"{buttonSelectedMark} {originalText} {buttonSelectedMark}";
     }
 

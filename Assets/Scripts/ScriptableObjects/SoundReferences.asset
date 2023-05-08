@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d1ab62c813bad245b028590439143e2, type: 3}
+  m_Name: SoundReferences
+  m_EditorClassIdentifier: 
+  hoverButton: {fileID: 8300000, guid: 8f92fae62f779df4f84c4a3231c5835d, type: 3}
+  selectButton: {fileID: 8300000, guid: ff5ac78a115b71947a4ba355ca2d2670, type: 3}
+  pauseSound: {fileID: 8300000, guid: 27d84d27fe05f1b43bd2b856abf54a95, type: 3}
+  mainMenu: {fileID: 8300000, guid: 29b75516d56e12c4f923ccc2c8ed03b6, type: 3}
+  playerDeath: {fileID: 8300000, guid: 606a439a09c992f40a28aa1c224e40be, type: 3}
+  enemyDeath: {fileID: 8300000, guid: d82a2caf120c3684ca1c199e6b3339d7, type: 3}
+  negativeShootSound: {fileID: 8300000, guid: 2a3fe482bc1812a4ba6f9ea5f8617aef, type: 3}
+  playerShoot: {fileID: 8300000, guid: d070d0ea205caaf4a81d524b9bd4cd1c, type: 3}
+  enemyShoot: {fileID: 8300000, guid: 3015ff8c2d2e98646b8a47fe1021c036, type: 3}
+  win: {fileID: 8300000, guid: f8434abbc611dd849a3c5e2ff4334f5a, type: 3}
+  levelMusic: {fileID: 8300000, guid: 9e441d8a798fdef42a96e08012378322, type: 3}

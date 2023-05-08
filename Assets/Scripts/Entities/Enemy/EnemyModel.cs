@@ -29,6 +29,19 @@ public class EnemyModel : EntityModel
         base.CheckWhereWeAre();
     }
 
+    public override void Shoot()
+    {
+        if (!canShoot) return;
+        base.Shoot();
+        AudioManager.instance.PlaySFXSound(AudioManager.instance.soundReferences.enemyShoot);
+    }
+
+    public override void TakeDamage()
+    {
+        base.TakeDamage();
+        AudioManager.instance.PlaySFXSound(AudioManager.instance.soundReferences.enemyDeath);
+    }
+
     public override bool CanMoveFoward(Vector3 direction)
     {
         bool canMove = true;

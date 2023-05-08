@@ -25,10 +25,10 @@ public class EnemyManager : MonoBehaviour, IUpdate
 
     public void Initialize()
     {
-        canSpawnEnemies = true;
+        canSpawnEnemies = true; //Is it Lazy computation if... we start in true cuz we KNOW that we will start spawning enemies and AFTER we spawn the first one, we do a calculation to see if we can spawn another one?
         gameManager = GameManager.Instance;
         gameManager.updateManager.fixCustomUpdater.Add(this);
-        maxSpawnPoints = gameManager.levelGrid.enemySpawnPoints.Count - 1; //Precomputation. The spaces are not going to change and better do this calculation once than everywhere we might need it;
+        maxSpawnPoints = gameManager.levelGrid.enemySpawnPoints.Count - 1; //PRECOMPUTATION. The spaces are not going to change and better do this calculation once than everywhere we might need it;
         currentTime = gameManager.globalConfig.retrySpawnTime;
 
         for (int i = 0; i < enemyConfig.enemyStatesWeight.Length; i++)

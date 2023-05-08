@@ -6,16 +6,14 @@ using System;
 public class EntityModel : MonoBehaviour, IDamagable
 {
     [Header("References")]
-    [SerializeField] private GameObject model;
-    public EntityConfig entityConfig;
-    public Transform firepoint;
-
     [HideInInspector] public GameManager gameManager;
-    protected Rigidbody rb;
+    [SerializeField] protected EntityConfig entityConfig;
+    [SerializeField] protected Transform firepoint;
 
     //Cell System && movement
     [ReadOnly] [SerializeField] protected GridCell currentCell;
     [ReadOnly] [SerializeField] protected Vector3 currentDirection;
+    protected Rigidbody rb;
     protected Vector2Int currentGridPos;
     protected RaycastHit[] currentRaycastBuffer = new RaycastHit[5];
 
@@ -52,7 +50,6 @@ public class EntityModel : MonoBehaviour, IDamagable
 
     public virtual void Move(Vector3 direction)
     {
-        //if (!CanMoveFoward()) return;
         rb.velocity = direction * entityConfig.speed;
         //transform.position += direction * entityConfig.speed * Time.deltaTime;
     }

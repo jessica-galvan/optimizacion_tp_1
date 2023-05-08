@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PlayerEnums
+public enum PlayerStates
 {
     Idle,
     Moving,
@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour, IUpdate
 {
     [ReadOnly] public PlayerModel model;
 
-    private FSM<PlayerEnums> fsm;
+    private FSM<PlayerStates> fsm;
 
     public void Initialize()
     {
@@ -23,13 +23,13 @@ public class PlayerController : MonoBehaviour, IUpdate
 
     public void InitializeFSM()
     {
-        fsm = new FSM<PlayerEnums>();
+        fsm = new FSM<PlayerStates>();
 
-        var idle = new PlayerStateIdle<PlayerEnums>(model, fsm, PlayerEnums.Moving);
-        var move = new PlayerStateMove<PlayerEnums>(model, fsm, PlayerEnums.Idle);
+        var idle = new PlayerStateIdle<PlayerStates>(model, fsm, PlayerStates.Moving);
+        var move = new PlayerStateMove<PlayerStates>(model, fsm, PlayerStates.Idle);
 
-        idle.AddTransition(PlayerEnums.Moving, move);
-        move.AddTransition(PlayerEnums.Idle, idle);
+        idle.AddTransition(PlayerStates.Moving, move);
+        move.AddTransition(PlayerStates.Idle, idle);
 
         fsm.SetInit(idle);
     }
@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour, IUpdate
     private void OnDestroy()
     {
         if (GameManager.HasInstance)
+        {
             GameManager.Instance.updateManager.fixCustomUpdater.Remove(this);
+        }
     }
 }

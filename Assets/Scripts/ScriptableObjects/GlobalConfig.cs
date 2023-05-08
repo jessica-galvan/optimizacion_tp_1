@@ -16,6 +16,7 @@ public class GlobalConfig : ScriptableObject
     public int uiFPSTarget = 60;
 
     [Header("Enemy Settings")]
+    public float spawnTimeAnimation = 2f;
     public int totalEnemiesLevel = 100;
     public int maxEnemiesInLevelAtAllTimes = 4;
     public float spawningTime = 10f;

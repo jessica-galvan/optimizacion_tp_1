@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GridCell : MonoBehaviour
 {
+    private const string SPAWNING_TRIGGER = "Spawning";
     public enum Type
     {
         Empty,
@@ -20,6 +21,7 @@ public class GridCell : MonoBehaviour
     public GameObject borderWall;
 
     public SpriteRenderer spawnVisual;
+    public Animator spawnAnimator;
     public Color playerSpawn = Color.green;
     public Color enemySpawn = Color.red;
 
@@ -102,5 +104,10 @@ public class GridCell : MonoBehaviour
         {
             Entity = null;
         }
+    }
+
+    public void StartSpawnAnimation()
+    {
+        spawnAnimator.SetTrigger(SPAWNING_TRIGGER);
     }
 }

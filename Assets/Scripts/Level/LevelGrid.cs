@@ -32,7 +32,6 @@ public class LevelGrid : MonoBehaviour
     {
         realGridSize = new Vector2Int(gridSize.x + extraBorderCells, gridSize.y + extraBorderCells);
         ResetPosInfo();
-        HideSpawnPoints();
 
         //HEAP OPTIMIZATION: now that we finish reconstructing the dictionary, we can clear both lists to liberate some memory
         gridList.Clear();
@@ -195,15 +194,5 @@ public class LevelGrid : MonoBehaviour
         var cell = levelGrid[xPos, yPos];
 
         return cell;
-    }
-
-    public void HideSpawnPoints()
-    {
-        for (int i = 0; i < enemySpawnPoints.Count; i++)
-        {
-            enemySpawnPoints[i].ShowSpawnCell(false);
-        }
-
-        playerSpawnPoint.ShowSpawnCell(false);
     }
 }

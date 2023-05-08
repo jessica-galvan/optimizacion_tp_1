@@ -280,6 +280,7 @@ MonoBehaviour:
   unbreakableWall: {fileID: 7106362700612770811}
   borderWall: {fileID: 5621421031558725891}
   spawnVisual: {fileID: 3810536325814758865}
+  spawnAnimator: {fileID: 5177092760139665076}
   playerSpawn: {r: 0, g: 1, b: 0, a: 1}
   enemySpawn: {r: 1, g: 0, b: 0, a: 1}
   spawnPoint: {fileID: 1442060555444406833}
@@ -709,6 +710,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8445872736967595134}
   - component: {fileID: 3810536325814758865}
+  - component: {fileID: 5177092760139665076}
   m_Layer: 0
   m_Name: SpawnPointRef
   m_TagString: Untagged
@@ -783,6 +785,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5177092760139665076
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5754826974848552586}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0b93fec8af3f66a4cba9a2242809c174, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &7106362700612770811
 GameObject:
   m_ObjectHideFlags: 0

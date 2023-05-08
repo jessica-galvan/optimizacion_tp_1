@@ -92,18 +92,29 @@ public class EnemyManager : MonoBehaviour, IUpdate
 
         if (spawnPoint != null)
         {
-            var enemy = gameManager.poolManager.GetEnemy();
-            enemy.Spawn(spawnPoint);
-            inLevelEnemies.Add(enemy);
-            currentTime = gameManager.globalConfig.spawningTime;
-            currentEnemyQuantitySpawned++;
-            totalSpawned++;
-            canSpawnEnemies = HasSpaceToSpawnEnemy();
+            StartCoroutine(SpawnEnemy(spawnPoint));
         }
         else
         {
             currentTime = gameManager.globalConfig.retrySpawnTime;
         }
+    }
+
+    private IEnumerator SpawnEnemy(GridCell spawnPoint)
+    {
+        canSpawnEnemies = false; //we turn it false to stop spawning enemies while we start the spawning animation
+        spawnPoint.SetOccupiedStatus(true);
+        spawnPoint.StartSpawnAnimation();
+
+        yield return new WaitForSeconds(gameManager.globalConfig.spawnTimeAnimation);
+
+        var enemy = gameManager.poolManager.GetEnemy();
+        enemy.Spawn(spawnPoint);
+        inLevelEnemies.Add(enemy);
+        currentTime = gameManager.globalConfig.spawningTime;
+        currentEnemyQuantitySpawned++;
+        totalSpawned++;
+        canSpawnEnemies = HasSpaceToSpawnEnemy();
     }
 
     private void CheckWinCondition()

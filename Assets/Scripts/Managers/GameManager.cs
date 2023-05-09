@@ -59,7 +59,6 @@ public class GameManager : MonoBehaviour
         var playerController = Instantiate(prefabReferences.playerPrefab, levelGrid.playerSpawnPoint.spawnPoint.position, levelGrid.playerSpawnPoint.transform.rotation);
         playerController.Initialize();
         Player = playerController.model;
-        Player.Spawn(levelGrid.playerSpawnPoint);
         Player.OnDie += OnPlayerHasDie;
 
         poolManager = Instantiate(prefabReferences.poolManagerPrefab);
@@ -72,6 +71,7 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         AudioManager.instance.PlayMusic(AudioManager.instance.soundReferences.levelMusic);
+        SpawnPlayer();
     }
 
     public void SetPlayer(PlayerModel player)
@@ -107,7 +107,13 @@ public class GameManager : MonoBehaviour
         playerDeadCount++;
         OnPlayerDie.Invoke();
 
-        StartCoroutine(PausableTimerCoroutine(globalConfig.playerWaitTimeRespawn, () => Player.Spawn(levelGrid.playerSpawnPoint)));
+        levelGrid.playerSpawnPoint.StartSpawnAnimation();
+        StartCoroutine(PausableTimerCoroutine(globalConfig.playerWaitTimeRespawn, SpawnPlayer));
+    }
+
+    private void SpawnPlayer()
+    {
+        Player.Spawn(levelGrid.playerSpawnPoint);
     }
 
     public IEnumerator PausableTimerCoroutine(float timeDuration, Action OnEndAction)

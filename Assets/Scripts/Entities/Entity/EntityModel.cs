@@ -33,6 +33,7 @@ public class EntityModel : MonoBehaviour, IDamagable
 
     public virtual void Spawn(GridCell spawnPoint)
     {
+        AudioManager.instance.PlaySFXSound(AudioManager.instance.soundReferences.spawnSound);
         UpdateCurrentCellStatus(spawnPoint);
         transform.position = currentCell.spawnPoint.position;
         LookDirection(transform.forward);

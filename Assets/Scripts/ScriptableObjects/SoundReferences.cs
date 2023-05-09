@@ -11,14 +11,13 @@ public class SoundReferences : ScriptableObject
     public AudioClip pauseSound;
     public AudioClip mainMenu;
 
-    [Header("Dead")]
+    [Header("Level")]
     public AudioClip playerDeath;
     public AudioClip enemyDeath;
-
-    [Header("Shoot")]
     public AudioClip negativeShootSound;
     public AudioClip playerShoot;
     public AudioClip enemyShoot;
+    public AudioClip spawnSound;
 
     [Header("Extras")]
     public AudioClip win;

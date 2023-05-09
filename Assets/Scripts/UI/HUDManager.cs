@@ -111,21 +111,6 @@ public class HUDManager : MonoBehaviour, IUpdate
         txtEnemyCount.text = $"{currentKilledQuantity}/{gameManager.globalConfig.totalEnemiesLevel}"; 
     }
 
-    //private void UpdateBullets(int bulletQuantity)
-    //{
-    //    bool bulletVisilble = true;
-    //    bulletQuantity--; //because the bulletsUI starts in 0
-    //    for (int i = 0; i < bulletsUI.Count; i++)
-    //    {
-    //        if (bulletVisilble)
-    //        {
-    //            bulletVisilble = bulletQuantity >= i;
-    //        }
-
-    //        bulletsUI[i].SetActive(bulletVisilble);
-    //    }
-    //}
-
     public void UpdateTimer(float timeInSeconds)
     {
         TimeSpan time = TimeSpan.FromSeconds(timeInSeconds);

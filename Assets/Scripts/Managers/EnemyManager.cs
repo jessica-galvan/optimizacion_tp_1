@@ -35,6 +35,7 @@ public class EnemyManager : MonoBehaviour, IUpdate
         {
             totalWeight += enemyConfig.enemyStatesWeight[i].weight; //PRECOMPUTATION. why should we re add it every time we get a random action when we could do it once here?
         }
+        totalWeight += 1;
     }
 
     public void DoUpdate()
@@ -131,7 +132,7 @@ public class EnemyManager : MonoBehaviour, IUpdate
     {
         EnemyStates states = EnemyStates.Move;
 
-        int random = Random.Range(0, totalWeight + 1);
+        int random = Random.Range(0, totalWeight);
 
         for (int i = 0; i < enemyConfig.enemyStatesWeight.Length; i++)
         {

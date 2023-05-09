@@ -35,14 +35,13 @@ public class CustomUpdate : MonoBehaviour
 
     private bool CanUpdate()
     {
-        var answer = false;
         currentTime -= Time.deltaTime;
         if (currentTime <= 0)
         {
             currentTime = targetTime;
-            answer = true;
+            return true;
         }
-        return answer;
+        return false;
     }
 
     public void Add(IUpdate item)

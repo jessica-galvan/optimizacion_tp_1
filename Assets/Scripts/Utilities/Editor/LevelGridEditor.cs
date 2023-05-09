@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 
 [CustomEditor(typeof(LevelGrid))]
 public class LevelGridEditor : Editor
@@ -73,4 +74,44 @@ public class LevelGridEditor : Editor
         serializedObject.ApplyModifiedProperties();
     }
 
+    [MenuItem("LevelGrid/Select LevelGrid")]
+    public static void SelectLevelGrid()
+    {
+        LevelGrid levelGrid = FindLevelGrid();
+
+        Selection.objects = new Object[] { levelGrid.gameObject };
+    }
+
+    [MenuItem("LevelGrid/Update LevelGrid Visuals")]
+    public static void SaveAndValidateSetUp()
+    {
+        LevelGrid levelGrid = FindLevelGrid();
+
+        levelGrid.SaveAndValidateSetUp();
+    }
+
+    private static LevelGrid FindLevelGrid()
+    {
+        LevelGrid levelGrid = null;
+
+        //Find LevelGrid in the scene
+        for (int i = 0; i < EditorSceneManager.sceneCount; i++)
+        {
+            var scene = EditorSceneManager.GetSceneAt(i);
+            var rootGo = scene.GetRootGameObjects();
+            for (int g = 0; g < rootGo.Length; g++)
+            {
+                levelGrid = rootGo[g].GetComponent<LevelGrid>();
+                if (levelGrid != null) break;
+            }
+            if (levelGrid != null) break;
+        }
+
+        if (levelGrid == null)
+        {
+            EditorUtility.DisplayDialog("Error", "Level Grid not found on any opened scene", "Ok");
+        }
+
+        return levelGrid;
+    }
 }

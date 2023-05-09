@@ -21,5 +21,6 @@ MonoBehaviour:
   negativeShootSound: {fileID: 8300000, guid: 2a3fe482bc1812a4ba6f9ea5f8617aef, type: 3}
   playerShoot: {fileID: 8300000, guid: d070d0ea205caaf4a81d524b9bd4cd1c, type: 3}
   enemyShoot: {fileID: 8300000, guid: 3015ff8c2d2e98646b8a47fe1021c036, type: 3}
+  spawnSound: {fileID: 8300000, guid: 412f7285e154c714da2266f910e15b33, type: 3}
   win: {fileID: 8300000, guid: f8434abbc611dd849a3c5e2ff4334f5a, type: 3}
   levelMusic: {fileID: 8300000, guid: 9e441d8a798fdef42a96e08012378322, type: 3}

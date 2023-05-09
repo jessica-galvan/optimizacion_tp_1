@@ -12,8 +12,8 @@ public class LevelGrid : MonoBehaviour
 {
     [Header("Grid Settings")]
     public PrefabsReferences prefabsReferences;
+    public Vector2Int gridSize = new Vector2Int(12,12);
 
-    [SerializeField] private Vector2Int gridSize = new Vector2Int(12,12);
     [SerializeField] private float gridSpaceSize = 5f;
 
     private GridCell[,] levelGrid;
@@ -25,7 +25,7 @@ public class LevelGrid : MonoBehaviour
     public GridCell playerSpawnPoint;
     public List<GridCell> enemySpawnPoints = new List<GridCell>();
 
-    private int extraBorderCells = 2;
+    [HideInInspector] public int extraBorderCells = 2;
     private Vector2Int realGridSize = new Vector2Int(14, 14);
 
     public void Initialize()
@@ -144,7 +144,7 @@ public class LevelGrid : MonoBehaviour
         return new Vector2Int(xpos, ypos);
     }
 
-    private void SetData(GridCell currentGrid)
+    public void SetData(GridCell currentGrid)
     {
         currentGrid.SetVisuals();
         if (currentGrid.cellType == GridCell.Type.EnemySpawnPoint)
